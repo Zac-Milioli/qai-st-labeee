@@ -64,14 +64,16 @@ has_climatizacao = False
 has_ventilacao = False
 execute = True
 while execute:
+    #Login
     login = tk.Tk()
     login.title('QAI - Login')
     login.geometry(window_size)
     login.configure(bg=background_color)
-    login_frame = tk.Frame(bg=background_color)
     banner_file = tk.PhotoImage(file=r'static\lab_banner.png', master=login)
     banner = tk.Label(login, image=banner_file, bg=background_color)
     banner.pack()
+    login_frame = tk.Frame(bg=background_color)
+    login_frame.pack(pady=frame_paddding_y)
 
     titulo = tk.Label(login_frame, text='LOGIN', bg=background_color, fg=text_color, font=title_style)
     titulo.grid(row=1, column=0, pady=title_padding_y, columnspan=2)
@@ -92,9 +94,9 @@ while execute:
     salvar = tk.Button(login_frame, command=login_user, bg=button_background, fg=text_color, text='Salvar e iniciar', font=text_style)
     salvar.grid(row=5, column=0, columnspan=2, pady=button_padding_y)
 
-    login_frame.pack(pady=frame_paddding_y)
     login.mainloop()
 
+    #Q0
     q0 = tk.Tk()
     q0.title('QAI')
     q0.geometry(window_size)
@@ -104,6 +106,8 @@ while execute:
     banner.pack()
 
     top_frame = tk.Frame(bg=background_color)
+    top_frame.pack(pady=frame_paddding_y)
+
     q0_image_file = tk.PhotoImage(file=r'static\Q0.png', master=top_frame)
     q0_image = tk.Label(top_frame, image=q0_image_file, bg=background_color)
     q0_image.pack(side='right')
@@ -111,16 +115,14 @@ while execute:
     q0_title = tk.Label(top_frame, bg=background_color, fg=text_color, font=title_style, text='Pesquisa de Clima\nOrganizacional')
     q0_title.pack(side='left', padx=text_padding_x)
 
-    top_frame.pack(pady=frame_paddding_y)
-
     middle1_frame = tk.Frame(bg=background_color)
+    middle1_frame.pack(pady=frame_paddding_y)
 
     q0_subtitle = tk.Label(middle1_frame, bg=background_color, fg=text_color, font=subtitle_style, text='Como você classifica a sua satisfação com as condições\nfísicas (temperatura, qualidade do ar interno, iluminação e\nacústica) do seu ambiente de trabalho para a realização das\nsuas atividades?')
     q0_subtitle.pack(padx=text_padding_x, pady=text_padding_y)
 
-    middle1_frame.pack(pady=frame_paddding_y)
-
     middle2_frame = tk.Frame(bg=background_color)
+    middle2_frame.pack(pady=frame_paddding_y)
 
     q0_text = tk.Label(middle2_frame, bg=background_color, fg=text_color, font=text_style, text='Em uma escala de 0 a 10:')
     q0_text.grid(row=0, column=0, pady=text_padding_y, padx=text_padding_x)
@@ -150,17 +152,17 @@ while execute:
     q0_radio_9.grid(row=0, column=10)
     q0_radio_10.grid(row=0, column=11)
 
-    middle2_frame.pack(pady=frame_paddding_y)
-
     next_button = tk.Button(q0, command=save_q0, bg=button_background, fg=text_color, font=text_style, text='Próximo')
     next_button.pack(side='right', pady=button_padding_y, padx=text_padding_x)
 
     q0.mainloop()
 
-    
+    #Q1
 
-    quiz.save_PeR()
+    #End
     execute = False
+    quiz.save_PeR()
+
 
 print(user)
 print(quiz.resposta)
