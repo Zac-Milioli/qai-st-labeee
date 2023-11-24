@@ -79,6 +79,16 @@ def save_q1c():
     quiz.resposta = quiz.resposta + [q1c1_var.get(), q1c2_var.get(), q1c3_var.get(), q1c4_var.get(), q1c5_var.get(), q1c6_var.get()]
     q1c.destroy()
 
+def save_co1():
+    quiz.pergunta = quiz.pergunta + ['CO11', 'CO12', 'CO13', 'CO14', 'CO15', 'CO16', 'CO17']
+    quiz.resposta = quiz.resposta + [co11_var.get(), co12_var.get(), co13_var.get(), co14_var.get(), co15_var.get(), co16_var.get(), co17_var.get()]
+    co1.destroy()
+
+def save_co2():
+    quiz.resposta.append(co2_var.get())
+    quiz.pergunta.append('CO2')
+    co2.destroy()
+
 #Aplicação
 quiz = PeR()
 user = {'name': None, 'email': None}
@@ -306,6 +316,185 @@ sem_localizacao_fixa_radio = tk.Radiobutton(elements_frame, text='eu não tenho 
 sem_localizacao_fixa_radio.grid(row=5, column=1)
 
 q1a.mainloop()
+
+if sem_mesa_fixa['r']:
+    #CO1
+    co1 = tk.Tk()
+    co1.title('QAI')
+    co1.attributes('-fullscreen',True)
+    co1.configure(bg=background_color)
+    banner_file = tk.PhotoImage(file=r'static\lab_banner.png', master=co1)
+    banner = tk.Label(co1, image=banner_file, bg=background_color)
+    banner.pack()
+
+    top_frame = tk.Frame(bg=background_color)
+    top_frame.pack()
+
+    elements_frame = tk.Frame(bg=background_color)
+    elements_frame.pack(pady=frame_paddding_y)
+
+    down_frame = tk.Frame(bg=background_color)
+    down_frame.pack(fill='x', pady=title_padding_y )
+    down_button = tk.Button(down_frame, text='Próximo', bg=button_background, fg=button_text_color, font=text_style, command=save_co1)
+    down_button.pack(side='right', padx=text_padding_x)
+
+    title = tk.Label(top_frame, text='Você pode escolher diariamente a sua estação de trabalho', font=title_style, bg=background_color, fg=text_color)
+    title.pack(padx=text_padding_x, pady=title_padding_y)
+
+    subtitle = tk.Label(top_frame, text='queremos saber um pouco mais sobre isso', font=subtitle_style, bg=background_color, fg=text_color)
+    subtitle.pack(padx=text_padding_x, pady=text_padding_y)
+
+    question = tk.Label(top_frame, text='Quais dos fatores a seguir são mais importantes na escolha\nda sua estação de trabalho?', font=subtitle_style, bg=background_color, fg=text_color)
+    question.pack(padx=text_padding_x, pady=title_padding_y)
+
+    sempre = tk.Label(elements_frame, font=subtitle_style, bg=background_color, fg=text_color, text='Pouco\nimportante')
+    sempre.grid(row=0, column=1, padx=text_padding_x, pady=text_padding_y)
+    nunca = tk.Label(elements_frame, font=subtitle_style, bg=background_color, fg=text_color, text='Muito\nimportante')
+    nunca.grid(row=0, column=5, padx=text_padding_x, pady=text_padding_y)
+
+    co11 = tk.Label(elements_frame, bg=background_color, fg=text_color, font=text_style, text='Conforto térmico')
+    co11.grid(row=1, column=0, pady=text_padding_y, padx=text_padding_x)
+    co11_var = tk.IntVar()
+    co11_radio_0 = tk.Radiobutton(elements_frame, variable=co11_var, value='0', bg=background_color , fg=text_color)
+    co11_radio_1 = tk.Radiobutton(elements_frame, variable=co11_var, value='1', bg=background_color, fg=text_color)
+    co11_radio_2 = tk.Radiobutton(elements_frame, variable=co11_var, value='2', bg=background_color, fg=text_color)
+    co11_radio_3 = tk.Radiobutton(elements_frame, variable=co11_var, value='3', bg=background_color, fg=text_color)
+    co11_radio_4 = tk.Radiobutton(elements_frame, variable=co11_var, value='4', bg=background_color, fg=text_color)
+    co11_radio_0.grid(row=1, column=1, padx=text_padding_x)
+    co11_radio_1.grid(row=1, column=2, padx=text_padding_x)
+    co11_radio_2.grid(row=1, column=3, padx=text_padding_x)
+    co11_radio_3.grid(row=1, column=4, padx=text_padding_x)
+    co11_radio_4.grid(row=1, column=5, padx=text_padding_x)
+
+    co12 = tk.Label(elements_frame, bg=background_color, fg=text_color, font=text_style, text='Qualidade do ar')
+    co12.grid(row=2, column=0, pady=text_padding_y, padx=text_padding_x)
+    co12_var = tk.IntVar()
+    co12_radio_0 = tk.Radiobutton(elements_frame, variable=co12_var, value='0', bg=background_color , fg=text_color)
+    co12_radio_1 = tk.Radiobutton(elements_frame, variable=co12_var, value='1', bg=background_color, fg=text_color)
+    co12_radio_2 = tk.Radiobutton(elements_frame, variable=co12_var, value='2', bg=background_color, fg=text_color)
+    co12_radio_3 = tk.Radiobutton(elements_frame, variable=co12_var, value='3', bg=background_color, fg=text_color)
+    co12_radio_4 = tk.Radiobutton(elements_frame, variable=co12_var, value='4', bg=background_color, fg=text_color)
+    co12_radio_0.grid(row=2, column=1, padx=text_padding_x)
+    co12_radio_1.grid(row=2, column=2, padx=text_padding_x)
+    co12_radio_2.grid(row=2, column=3, padx=text_padding_x)
+    co12_radio_3.grid(row=2, column=4, padx=text_padding_x)
+    co12_radio_4.grid(row=2, column=5, padx=text_padding_x)
+
+    co13 = tk.Label(elements_frame, bg=background_color, fg=text_color, font=text_style, text='Conforto visual')
+    co13.grid(row=3, column=0, pady=text_padding_y, padx=text_padding_x)
+    co13_var = tk.IntVar()
+    co13_radio_0 = tk.Radiobutton(elements_frame, variable=co13_var, value='0', bg=background_color , fg=text_color)
+    co13_radio_1 = tk.Radiobutton(elements_frame, variable=co13_var, value='1', bg=background_color, fg=text_color)
+    co13_radio_2 = tk.Radiobutton(elements_frame, variable=co13_var, value='2', bg=background_color, fg=text_color)
+    co13_radio_3 = tk.Radiobutton(elements_frame, variable=co13_var, value='3', bg=background_color, fg=text_color)
+    co13_radio_4 = tk.Radiobutton(elements_frame, variable=co13_var, value='4', bg=background_color, fg=text_color)
+    co13_radio_0.grid(row=3, column=1, padx=text_padding_x)
+    co13_radio_1.grid(row=3, column=2, padx=text_padding_x)
+    co13_radio_2.grid(row=3, column=3, padx=text_padding_x)
+    co13_radio_3.grid(row=3, column=4, padx=text_padding_x)
+    co13_radio_4.grid(row=3, column=5, padx=text_padding_x)
+
+    co14 = tk.Label(elements_frame, bg=background_color, fg=text_color, font=text_style, text='Conforto acústico')
+    co14.grid(row=4, column=0, pady=text_padding_y, padx=text_padding_x)
+    co14_var = tk.IntVar()
+    co14_radio_0 = tk.Radiobutton(elements_frame, variable=co14_var, value='0', bg=background_color , fg=text_color)
+    co14_radio_1 = tk.Radiobutton(elements_frame, variable=co14_var, value='1', bg=background_color, fg=text_color)
+    co14_radio_2 = tk.Radiobutton(elements_frame, variable=co14_var, value='2', bg=background_color, fg=text_color)
+    co14_radio_3 = tk.Radiobutton(elements_frame, variable=co14_var, value='3', bg=background_color, fg=text_color)
+    co14_radio_4 = tk.Radiobutton(elements_frame, variable=co14_var, value='4', bg=background_color, fg=text_color)
+    co14_radio_0.grid(row=4, column=1, padx=text_padding_x)
+    co14_radio_1.grid(row=4, column=2, padx=text_padding_x)
+    co14_radio_2.grid(row=4, column=3, padx=text_padding_x)
+    co14_radio_3.grid(row=4, column=4, padx=text_padding_x)
+    co14_radio_4.grid(row=4, column=5, padx=text_padding_x)
+
+    co15 = tk.Label(elements_frame, bg=background_color, fg=text_color, font=text_style, text='Privacidade visual')
+    co15.grid(row=5, column=0, pady=text_padding_y, padx=text_padding_x)
+    co15_var = tk.IntVar()
+    co15_radio_0 = tk.Radiobutton(elements_frame, variable=co15_var, value='0', bg=background_color , fg=text_color)
+    co15_radio_1 = tk.Radiobutton(elements_frame, variable=co15_var, value='1', bg=background_color, fg=text_color)
+    co15_radio_2 = tk.Radiobutton(elements_frame, variable=co15_var, value='2', bg=background_color, fg=text_color)
+    co15_radio_3 = tk.Radiobutton(elements_frame, variable=co15_var, value='3', bg=background_color, fg=text_color)
+    co15_radio_4 = tk.Radiobutton(elements_frame, variable=co15_var, value='4', bg=background_color, fg=text_color)
+    co15_radio_0.grid(row=5, column=1, padx=text_padding_x)
+    co15_radio_1.grid(row=5, column=2, padx=text_padding_x)
+    co15_radio_2.grid(row=5, column=3, padx=text_padding_x)
+    co15_radio_3.grid(row=5, column=4, padx=text_padding_x)
+    co15_radio_4.grid(row=5, column=5, padx=text_padding_x)
+
+    co16 = tk.Label(elements_frame, bg=background_color, fg=text_color, font=text_style, text='Privacidade acústica')
+    co16.grid(row=5, column=0, pady=text_padding_y, padx=text_padding_x)
+    co16_var = tk.IntVar()
+    co16_radio_0 = tk.Radiobutton(elements_frame, variable=co16_var, value='0', bg=background_color , fg=text_color)
+    co16_radio_1 = tk.Radiobutton(elements_frame, variable=co16_var, value='1', bg=background_color, fg=text_color)
+    co16_radio_2 = tk.Radiobutton(elements_frame, variable=co16_var, value='2', bg=background_color, fg=text_color)
+    co16_radio_3 = tk.Radiobutton(elements_frame, variable=co16_var, value='3', bg=background_color, fg=text_color)
+    co16_radio_4 = tk.Radiobutton(elements_frame, variable=co16_var, value='4', bg=background_color, fg=text_color)
+    co16_radio_0.grid(row=5, column=1, padx=text_padding_x)
+    co16_radio_1.grid(row=5, column=2, padx=text_padding_x)
+    co16_radio_2.grid(row=5, column=3, padx=text_padding_x)
+    co16_radio_3.grid(row=5, column=4, padx=text_padding_x)
+    co16_radio_4.grid(row=5, column=5, padx=text_padding_x)
+
+    co17 = tk.Label(elements_frame, bg=background_color, fg=text_color, font=text_style, text='Estar próximo à colegas e equipe de trabalho\nmesmo que não esteja totalmente confortável')
+    co17.grid(row=5, column=0, pady=text_padding_y, padx=text_padding_x)
+    co17_var = tk.IntVar()
+    co17_radio_0 = tk.Radiobutton(elements_frame, variable=co17_var, value='0', bg=background_color , fg=text_color)
+    co17_radio_1 = tk.Radiobutton(elements_frame, variable=co17_var, value='1', bg=background_color, fg=text_color)
+    co17_radio_2 = tk.Radiobutton(elements_frame, variable=co17_var, value='2', bg=background_color, fg=text_color)
+    co17_radio_3 = tk.Radiobutton(elements_frame, variable=co17_var, value='3', bg=background_color, fg=text_color)
+    co17_radio_4 = tk.Radiobutton(elements_frame, variable=co17_var, value='4', bg=background_color, fg=text_color)
+    co17_radio_0.grid(row=5, column=1, padx=text_padding_x)
+    co17_radio_1.grid(row=5, column=2, padx=text_padding_x)
+    co17_radio_2.grid(row=5, column=3, padx=text_padding_x)
+    co17_radio_3.grid(row=5, column=4, padx=text_padding_x)
+    co17_radio_4.grid(row=5, column=5, padx=text_padding_x)
+
+    co1.mainloop()
+    #CO2
+    co2 = tk.Tk()
+    co2.title('QAI')
+    co2.attributes('-fullscreen',True)
+    co2.configure(bg=background_color)
+    banner_file = tk.PhotoImage(file=r'static\lab_banner.png', master=co2)
+    banner = tk.Label(co2, image=banner_file, bg=background_color)
+    banner.pack()
+
+    top_frame = tk.Frame(bg=background_color)
+    top_frame.pack()
+
+    elements_frame = tk.Frame(bg=background_color)
+    elements_frame.pack(pady=frame_paddding_y)
+
+    down_frame = tk.Frame(bg=background_color)
+    down_frame.pack(fill='x', pady=title_padding_y )
+    down_button = tk.Button(down_frame, text='Próximo', bg=button_background, fg=button_text_color, font=text_style, command=save_co2)
+    down_button.pack(side='right', padx=text_padding_x)
+
+    title = tk.Label(top_frame, text='Considerando todos os aspectos', font=title_style, bg=background_color, fg=text_color)
+    title.pack(padx=text_padding_x, pady=title_padding_y)
+
+    subtitle = tk.Label(top_frame, text='com que frequência você tende a buscar ambientes e/ou\nestações de trabalho baseando-se nas suas preferências\npessoais?', font=subtitle_style, bg=background_color, fg=text_color)
+    subtitle.pack(padx=text_padding_x, pady=title_padding_y)
+
+    sempre = tk.Label(elements_frame, font=subtitle_style, bg=background_color, fg=text_color, text='Sempre')
+    sempre.grid(row=0, column=0, padx=text_padding_x, pady=text_padding_y)
+    nunca = tk.Label(elements_frame, font=subtitle_style, bg=background_color, fg=text_color, text='Nunca')
+    nunca.grid(row=0, column=6, padx=text_padding_x, pady=text_padding_y)
+
+    co2_var = tk.IntVar()
+    co2_radio_0 = tk.Radiobutton(elements_frame, variable=co2_var, value='0', bg=background_color , fg=text_color)
+    co2_radio_1 = tk.Radiobutton(elements_frame, variable=co2_var, value='1', bg=background_color, fg=text_color)
+    co2_radio_2 = tk.Radiobutton(elements_frame, variable=co2_var, value='2', bg=background_color, fg=text_color)
+    co2_radio_3 = tk.Radiobutton(elements_frame, variable=co2_var, value='3', bg=background_color, fg=text_color)
+    co2_radio_4 = tk.Radiobutton(elements_frame, variable=co2_var, value='4', bg=background_color, fg=text_color)
+    co2_radio_0.grid(row=0, column=1, padx=text_padding_x)
+    co2_radio_1.grid(row=0, column=2, padx=text_padding_x)
+    co2_radio_2.grid(row=0, column=3, padx=text_padding_x)
+    co2_radio_3.grid(row=0, column=4, padx=text_padding_x)
+    co2_radio_4.grid(row=0, column=5, padx=text_padding_x)
+
+    co2.mainloop()
 
 #Q1b
 q1b = tk.Tk()
