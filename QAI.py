@@ -67,12 +67,20 @@ def save_q1a():
     quiz.resposta.append(resposta)
     q1a.destroy()
 
+def save_q1b():
+    resposta = opt_var.get()
+    if 'não existem janelas' in resposta:
+        sem_janelas['r'] = True
+    quiz.pergunta.append('Q1b')
+    quiz.resposta.append(resposta)
+    q1b.destroy()
+
 #Aplicação
 quiz = PeR()
 user = {'name': None, 'email': None}
 has_windows = {'r': False}
 has_climatizacao = {'r': False}
-has_ventilacao = {'r': False}
+sem_janelas = {'r': False}
 q0_resposta = {'r': False, 'value': None}
 sem_mesa_fixa = {'r': False}
 
@@ -186,6 +194,8 @@ top_frame_l = tk.Frame(top_frame, bg=background_color)
 top_frame_l.pack(side='left')
 down_frame = tk.Frame(bg=background_color)
 down_frame.pack(pady=title_padding_y)
+down_button = tk.Button(down_frame, text='Combinado', bg=button_background, fg=button_text_color, font=text_style, command=introq1.destroy)
+down_button.grid(row=0, column=1, padx=text_padding_x)
 
 if q0_resposta['r'] == True:
     title = tk.Label(top_frame_l, text=f'{q0_resposta["value"]}? Essa nota foi baixa :(', font=title_style, bg=background_color, fg=text_color)
@@ -199,8 +209,6 @@ if q0_resposta['r'] == True:
     instaImage.pack()
     down_label = tk.Label(down_frame, text='Você pode nos ajudar a descobrir qual\né o problema respondendo as questões a seguir.', font=subtitle_style, bg=background_color, fg=text_color)
     down_label.grid(row=0, column=0, padx=text_padding_x)
-    down_button = tk.Button(down_frame, text='Combinado', bg=button_background, fg=button_text_color, font=text_style, command=introq1.destroy)
-    down_button.grid(row=0, column=1, padx=text_padding_x)
 else:
     title = tk.Label(top_frame_l, text=f'{q0_resposta["value"]} é uma ótima avaliação!', font=title_style, bg=background_color, fg=text_color)
     title.grid(row=0, pady=title_padding_y)
@@ -211,8 +219,6 @@ else:
     instaImage.pack()
     down_label = tk.Label(down_frame, text='Vamos apenas fazer algumas perguntas\npara ter certeza que está tudo bem,\nok?', font=subtitle_style, bg=background_color, fg=text_color)
     down_label.grid(row=0, column=0, padx=text_padding_x) 
-    down_button = tk.Button(down_frame, text='Combinado', bg=button_background, fg=button_text_color, font=text_style, command=introq1.destroy)
-    down_button.grid(row=0, column=1, padx=text_padding_x)
 
 introq1.mainloop() 
 
@@ -233,6 +239,8 @@ elements_frame.pack()
 
 down_frame = tk.Frame(bg=background_color)
 down_frame.pack(fill='x', pady=title_padding_y )
+down_button = tk.Button(down_frame, text='Próximo', bg=button_background, fg=button_text_color, font=text_style, command=save_q1a)
+down_button.pack(side='right', padx=text_padding_x)
 
 title = tk.Label(top_frame, text='O seu ambiente de trabalho', font=title_style, bg=background_color, fg=text_color)
 title.pack(padx=text_padding_x, pady=title_padding_y)
@@ -293,9 +301,6 @@ sem_localizacao_fixa_image.grid(row=4, column=1, padx=text_padding_x, pady=text_
 sem_localizacao_fixa_radio = tk.Radiobutton(elements_frame, text='eu não tenho uma mesa designada\npara mim, posso escolher\ndiariamente a minha estação\nde trabalho', variable=opt_var, value='eu não tenho uma mesa designada para mim, posso escolher diariamente a minha estação de trabalho', font=text_style, bg=background_color, fg=text_color)
 sem_localizacao_fixa_radio.grid(row=5, column=1)
 
-down_button = tk.Button(down_frame, text='Próximo', bg=button_background, fg=button_text_color, font=text_style, command=save_q1a)
-down_button.pack(side='right', padx=text_padding_x)
-
 q1a.mainloop()
 
 #Q1b
@@ -315,6 +320,8 @@ elements_frame.pack()
 
 down_frame = tk.Frame(bg=background_color)
 down_frame.pack(fill='x', pady=title_padding_y )
+down_button = tk.Button(down_frame, text='Próximo', bg=button_background, fg=button_text_color, font=text_style, command=save_q1b)
+down_button.pack(side='right', padx=text_padding_x)
 
 title = tk.Label(top_frame, text='Proximidade a janelas', font=title_style, bg=background_color, fg=text_color)
 title.pack(padx=text_padding_x, pady=title_padding_y)
@@ -345,16 +352,14 @@ nao_ver_exterior_image.grid(row=0, column=2, padx=text_padding_x, pady=text_padd
 nao_ver_exterior_radio = tk.Radiobutton(elements_frame, variable=opt_var, value='não existem janelas ou outras áreas envidraçadas no meu ambiente de trabalho', text='não existem janelas ou outras áreas\nenvidraçadas no meu ambiente de trabalho', bg=background_color, fg=text_color, font=text_style)
 nao_ver_exterior_radio.grid(row=1, column=2, padx=text_padding_x)
 
-down_button = tk.Button(down_frame, text='Próximo', bg=button_background, fg=button_text_color, font=text_style, command=q1b.destroy)
-down_button.pack(side='right', padx=text_padding_x)
+q1b.mainloop() 
 
-q1b.mainloop()
+#Q1c
+
 
 #End
 quiz.save_PeR()
 
 
 print(user)
-print(quiz.resposta)
-print(quiz.pergunta)
 print(quiz.json_to_send)
