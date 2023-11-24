@@ -59,6 +59,13 @@ def save_q0():
     quiz.resposta.append(resposta)
     q0.destroy()
 
+def save_q1a():
+    resposta = opt_var.get()
+    if 'eu não tenho uma mesa' in resposta:
+        sem_mesa_fixa['r'] = True
+    quiz.pergunta.append('Q1a')
+    quiz.resposta.append(resposta)
+    q1a.destroy()
 
 #Aplicação
 quiz = PeR()
@@ -67,6 +74,7 @@ has_windows = {'r': False}
 has_climatizacao = {'r': False}
 has_ventilacao = {'r': False}
 q0_resposta = {'r': False, 'value': None}
+sem_mesa_fixa = {'r': False}
 
 #Login
 login = tk.Tk() 
@@ -248,7 +256,7 @@ compartilhada_image_file = tk.PhotoImage(file=r'static\placeholder.png', master=
 compartilhada_image = tk.Label(elements_frame, image=compartilhada_image_file, bg=background_color)
 compartilhada_image.grid(row=0, column=2, padx=text_padding_x, pady=text_padding_y)
 
-compartilhada_radio = tk.Radiobutton(elements_frame, bg=background_color, fg=text_color, text='compartilhada com um\nou mais colegas', variable=opt_var, value='compartilhada com um ou mais colegas')
+compartilhada_radio = tk.Radiobutton(elements_frame, font=text_style,bg=background_color, fg=text_color, text='compartilhada com um\nou mais colegas', variable=opt_var, value='compartilhada com um ou mais colegas')
 compartilhada_radio.grid(row=1, column=2)
 
 planta_aberta = tk.Label(elements_frame, text='planta aberta:', font=subtitle_style, bg=background_color, fg=text_color)
@@ -258,21 +266,21 @@ sem_divisoria_image_file = tk.PhotoImage(master=elements_frame, file=r'static\pl
 sem_divisoria_image = tk.Label(elements_frame, image=sem_divisoria_image_file, bg=background_color)
 sem_divisoria_image.grid(row=2, column=1, padx=text_padding_x, pady=text_padding_y)
 
-sem_divisoria = tk.Radiobutton(elements_frame, text='sem divisórias', font=text_color, bg=background_color, fg=text_color, variable=opt_var, value='sem divisórias')
+sem_divisoria = tk.Radiobutton(elements_frame, text='sem divisórias', font=text_style, bg=background_color, fg=text_color, variable=opt_var, value='sem divisórias')
 sem_divisoria.grid(row=3, column=1, padx=text_padding_x)
 
 com_divisorias_baixas_image_file = tk.PhotoImage(master=elements_frame, file=r'static\placeholder.png')
 com_divisorias_baixas_image = tk.Label(elements_frame, image=com_divisorias_baixas_image_file, bg=background_color)
 com_divisorias_baixas_image.grid(row=2, column=2, padx=text_padding_x, pady=text_padding_y)
 
-com_divisorias_baixas = tk.Radiobutton(elements_frame, text='com divisórias baixas: consigo\nvisualizar meus colegas\ne entorno mesmo estando\nsentado(a)', font=text_color, bg=background_color, fg=text_color, variable=opt_var, value='com divisórias baixas: consigo visualizar meus colegas e entorno mesmo estando sentado(a)')
+com_divisorias_baixas = tk.Radiobutton(elements_frame, text='com divisórias baixas: consigo\nvisualizar meus colegas\ne entorno mesmo estando\nsentado(a)', font=text_style, bg=background_color, fg=text_color, variable=opt_var, value='com divisórias baixas: consigo visualizar meus colegas e entorno mesmo estando sentado(a)')
 com_divisorias_baixas.grid(row=3, column=2, padx=text_padding_x)
 
 com_divisorias_altas_image_file = tk.PhotoImage(master=elements_frame, file=r'static\placeholder.png')
 com_divisorias_altas_image = tk.Label(elements_frame, image=com_divisorias_altas_image_file, bg=background_color)
 com_divisorias_altas_image.grid(row=2, column=3, padx=text_padding_x, pady=text_padding_y)
 
-com_divisorias_altas = tk.Radiobutton(elements_frame, text='com divisórias altas: preciso me\nlevantar para visualizar meus\n colegas e entorno', font=text_color, bg=background_color, fg=text_color, variable=opt_var, value='com divisórias altas: preciso me levantar para visualizar meus colegas e entorno')
+com_divisorias_altas = tk.Radiobutton(elements_frame, text='com divisórias altas: preciso me\nlevantar para visualizar meus\n colegas e entorno', font=text_style, bg=background_color, fg=text_color, variable=opt_var, value='com divisórias altas: preciso me levantar para visualizar meus colegas e entorno')
 com_divisorias_altas.grid(row=3, column=3, padx=text_padding_x)
 
 sem_localizacao_fixa = tk.Label(elements_frame, text='sem localização fixa:', font=subtitle_style, bg=background_color, fg=text_color)
@@ -285,15 +293,68 @@ sem_localizacao_fixa_image.grid(row=4, column=1, padx=text_padding_x, pady=text_
 sem_localizacao_fixa_radio = tk.Radiobutton(elements_frame, text='eu não tenho uma mesa designada\npara mim, posso escolher\ndiariamente a minha estação\nde trabalho', variable=opt_var, value='eu não tenho uma mesa designada para mim, posso escolher diariamente a minha estação de trabalho', font=text_style, bg=background_color, fg=text_color)
 sem_localizacao_fixa_radio.grid(row=5, column=1)
 
-down_button = tk.Button(down_frame, text='Próximo', bg=button_background, fg=button_text_color, font=text_style, command=introq1.destroy)
+down_button = tk.Button(down_frame, text='Próximo', bg=button_background, fg=button_text_color, font=text_style, command=save_q1a)
 down_button.pack(side='right', padx=text_padding_x)
 
 q1a.mainloop()
+
+#Q1b
+q1b = tk.Tk()
+q1b.title('QAI')
+q1b.geometry(window_size)
+q1b.configure(bg=background_color)
+banner_file = tk.PhotoImage(file=r'static\lab_banner.png', master=q1b)
+banner = tk.Label(q1b, image=banner_file, bg=background_color)
+banner.pack()
+
+top_frame = tk.Frame(bg=background_color)
+top_frame.pack()
+
+elements_frame = tk.Frame(bg=background_color)
+elements_frame.pack()
+
+down_frame = tk.Frame(bg=background_color)
+down_frame.pack(fill='x', pady=title_padding_y )
+
+title = tk.Label(top_frame, text='Proximidade a janelas', font=title_style, bg=background_color, fg=text_color)
+title.pack(padx=text_padding_x, pady=title_padding_y)
+
+subtitle = tk.Label(top_frame, text='Existem janelas e/ou outras áreas envidraçadas no\nseu ambiente de trabalho?', font=subtitle_style, bg=background_color, fg=text_color)
+subtitle.pack( padx=text_padding_x, pady=title_padding_y)
+
+opt_var = tk.StringVar()
+
+sim_ver_exterior_image_file = tk.PhotoImage(master=elements_frame, file=r'static\placeholder.png')
+sim_ver_exterior_image = tk.Label(master=elements_frame, image=sim_ver_exterior_image_file, bg=background_color)
+sim_ver_exterior_image.grid(row=0, column=0, padx=text_padding_x, pady=text_padding_y)
+
+sim_ver_exterior_radio = tk.Radiobutton(elements_frame, variable=opt_var, value='sim, consigo ver o exterior mesmo quando estou sentado(a) em minha estação de trabalho', text='sim, consigo ver o exterior mesmo\nquando estou sentado(a) em\nminha estação de trabalho', bg=background_color, fg=text_color, font=text_style)
+sim_ver_exterior_radio.grid(row=1, column=0, padx=text_padding_x)
+
+sim_nao_ver_exterior_image_file = tk.PhotoImage(master=elements_frame, file=r'static\placeholder.png')
+sim_nao_ver_exterior_image = tk.Label(master=elements_frame, image=sim_nao_ver_exterior_image_file, bg=background_color)
+sim_nao_ver_exterior_image.grid(row=0, column=1, padx=text_padding_x, pady=text_padding_y)
+
+sim_nao_ver_exterior_radio = tk.Radiobutton(elements_frame, variable=opt_var, value='sim, porém estão muito afastadas da minha estação de trabalho', text='sim, porém estão muito afastadas\nda minha estação de trabalho', bg=background_color, fg=text_color, font=text_style)
+sim_nao_ver_exterior_radio.grid(row=1, column=1, padx=text_padding_x)
+
+nao_ver_exterior_image_file = tk.PhotoImage(master=elements_frame, file=r'static\placeholder.png')
+nao_ver_exterior_image = tk.Label(master=elements_frame, image=nao_ver_exterior_image_file, bg=background_color)
+nao_ver_exterior_image.grid(row=0, column=2, padx=text_padding_x, pady=text_padding_y)
+
+nao_ver_exterior_radio = tk.Radiobutton(elements_frame, variable=opt_var, value='não existem janelas ou outras áreas envidraçadas no meu ambiente de trabalho', text='não existem janelas ou outras áreas\nenvidraçadas no meu ambiente de trabalho', bg=background_color, fg=text_color, font=text_style)
+nao_ver_exterior_radio.grid(row=1, column=2, padx=text_padding_x)
+
+down_button = tk.Button(down_frame, text='Próximo', bg=button_background, fg=button_text_color, font=text_style, command=q1b.destroy)
+down_button.pack(side='right', padx=text_padding_x)
+
+q1b.mainloop()
 
 #End
 quiz.save_PeR()
 
 
+print(user)
 print(quiz.resposta)
 print(quiz.pergunta)
 print(quiz.json_to_send)
