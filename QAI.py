@@ -16,9 +16,9 @@ entry_background = '#C5FFC0'
 button_background = '#A9D18E'
 radio_background = '#C4C4C4'
 button_text_color = 'white'
-geometry = '1100x1000'
+geometry = '1800x1000'
 
-
+ 
 #Objects
 class PeR:
     def __init__(self, pergunta: list = [], resposta: list = [], json_to_send: dict = None):
