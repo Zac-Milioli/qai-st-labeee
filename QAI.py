@@ -16,6 +16,7 @@ entry_background = '#C5FFC0'
 button_background = '#A9D18E'
 radio_background = '#C4C4C4'
 button_text_color = 'white'
+geometry = '1100x1000'
 
 
 #Objects
@@ -101,7 +102,7 @@ sem_mesa_fixa = {'r': False}
 #Login
 login = tk.Tk() 
 login.title('QAI - Login')
-login.attributes('-fullscreen',True)
+login.geometry(geometry)
 login.configure(bg=background_color)
 banner_file = tk.PhotoImage(file=r'static\lab_banner.png', master=login)
 banner = tk.Label(login, image=banner_file, bg=background_color)
@@ -133,7 +134,7 @@ login.mainloop()
 #Q0
 q0 = tk.Tk()
 q0.title('QAI')
-q0.attributes('-fullscreen',True)
+q0.geometry(geometry)
 q0.configure(bg=background_color)
 banner_file = tk.PhotoImage(file=r'static\lab_banner.png', master=q0)
 banner = tk.Label(q0, image=banner_file, bg=background_color)
@@ -194,7 +195,7 @@ q0.mainloop()
 #introQ1
 introq1 = tk.Tk()
 introq1.title('QAI')
-introq1.attributes('-fullscreen',True)
+introq1.geometry(geometry)
 introq1.configure(bg=background_color)
 banner_file = tk.PhotoImage(file=r'static\lab_banner.png', master=introq1)
 banner = tk.Label(introq1, image=banner_file, bg=background_color)
@@ -239,7 +240,7 @@ introq1.mainloop()
 #Q1a
 q1a = tk.Tk()
 q1a.title('QAI')
-q1a.attributes('-fullscreen',True)
+q1a.geometry(geometry)
 q1a.configure(bg=background_color)
 banner_file = tk.PhotoImage(file=r'static\lab_banner.png', master=q1a)
 banner = tk.Label(q1a, image=banner_file, bg=background_color)
@@ -321,7 +322,7 @@ if sem_mesa_fixa['r']:
     #CO1
     co1 = tk.Tk()
     co1.title('QAI')
-    co1.attributes('-fullscreen',True)
+    co1.geometry(geometry)
     co1.configure(bg=background_color)
     banner_file = tk.PhotoImage(file=r'static\lab_banner.png', master=co1)
     banner = tk.Label(co1, image=banner_file, bg=background_color)
@@ -454,7 +455,7 @@ if sem_mesa_fixa['r']:
     #CO2
     co2 = tk.Tk()
     co2.title('QAI')
-    co2.attributes('-fullscreen',True)
+    co2.geometry(geometry)
     co2.configure(bg=background_color)
     banner_file = tk.PhotoImage(file=r'static\lab_banner.png', master=co2)
     banner = tk.Label(co2, image=banner_file, bg=background_color)
@@ -499,7 +500,7 @@ if sem_mesa_fixa['r']:
 #Q1b
 q1b = tk.Tk()
 q1b.title('QAI')
-q1b.attributes('-fullscreen',True)
+q1b.geometry(geometry)
 q1b.configure(bg=background_color)
 banner_file = tk.PhotoImage(file=r'static\lab_banner.png', master=q1b)
 banner = tk.Label(q1b, image=banner_file, bg=background_color)
@@ -550,7 +551,7 @@ q1b.mainloop()
 #Q1c
 q1c = tk.Tk()
 q1c.title('QAI')
-q1c.attributes('-fullscreen',True)
+q1c.geometry(geometry)
 q1c.configure(bg=background_color)
 banner_file = tk.PhotoImage(file=r'static\lab_banner.png', master=q1c)
 banner = tk.Label(q1c, image=banner_file, bg=background_color)
