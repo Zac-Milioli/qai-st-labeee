@@ -11,6 +11,7 @@ valor = create_radio_0_10('Em uma escala de 0 a 10:')
 if next_page_button('Próxima página'):
     PeR['id_pergunta'].append('q0')
     PeR['resposta'].append(valor)
+    st.session_state['q0'] = valor
     if valor <= 6:
         switch_page('introq1_insat')
     else:

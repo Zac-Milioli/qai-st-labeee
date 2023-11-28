@@ -5,8 +5,10 @@ PeR = {'id_pergunta': [], 'resposta': []}
 def create_top(big_text_title: str = None, subtitle: str = None, subtitle2: str = None, subsubtitle: str = None, img_url: str = None):
     st.set_page_config(
     page_title='QAI em Escritórios',
-    page_icon = '🖥️'
+    page_icon = '🖥️',
+    layout='wide'
     )
+    st.set_option('deprecation.showfileUploaderEncoding', False)
     with st.container():
         esquerda, meio, direita = st.columns([1,4,1])
         meio.image('https://github.com/Zac-Milioli/Quest_Luiza/blob/master/static/lab_banner.png?raw=true', width=450)
@@ -32,9 +34,10 @@ def place_left_subtitle(text: str):
     esquerda, direita = st.columns([3,1])
     esquerda.markdown(f'**{text}**')
 
-def next_page_button(name: str):
+def next_page_button(name: str, phrase: str = ''):
     st.title('')
     esquerda, direita = st.columns([4,1])
+    esquerda.subheader(phrase)
     botao = direita.button(label=name)
     return botao
 
