@@ -1,0 +1,102 @@
+import streamlit as st 
+from streamlit_extras.switch_page_button import switch_page
+from st_pages import hide_pages
+
+PeR = {'id_pergunta': [], 'resposta': []}
+placeholder_img = r'static\placeholder.png'
+
+def create_top(big_text_title: str = None, subtitle: str = None, subtitle2: str = None, subsubtitle: str = None, img_url: str = None):
+    st.set_page_config(
+    page_title='QAI em Escritórios',
+    page_icon = '🖥️',
+    layout='wide'
+    )
+    hide_pages(['QAI', 'q0', 'introq1_sat', 'introq1_insat', 'q1a', 'c0', 'q1b', 'q1c', 'q2', 'q2a'])
+    with st.container():
+        esquerda, meio, direita = st.columns(3)
+        meio.image(r'static\lab_banner.png', width=400)
+
+    with st.container():
+        esquerda, direita = st.columns(2, gap='medium')
+        if big_text_title:
+            esquerda.title(big_text_title)
+        if subtitle:
+            esquerda.subheader(subtitle)
+        if subtitle2:
+            esquerda.subheader(subtitle2)
+        if subsubtitle:
+            esquerda.write(subsubtitle)
+        if img_url:
+            direita.image(img_url, width=600)
+    
+    st.markdown('---')
+
+def place_left_subtitle(text: str):
+    esquerda, direita = st.columns([3,1])
+    esquerda.markdown(f'**{text}**')
+
+def next_page_button(name: str, phrase: str = ''):
+    esquerda, direita = st.columns([4,1])
+    esquerda.subheader(phrase)
+    direita.write('')
+    botao = direita.button(label=name)
+    return botao
+
+def centered_button(name: str):
+    esquerda, meio, direita = st.columns([1.5,1,1])
+    botao = meio.button(name)
+    return botao
+
+def create_radio(name: str = None, phrase:str = None, extreme_left:str = None, extreme_right:str = None, min:int = 0, max:int = 10, divide:bool = False, key = None, show_values:bool = False, large:bool = False, five_columns_width:list = [1,0.5,0.4,0.6,1], two_columns_width:list = [1,2], selection:list = None, use_list_selection:bool = False):
+    if use_list_selection:
+        opt = selection
+    else:
+        opt = range(min, max+1)
+    if large:
+        esquerda, direita = st.columns(two_columns_width)
+        if phrase:
+            esquerda.title('')
+            esquerda.write(phrase)
+        if name:
+            if show_values:
+                valor = direita.radio(label=name, options=opt, horizontal=True, index=None, key=key)
+            else:
+                valor = direita.radio(label=name, options=opt, horizontal=True, format_func=(lambda x: ''), index=None, key=key)
+        else:
+            if show_values:
+                valor = direita.radio(label='No name', label_visibility='hidden', options=opt, horizontal=True, index=None, key=key)
+            else:
+                valor = direita.radio(label='No name', label_visibility='hidden', options=opt, horizontal=True, format_func=(lambda x: ''), index=None, key=key)
+    elif divide:
+        esquerda, vazio, meioesquerda, meio, meiodireita = st.columns(five_columns_width)
+        if phrase:
+            esquerda.title('')
+            esquerda.write(phrase)
+        if extreme_left:
+            meioesquerda.title('')
+            meioesquerda.caption(extreme_left)
+        if extreme_right:
+            meiodireita.title('')
+            meiodireita.caption(extreme_right)
+        if name:
+            if show_values:
+                valor = meio.radio(label=name, options=opt, horizontal=True, index=None, key=key)
+            else:
+                valor = meio.radio(label=name, options=opt, horizontal=True, format_func=(lambda x: ''), index=None, key=key)
+        else:
+            if show_values:
+                valor = meio.radio(label='No name', label_visibility='hidden', options=opt, horizontal=True, index=None, key=key)
+            else:
+                valor = meio.radio(label='No name', label_visibility='hidden', options=opt, horizontal=True, format_func=(lambda x: ''), index=None, key=key)
+    else:
+        if name:
+            if show_values:
+                valor = st.radio(label=name, options=opt, horizontal=True, index=None, key=key)
+            else:
+                valor = st.radio(label=name, options=opt, horizontal=True, format_func=(lambda x: ''), index=None, key=key)
+        else:
+            if show_values:
+                valor = st.radio(label='No name', label_visibility='hidden', options=opt, horizontal=True, index=None, key=key)
+            else:
+                valor = st.radio(label='No name', label_visibility='hidden', options=opt, horizontal=True, format_func=(lambda x: ''), index=None, key=key)
+    return valor
