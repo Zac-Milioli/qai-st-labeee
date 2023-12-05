@@ -2,8 +2,7 @@ from configurate import *
 
 create_top(big_text_title='Você pode escolher diariamente a sua estação de trabalho -', subtitle='queremos saber um pouco mais sobre isso.')
 
-esquerda, direita = st.columns(2)
-esquerda.subheader('Quais dos fatores a seguir são mais importantes na escolha da sua estação de trabalho?')
+place_left_subtitle('Quais dos fatores a seguir são mais importantes na escolha da sua estação de trabalho?')
 
 confortotermico = create_radio(phrase='Conforto térmico', extreme_left='pouco importante', extreme_right='muito importante', min=1, max=5, key='ct', divide=True)
 qualidadedoar = create_radio(phrase='Qualidade do ar', extreme_left='pouco importante', extreme_right='muito importante', min=1, max=5, key='qa', divide=True)
@@ -17,9 +16,8 @@ st.title('')
 st.title('')
 st.title('')
 st.title('')
-esquerda, direita = st.columns(2)
-esquerda.title('Considerando todos os aspectos,')
-esquerda.subheader('com que frequência você tende a buscar ambientes e/ou estações de trabalho baseando-se nas suas preferências pessoais?')
+st.title('Considerando todos os aspectos,')
+place_left_subtitle('com que frequência você tende a buscar ambientes e/ou estações de trabalho baseando-se nas suas preferências pessoais?')
 
 aspectos = create_radio(divide=True, extreme_left='Nunca', extreme_right='Sempre', min=0, max=4, show_values=False, key='aspectos')
 

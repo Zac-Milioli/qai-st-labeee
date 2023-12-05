@@ -21,8 +21,8 @@ if next_page_button('Próximo'):
     else:
         PeR['id_pergunta'].append('q1b')
         PeR['resposta'].append(verdadeiros[0])
-        if 'sim' in verdadeiros[0]:
-            st.session_state['janela'] = True
+        if 'Sim' in verdadeiros[0]:
+            open(r'base\janela.txt', 'w').write('1')
         else:
-            st.session_state['janela'] = False 
+            open(r'base\janela.txt', 'w').write('0')
         switch_page('q1c')
