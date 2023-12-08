@@ -11,7 +11,7 @@ def create_top(big_text_title: str = None, subtitle: str = None, subtitle2: str 
     page_icon = '🖥️',
     layout='wide'
     )
-    hide_pages(['QAI', 'q0', 'introq1_sat', 'introq1_insat', 'q1a', 'c0', 'q1b', 'q1c', 'q2', 'q2a', 'q3', 'q3a'])
+    hide_pages(['QAI', 'q0', 'introq1_sat', 'introq1_insat', 'q1a', 'c0', 'q1b', 'q1c', 'q2', 'q2a', 'q3', 'q3a', 'q4', 'q4a', 'q5', 'q5a', 'hi', 'cg'])
     with st.container():
         esquerda, meio, direita = st.columns(3)
         meio.image(r'static\lab_banner.png', width=400)
@@ -99,4 +99,30 @@ def create_radio(name: str = None, phrase:str = None, extreme_left:str = None, e
                 valor = st.radio(label='No name', label_visibility='hidden', options=opt, horizontal=True, index=None, key=key)
             else:
                 valor = st.radio(label='No name', label_visibility='hidden', options=opt, horizontal=True, format_func=(lambda x: ''), index=None, key=key)
+    return valor
+
+def nested_radio(name: str = None, text_left:str = None, text_right:str = None, min:int = 0, max:int = 10, key = None, show_values:bool = False, columns_width:list = [0.2,0.6,0.6], selection:list = None, use_list_selection:bool = False):
+    esquerda, meio, direita = st.columns(columns_width)
+    if use_list_selection:
+        opt = selection
+    else:
+        opt = range(min, max+1)
+    if text_left:
+        esquerda.write('')
+        esquerda.write('')
+        esquerda.caption(text_left)
+    if text_right:
+        direita.write('')
+        direita.write('')
+        direita.caption(text_right)
+    if name:
+        if show_values:
+            valor = meio.radio(label=name, options=opt, horizontal=True, index=None, key=key)
+        else:
+            valor = meio.radio(label=name, options=opt, horizontal=True, format_func=(lambda x: ''), index=None, key=key)
+    else:
+        if show_values:
+            valor = meio.radio(label='No name', label_visibility='hidden', options=opt, horizontal=True, index=None, key=key)
+        else:
+            valor = meio.radio(label='No name', label_visibility='hidden', options=opt, horizontal=True, format_func=(lambda x: ''), index=None, key=key)
     return valor

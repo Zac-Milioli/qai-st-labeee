@@ -1,6 +1,6 @@
 from configurate import *
 
-create_top(big_text_title='Puxa, encontramos um problema com a qualidade do ar interno...', img_url=r'static\Q1insat.png')
+create_top(big_text_title='Puxa, encontramos um problema com a qualidade do ar interno...', img_url=r'static\Q3a.png')
 
 st.subheader('Com relação ao ar interno próximo à sua estação de trabalho, com qual frequência você costuma identificar algum dos itens ou sintomas a seguir?')
 opt = ['diariamente, na maior parte do tempo', 'diariamente, durante algumas horas', 'eventualmente, durante algumas horas', 'raramente, durante algumas horas', 'nunca sinto']
@@ -63,7 +63,6 @@ if next_page_button('Próximo'):
         if outros:
             PeR['id_pergunta'].append('outros motivos')
             PeR['resposta'].append(entrada)
-        print(PeR)
-        st.success('UHUUUUUUL')
+        switch_page('q4')
     else:
-        st.error('PROBLEM')
+        st.error('Responda **todas** as questões para prosseguir')

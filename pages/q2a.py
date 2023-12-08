@@ -6,7 +6,7 @@ if existe_janela == '1':
 else:
     existe_janela = False
 
-create_top(big_text_title='Parece que temos um probleminha com o ambiente térmico...', img_url=r'static\Q1insat.png')
+create_top(big_text_title='Parece que temos um probleminha com o ambiente térmico...', img_url=r'static\Q2a.png')
 img_width = 200
 st.subheader('Por favor indique quais dos itens a seguir estão presentes no seu ambiente de trabalho:')
 st.title('')
@@ -310,7 +310,7 @@ st.title('')
 st.title('')
 st.title('')
 st.title('')
-st.title('Temo suma nota baixa para os meses quentes...')
+st.title('Temos uma nota baixa para os meses quentes...')
 st.subheader('Então, para termos certeza, por favor indique os motivos pelos quais você está insatisfeito(a) com o ambiente térmico durante esse período.')
 st.title('')
 baixaquentes6,baixaquentes12,baixaquentes7,baixaquentes8,baixaquentes11 = False,False,False,False,False
@@ -356,31 +356,50 @@ if next_page_button('Próximo'):
     considerandoaspectos = [veraosatisfacao, invernosatisfacao]
     if None in considerandoaspectos:
         siga = False
-        message += 'Nível de satisfação  '
+        message += 'Nível de satisfação com ambiente térmico  '
     estacaodetrabalho = [ambientetermicoverao, ambientetermicoinverno, arverao, arinverno, confortoverao, confortoinverno]
     if None in estacaodetrabalho:
         siga = False
-        message += 'Avaliação de ambiente térmico e movimento do ar  '
-    motivos_insatisfacao = [baixaquentes1,baixaquentes2,baixaquentes3,baixaquentes4,baixaquentes5,baixaquentes6,baixaquentes7,baixaquentes8,baixaquentes9,baixaquentes10,baixaquentes11,baixaquentes12]
+        message += 'Avaliação de ambiente térmico e movimento do ar na estação de trabalho  '
+        
+    motivos_insatisfacao_list = ['q2a - sinto desconforto por calor', 'q2a - sinto desconforto por frio', 'q2a - sinto desconforto porque há muito vento', 'q2a - sinto desconforto porque há pouco vento', 'q2a - o sol direto me atrapalha']
+    motivos_insatisfacao = [baixaquentes1,baixaquentes2,baixaquentes3,baixaquentes4,baixaquentes5]
+    if arcondicionado or aquecedor:
+        if nenhumcontroletermostato1 or nenhumcontroletermostato2 or algumcontroletermostato1 or algumcontroletermostato2 or algumcontroletermostato3 or algumcontroletermostato4:
+            motivos_insatisfacao_list += ['q2a - sinto desconforto devido à corrente de ar gerada pelo ar-condicionado', 'q2a - sinto desconforto por não poder controlar a temperatura do ar-condicionado de acordo com a minha preferência']
+            motivos_insatisfacao += [baixaquentes6, baixaquentes12]
+    if vent_mesa or vent_teto:
+        motivos_insatisfacao_list += ['q2a - sinto desconforto devido à corrente de ar gerada pelo(s) ventialdor(es)']
+        motivos_insatisfacao += [baixaquentes7]
+    if existe_janela:
+        if nenhumcontrolejanela1 or nenhumcontrolejanela2 or nenhumcontrolejanela3 or algumcontrolejanela:
+            motivos_insatisfacao_list += ['q2a - sinto desconforto devido à corrente de ar proveniente da(s) janela(s)', 'q2a - sinto desconforto por não poder abrir ou fechar as janelas de acordo com a minha preferência']
+            motivos_insatisfacao += [baixaquentes8, baixaquentes11]
+    motivos_insatisfacao_list += ['q2a - há superfícies próximas (pisos, paredes, equipamentos etc) muito quentes ou muito frias', 'q2a - sinto desconforto por frio ou calor em alguma parte específica do corpo (mãos, pés, pescoço, cabeça, etc)']
+    motivos_insatisfacao += [baixaquentes9, baixaquentes10]
     itens_presentes = [arcondicionado, aquecedor, vent_teto, vent_mesa]
+
     if siga:
-        PeR['id_pergunta'].append('q2a-controle de janela')
-        PeR['resposta'].append(verdadeiros_controlejanela[0])
-        PeR['id_pergunta'].append('q2a-controle de ar-condicionado')
-        PeR['resposta'].append(verdadeiros_termostato[0])
-        PeR['id_pergunta'].append('q2a-controle de ventiladores')
-        PeR['resposta'].append(verdadeiros_vent[0])
-        PeR['id_pergunta'].append('q2a-satisfacao em meses quentes')
-        PeR['id_pergunta'].append('q2a-satisfacao em meses frios')
+        if existe_janela:
+            PeR['id_pergunta'].append('q2a - controle de janela')
+            PeR['resposta'].append(verdadeiros_controlejanela[0])
+        if arcondicionado or aquecedor:
+            PeR['id_pergunta'].append('q2a - controle de ar-condicionado')
+            PeR['resposta'].append(verdadeiros_termostato[0])
+        if vent_mesa or vent_teto:
+            PeR['id_pergunta'].append('q2a - controle de ventiladores')
+            PeR['resposta'].append(verdadeiros_vent[0])
+        PeR['id_pergunta'].append('q2a - satisfacao em meses quentes')
+        PeR['id_pergunta'].append('q2a - satisfacao em meses frios')
         PeR['resposta'] += considerandoaspectos
-        PeR['id_pergunta'].append('q2a-ambiente térmico em meses quentes - temperatura')
-        PeR['id_pergunta'].append('q2a-ambiente térmico em meses frios - temperatura')
-        PeR['id_pergunta'].append('q2a-movimento do ar em meses quentes - ventilação')
-        PeR['id_pergunta'].append('q2a-movimento do ar em meses frios - ventilação')
-        PeR['id_pergunta'].append('q2a-ambiente térmico em meses quentes - conforto')
-        PeR['id_pergunta'].append('q2a-ambiente  térmico em meses frios - conforto')
+        PeR['id_pergunta'].append('q2a - ambiente térmico em meses quentes - temperatura')
+        PeR['id_pergunta'].append('q2a - ambiente térmico em meses frios - temperatura')
+        PeR['id_pergunta'].append('q2a - movimento do ar em meses quentes - ventilação')
+        PeR['id_pergunta'].append('q2a - movimento do ar em meses frios - ventilação')
+        PeR['id_pergunta'].append('q2a - ambiente térmico em meses quentes - conforto')
+        PeR['id_pergunta'].append('q2a - ambiente  térmico em meses frios - conforto')
         PeR['resposta'] += estacaodetrabalho
-        PeR['id_pergunta'] += ['q2a - sinto desconforto por calor', 'q2a - sinto desconforto por frio', 'q2a - sinto desconforto porque há muito vento', 'q2a - sinto desconforto porque há pouco vento', 'q2a - o sol direto me atrapalha', 'q2a - sinto desconforto devido à corrente de ar gerada pelo ar-condicionado', 'q2a - sinto desconforto devido à corrente de ar gerada pelo(s) ventialdor(es)', 'q2a - sinto desconforto devido à corrente de ar proveniente da(s) janela(s)',  'q2a - há superfícies próximas (pisos, paredes, equipamentos etc) muito quentes ou muito frias', 'q2a - sinto desconforto por frio ou calor em alguma parte específica do corpo (mãos, pés, pescoço, cabeça, etc)', 'q2a - sinto desconforto por não poder abrir ou fechar as janelas de acordo com a minha preferência', 'q2a - sinto desconforto por não poder controlar a temperatura do ar-condicionado de acordo com a minha preferência']
+        PeR['id_pergunta'] += motivos_insatisfacao_list
         PeR['resposta'] += motivos_insatisfacao
         PeR['id_pergunta'] += ['q2a - ar-condicionado', 'q2a - aquecedores', 'q2a - ventilador de teto e/ou parede', 'q2a - ventilador portátil, de mesa e/ou individual']
         PeR['resposta'] += itens_presentes
