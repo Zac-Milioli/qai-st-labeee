@@ -1,8 +1,14 @@
 from configurate import *
 
-level_hierarchy += 1
+level_hierarchy['num'].append('0')
 img_width = 200
 create_top(big_text_title='Opa, encontramos um problema com o conforto visual...', img_url=r'static\Q4a.png')
+
+existe_janela = open(r'base\janela.txt', 'r').read()
+if existe_janela == '1':
+    existe_janela = True
+else:
+    existe_janela = False
 
 st.subheader('Na sua estação de trabalho, como você descreve ou classifica...')
 width_selected = [1,1,0.2,0.6,1]
@@ -103,64 +109,64 @@ classificacoes.markdown('**controle total:**')
 esquerda.image(r'static\controletotalartificial.png', width=img_width)
 controletotalartificial = esquerda.checkbox(label='acendo ou apago as luzes sempre que me sinto desconfortável com a iluminação artificial', key='controletotalartificial')
 
+if existe_janela:
+    st.title('')
+    st.title('')
+    st.title('')
+    st.title('')
+    st.title('Sobre os controles existentes no seu ambiente de trabalho,')
+    st.subheader('como você classifica o nível de controle que você possui sobre a iluminação natural?')
+    st.title('')
+    classificacoes, esquerda, meio, direita = st.columns([0.5,1,1,1])
+    classificacoes.title('')
+    classificacoes.title('')
+    classificacoes.title('')
+    classificacoes.title('')
+    classificacoes.title('')
 
-st.title('')
-st.title('')
-st.title('')
-st.title('')
-st.title('Sobre os controles existentes no seu ambiente de trabalho,')
-st.subheader('como você classifica o nível de controle que você possui sobre a iluminação natural?')
-st.title('')
-classificacoes, esquerda, meio, direita = st.columns([0.5,1,1,1])
-classificacoes.title('')
-classificacoes.title('')
-classificacoes.title('')
-classificacoes.title('')
-classificacoes.title('')
+    classificacoes.markdown('**nenhum controle:**')
+    classificacoes.title('')
+    classificacoes.title('')
+    classificacoes.title('')
+    classificacoes.title('')
+    classificacoes.title('')
+    classificacoes.write('')
+    classificacoes.write('')
+    classificacoes.write('')
+    classificacoes.write('')
+    esquerda.image(r'static\nenhumcontrolenatural1.png', width=img_width)
+    nenhumcontrolenatural1 = esquerda.checkbox(label='não existem elementos de sombreamento (cortinas ou persianas) para controle da iluminação natural', key='nenhumcontrolenatural1')
+    meio.image(r'static\nenhumcontrolenatural2.png', width=img_width)
+    nenhumcontrolenatural2 = meio.checkbox(label='a decisão de abrir ou fechar as cortinas não é minha', key='nenhumcontrolenatural2')
+    meio.title('')
+    esquerda.title('')
 
-classificacoes.markdown('**nenhum controle:**')
-classificacoes.title('')
-classificacoes.title('')
-classificacoes.title('')
-classificacoes.title('')
-classificacoes.title('')
-classificacoes.write('')
-classificacoes.write('')
-classificacoes.write('')
-classificacoes.write('')
-esquerda.image(r'static\nenhumcontrolenatural1.png', width=img_width)
-nenhumcontrolenatural1 = esquerda.checkbox(label='não existem elementos de sombreamento (cortinas ou persianas) para controle da iluminação natural', key='nenhumcontrolenatural1')
-meio.image(r'static\nenhumcontrolenatural2.png', width=img_width)
-nenhumcontrolenatural2 = meio.checkbox(label='a decisão de abrir ou fechar as cortinas não é minha', key='nenhumcontrolenatural2')
-meio.title('')
-esquerda.title('')
+    classificacoes.markdown('**algum controle:**')
+    classificacoes.title('')
+    classificacoes.title('')
+    classificacoes.title('')
+    classificacoes.title('')
+    classificacoes.title('')
+    classificacoes.write('')
+    classificacoes.write('')
+    esquerda.image(r'static\opiniaogeral.png', width=img_width)
+    algumcontrolenatural1 = esquerda.checkbox(label='todos os colegas dão sua opinião e chegamos a um acordo', key='algumcontrolenatural1')
+    esquerda.title('')
+    meio.title('')
+    meio.title('')
+    meio.title('')
+    meio.title('')
+    meio.title('')
+    meio.title('')
+    meio.title('')
+    meio.write('')
+    meio.write('')
 
-classificacoes.markdown('**algum controle:**')
-classificacoes.title('')
-classificacoes.title('')
-classificacoes.title('')
-classificacoes.title('')
-classificacoes.title('')
-classificacoes.write('')
-classificacoes.write('')
-esquerda.image(r'static\opiniaogeral.png', width=img_width)
-algumcontrolenatural1 = esquerda.checkbox(label='todos os colegas dão sua opinião e chegamos a um acordo', key='algumcontrolenatural1')
-esquerda.title('')
-meio.title('')
-meio.title('')
-meio.title('')
-meio.title('')
-meio.title('')
-meio.title('')
-meio.title('')
-meio.write('')
-meio.write('')
-
-classificacoes.markdown('**controle total:**')
-esquerda.image(r'static\controletotalnatural1.png', width=img_width)
-controletotalnarutal1 = esquerda.checkbox(label='abro e fecho a cortina mais próxima à minha estação de trabalho sempre que me sinto desconfortável com a iluminação natural', key='controletotalnarutal1')
-meio.image(r'static\controletotalnatural2.png', width=img_width)
-controletotalnarutal2 = meio.checkbox(label='abro e fecho a cortina mais próxima à minha estação de trabalho sempre que me sinto desconfortável com o sol direto', key='controletotalnarutal2')
+    classificacoes.markdown('**controle total:**')
+    esquerda.image(r'static\controletotalnatural1.png', width=img_width)
+    controletotalnarutal1 = esquerda.checkbox(label='abro e fecho a cortina mais próxima à minha estação de trabalho sempre que me sinto desconfortável com a iluminação natural', key='controletotalnarutal1')
+    meio.image(r'static\controletotalnatural2.png', width=img_width)
+    controletotalnarutal2 = meio.checkbox(label='abro e fecho a cortina mais próxima à minha estação de trabalho sempre que me sinto desconfortável com o sol direto', key='controletotalnarutal2')
 
 
 st.title('')
@@ -224,11 +230,12 @@ if next_page_button('Próximo'):
     if len(verdadeirosartificial) != 1:
         ok = False
         message += '|Responda **uma** alternativa para o nível de controle sobre luz artificial'
-    naturalluz = {'não existem elementos de sombreamento (cortinas ou persianas) para controle da iluminação natural': nenhumcontrolenatural1, 'a decisão de abrir ou fechar as cortinas não é minha': nenhumcontrolenatural2, 'todos os colegas dão sua opinião e chegamos a um acordo': algumcontrolenatural1, 'abro e fecho a cortina mais próxima à minha estação de trabalho sempre que me sinto desconfortável com a iluminação natural': controletotalnarutal1, 'abro e fecho a cortina mais próxima à minha estação de trabalho sempre que me sinto desconfortável com o sol direto': controletotalnarutal2}
-    verdadeirosnatural = [chave for chave, valor in naturalluz.items() if valor]
-    if len(verdadeirosnatural) != 1:
-        ok = False
-        message += '|Responda **uma** alternativa para o nível de controle sobre luz natural'
+    if existe_janela:
+        naturalluz = {'não existem elementos de sombreamento (cortinas ou persianas) para controle da iluminação natural': nenhumcontrolenatural1, 'a decisão de abrir ou fechar as cortinas não é minha': nenhumcontrolenatural2, 'todos os colegas dão sua opinião e chegamos a um acordo': algumcontrolenatural1, 'abro e fecho a cortina mais próxima à minha estação de trabalho sempre que me sinto desconfortável com a iluminação natural': controletotalnarutal1, 'abro e fecho a cortina mais próxima à minha estação de trabalho sempre que me sinto desconfortável com o sol direto': controletotalnarutal2}
+        verdadeirosnatural = [chave for chave, valor in naturalluz.items() if valor]
+        if len(verdadeirosnatural) != 1:
+            ok = False
+            message += '|Responda **uma** alternativa para o nível de controle sobre luz natural'
     if not privacidadevisual:
         ok = False
         message += '|Responda alguma aternativa sobre classificação de privacidade visual'
@@ -247,8 +254,9 @@ if next_page_button('Próximo'):
         PeR['id_pergunta'] += ['q4a - a disponibilidade de iluminação natural (luz do sol e o céu) durante o verão e/ou meses quentes', 'q4a - a disponibilidade de iluminação natural (luz do sol e o céu) no período da manhã', 'q4a - a disponibilidade de iluminação natural (luz do sol e o céu) durante o inverno e/ou meses frios', 'q4a - a disponibilidade de iluminação natural (luz do sol e o céu) no período da tarde', 'q4a - a ocorrência de ofuscamento gerado pela iluminação natural durante o verão e/ou meses quentes', 'q4a - a ocorrência de ofuscamento gerado pela iluminação natural no período da manhã', 'q4a - a ocorrência de ofuscamento gerado pela iluminação natural durante o inverno e/ou meses frios', 'q4a - a ocorrência de ofuscamento gerado pela iluminação natural no período da tarde']
         PeR['id_pergunta'] += 'q4a - nível de controle sobre iluminação artificial'
         PeR['resposta'].append(verdadeirosartificial[0])
-        PeR['id_pergunta'] += 'q4a - nível de controle sobre iluminação natural'
-        PeR['resposta'].append(verdadeirosnatural[0])
+        if existe_janela:
+            PeR['id_pergunta'] += 'q4a - nível de controle sobre iluminação natural'
+            PeR['resposta'].append(verdadeirosnatural[0])
         PeR['id_pergunta'] += ['q4a - nível de satisfação com privacidade visual', 'q4a - nível de satisfação com ambiente luminoso']
         PeR['resposta'] += [privacidadevisual, satisfacaocomambienteluminoso]
         if insatisfeito_luminoso:

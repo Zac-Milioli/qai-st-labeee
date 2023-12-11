@@ -23,7 +23,7 @@ if next_page_button('Próximo'):
         if ('sempre' in q5_quest) or ('muitas vezes' in q5_quest) or ('às vezes' in q5_quest): 
             switch_page('q5a')
         else:
-            if level_hierarchy >= 2:
+            if len(level_hierarchy['num']) >= 2:
                 switch_page('hi')
             else:
                 switch_page('cg')

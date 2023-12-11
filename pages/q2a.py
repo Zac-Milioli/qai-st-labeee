@@ -1,6 +1,6 @@
 from configurate import *
 
-level_hierarchy += 1
+level_hierarchy['num'].append('0')
 existe_janela = open(r'base\janela.txt', 'r').read()
 if existe_janela == '1':
     existe_janela = True
@@ -387,7 +387,7 @@ if next_page_button('Próximo'):
             message += '|Selecione **uma** opção para controle de ar-condicionados'
     if vent_mesa or vent_teto:
         controleventilador = {'não posso controlar os ventiladores (ligar ou desligar, mudar a direção e intensidade do vento)':nenhumcontroleventilador1, 'a decisão de ligar ou desligar os ventiladores não é minha':nenhumcontroleventilador2, 'todos os colegas dão sua opinião e chegamos a um acordo':algumcontroleventilador,' ligo e desligo o(s) ventilador(es) mais próximo à minha estação de trabalho sempre que me sinto desconfortável':controletotalventilador}
-        verdadeiros_vent = [chave for chave, valor in controlejanela.items() if valor]
+        verdadeiros_vent = [chave for chave, valor in controleventilador.items() if valor]
         if len(verdadeiros_vent) != 1:
             siga = False
             message += '|Selecione **uma** opção para controle de ventiladores'

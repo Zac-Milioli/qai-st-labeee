@@ -3,7 +3,7 @@ from streamlit_extras.switch_page_button import switch_page
 from st_pages import hide_pages
 
 PeR = {'id_pergunta': [], 'resposta': []}
-level_hierarchy = 0
+level_hierarchy = {'num': []}
 placeholder_img = r'static\placeholder.png'
 
 def create_top(big_text_title: str = None, subtitle: str = None, subtitle2: str = None, subsubtitle: str = None, img_url: str = None):
