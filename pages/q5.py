@@ -13,8 +13,6 @@ ruidoequipamentos = create_radio(large=True, show_values=True, use_list_selectio
 barulhoexterno = create_radio(large=True, show_values=True, use_list_selection=True, selection=list_selection, phrase='sinto desconforto com o barulho externo, vindo da rua', key='barulhoexterno', two_columns_width=choosen_width)
 
 st.title('')
-st.title('')
-st.title('')
 if next_page_button('Próximo'):
     q5_quest = [conversacolegas, ruidoequipamentos, barulhoexterno]
     if None in q5_quest:

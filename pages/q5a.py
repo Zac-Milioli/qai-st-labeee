@@ -158,8 +158,6 @@ if satisfacao_ruidos:
 
 
 st.title('')
-st.title('')
-st.title('')
 if next_page_button('Próximo'):
     message = 'Erro: '
     siga = True

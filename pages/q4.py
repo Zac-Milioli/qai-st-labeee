@@ -21,8 +21,6 @@ st.markdown('---')
 objetos = create_radio(large=True, phrase='sinto desconforto pois não consigo diferenciar objetos (alto e/ou baixo contraste)', selection=opt, show_values=True, use_list_selection=True, key='objetos', two_columns_width=choosen_width)
 
 st.title('')
-st.title('')
-st.title('')
 if next_page_button('Próximo'):
     respostas = [claro, escuro, ofuscamento, reflexos, luzes, objetos]
     if None in respostas:

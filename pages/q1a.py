@@ -50,6 +50,7 @@ esquerda.markdown('**Sem localização fixa:**')
 meioesquerda.image(r'static\Q1a_semfixa.png', width=select_width)
 semlocalizacaofixa = meioesquerda.checkbox('eu não tenho uma mesa designada para mim, posso escolher diariamente a minha estação de trabalho')
 
+st.title('')
 if next_page_button(name='Próximo'):
     options = {'individual': individual, 'fixa': compartilhada, 'sem divisórias': semdivisorias, 'com divisórias baixas': comdivisoriasbaixas, 'com divisórias altas': comdivisoriasaltas, 'sem localização fixa': semlocalizacaofixa}
     verdadeiros = [chave for chave, valor in options.items() if valor]

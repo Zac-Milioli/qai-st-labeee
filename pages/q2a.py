@@ -370,7 +370,6 @@ if invernosatisfacao:
 
 
 st.title('')
-st.title('')
 if next_page_button('Próximo'):
     siga = True
     message = 'Erro: '

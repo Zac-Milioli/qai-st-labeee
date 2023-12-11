@@ -38,7 +38,6 @@ esquerda.subheader('Você gostaria de compartilhar alguma ocasião em que foi ne
 entrada_solicitacao = direita.text_area(label='no label', label_visibility='hidden',value=None, key='entrybox_5', placeholder='Deixe sua mensagem aqui (não obrigatório)', max_chars=250)
 
 st.title("")
-st.title("")
 if next_page_button('Próximo'):
     ok = True
     if not clima:

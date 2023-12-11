@@ -27,7 +27,7 @@ with direita:
     st.title('')
     luzes_checkbox = st.checkbox('no label', label_visibility='hidden', key='luzes_checkbox')
 
-
+st.title('')
 if next_page_button('Próximo'):
     ok = True
     if not arcondicionado:

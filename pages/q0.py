@@ -6,7 +6,7 @@ place_left_subtitle('Como você classifica a sua satisfação com as condições
 
 valor = create_radio(phrase='Em uma escala de 0 a 10', show_values=True, large=True, min=0, max=10)
 
-
+st.title('')
 if next_page_button('Próxima página'):
     if valor == None:
         st.error('Responda para prosseguir')

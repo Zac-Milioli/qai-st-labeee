@@ -16,7 +16,7 @@ conferencia = create_radio(large=True, phrase='salas de conferência e/ou reuni�
 st.markdown('---')
 fora = create_radio(large=True, phrase='fica fora do escritório, em atividades externas?', use_list_selection=True, selection=opcoes, show_values=True, two_columns_width=[1.5,2], key='fora')
 
-
+st.title('')
 if next_page_button('Próximo'):
     options = [estacaodetrabalho, estacaodetrabalhorotativa, areagrupo, individual, conferencia, fora]
     if None in options:

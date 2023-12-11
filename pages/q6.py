@@ -21,8 +21,6 @@ with direita:
     genero_radio = st.radio(label='no label', label_visibility='hidden', options=genero_opt, key='genero', index=None)
 
 st.title('')
-st.title('')
-st.title('')
 if next_page_button('Submeter', phrase='Suas respostas serão gravadas quando você encerrar a pesquisa, clicando em Submeter.'):
     ok = True
     options = [faixa_etaria_radio, escolaridade_radio, genero_radio]

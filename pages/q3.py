@@ -14,6 +14,7 @@ arseco = create_radio(large=True, phrase='sinto desconforto com o ar interno mui
 st.markdown('---')
 poeira = create_radio(large=True, phrase='sinto desconforto devido à poeira', selection=opt, show_values=True, use_list_selection=True, key='poeira', two_columns_width=choosen_width)
 
+st.title('')
 if next_page_button('Próximo'):
     valores = [cheiros, abafado, arseco, poeira]
     if None in valores:

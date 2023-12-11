@@ -19,6 +19,7 @@ superficie = create_radio(phrase='há superfícies próximas (pisos, paredes, et
 st.markdown('---')
 corpo = create_radio(phrase='sinto desconforto por frio ou calor em alguma parte específica do corpo (mãos, pés, pescoço, cabeça, etc)', selection=opcoes, use_list_selection=True, large=True, key='corpo', show_values=True, two_columns_width=choose_width)
 
+st.title('')
 if next_page_button('Próximo'):
     options = [calor, frio, mvento, pvento, sol, superficie, corpo]
     if None in options:

@@ -13,6 +13,7 @@ simconsigo = esquerda.checkbox('sim, consigo ver o exterior mesmo quando estou s
 simporem = meio.checkbox('sim, porém estão muito afastadas da minha estação de trabalho')
 nao = direita.checkbox('não existem janelas ou outras áreas envidraçadas no meu ambiente de trabalho')
 
+st.title('')
 if next_page_button('Próximo'):
     options = {'Sim consigo': simconsigo, 'Sim porém estão muito afastadas': simporem, 'Não': nao}
     verdadeiros = [chave for chave,valor in options.items() if valor]

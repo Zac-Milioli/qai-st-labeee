@@ -208,8 +208,6 @@ if satisfacaocomambienteluminoso:
             entrada = st.text_area(label='no label', label_visibility='hidden',value=None, key='entrybox_2', placeholder='Descreva aqui', max_chars=150)
 
 st.title('')
-st.title('')
-st.title('')
 if next_page_button('Próximo'):
     message = 'Erro: '
     ok = True
