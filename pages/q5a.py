@@ -2,6 +2,7 @@ from configurate import *
 
 create_top(big_text_title='Parece que encontramos um ponto crítico com a acústica...', img_url=r'static\Q5a.png')
 
+level_hierarchy += 1
 img_width = 200
 
 existe_janela = open(r'base\janela.txt', 'r').read()
@@ -132,23 +133,27 @@ st.title('')
 width_large = [1,1,0.4,0.6,1]
 satisfacao_ruidos = create_radio(divide=True, min=1, max=5, key='satsifacaoruidos', extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', five_columns_width=width_large)
 
-st.title('')
-st.title('')
-st.title('')
-st.title('')
-st.title('Temos uma nota baixa para o ambiente acústico...')
-st.subheader('Então, para termos certeza, por favor indique os motivos pelos quais você está insatisfeito(a) com os ruídos em geral.')
-st.title('')
-ruidos_checkbox1 = st.checkbox('as conversas dos colegas me incomodam', key='ruidos_checkbox1')
-ruidos_checkbox2 = st.checkbox('o barulho do ar-condicionado me incomoda', key='ruidos_checkbox2')
-ruidos_checkbox3 = st.checkbox('o barulho de outros equipamentos me incomoda', key='ruidos_checkbox3')
-ruidos_checkbox4 = st.checkbox('o barulho de telefones tocando me incomoda', key='ruidos_checkbox4')
-ruidos_checkbox5 = st.checkbox('o barulho externo, vindo da rua, me incomoda', key='ruidos_checkbox5')
-ruidos_checkbox6 = st.checkbox('não há um local adequado para ter uma conversa privada com colegas', key='ruidos_checkbox6')
-ruidos_checkbox7 = st.checkbox('não há um local adequado para fazer um telefonema ou chamada de vídeo', key='ruidos_checkbox7')
-outros = st.checkbox('outro, por favor especifique:', key='outros_3')
-if outros:
-    entrada = st.text_area(label='no label', label_visibility='hidden',value=None, key='entrybox_3', placeholder='Descreva aqui', max_chars=150)
+insatisfacao_ruidos = False
+if satisfacao_ruidos:
+    if satisfacao_ruidos <= 2:
+        insatisfacao_ruidos = True
+        st.title('')
+        st.title('')
+        st.title('')
+        st.title('')
+        st.title('Temos uma nota baixa para o ambiente acústico...')
+        st.subheader('Então, para termos certeza, por favor indique os motivos pelos quais você está insatisfeito(a) com os ruídos em geral.')
+        st.title('')
+        ruidos_checkbox1 = st.checkbox('as conversas dos colegas me incomodam', key='ruidos_checkbox1')
+        ruidos_checkbox2 = st.checkbox('o barulho do ar-condicionado me incomoda', key='ruidos_checkbox2')
+        ruidos_checkbox3 = st.checkbox('o barulho de outros equipamentos me incomoda', key='ruidos_checkbox3')
+        ruidos_checkbox4 = st.checkbox('o barulho de telefones tocando me incomoda', key='ruidos_checkbox4')
+        ruidos_checkbox5 = st.checkbox('o barulho externo, vindo da rua, me incomoda', key='ruidos_checkbox5')
+        ruidos_checkbox6 = st.checkbox('não há um local adequado para ter uma conversa privada com colegas', key='ruidos_checkbox6')
+        ruidos_checkbox7 = st.checkbox('não há um local adequado para fazer um telefonema ou chamada de vídeo', key='ruidos_checkbox7')
+        outros = st.checkbox('outro, por favor especifique:', key='outros_3')
+        if outros:
+            entrada = st.text_area(label='no label', label_visibility='hidden',value=None, key='entrybox_3', placeholder='Descreva aqui', max_chars=150)
 
 
 
@@ -156,18 +161,23 @@ st.title('')
 st.title('')
 st.title('')
 if next_page_button('Próximo'):
+    message = 'Erro: '
     siga = True
     if existe_janela:
         controlejanela = {'as janelas não são operáveis e estão sempre fechadas':nenhumcontrolejanela1, 'as janelas são operáveis, porém a política da empresa não permite que sejam abertas':nenhumcontrolejanela2, 'a decisão de abrir ou fechar as janelas não é minha':nenhumcontrolejanela3, 'todos os colegas dão sua opinião e chegamos a um acordo':algumcontrolejanela, 'abro e fecho a janela mais próxima sempre que me sinto desconfortável com os ruídos externos':controletotaljanela}
         verdadeiros_controlejanela = [chave for chave, valor in controlejanela.items() if valor]
         if len(verdadeiros_controlejanela) != 1:
             siga = False
+            message += '|Escolha **uma** opção de nível de controle de janelas'
     ruidos_opcoes = [ruidos_colegas_1, ruidos_colegas_2, ruidos_colegas_3, ruidos_edificio_1, ruidos_edificio_2, ruidos_edificio_3, ruido_externo]
     if None in ruidos_opcoes:
         siga = False
-    if outros:
-        if not entrada:
-            siga = False
+        message += '|Responda **todas** as questões de ruídos no ambiente de trabalho'
+    if insatisfacao_ruidos:
+        if outros:
+            if not entrada:
+                siga = False
+                message += '|Caixa de texto vazia'
     if siga:
         PeR['id_pergunta'] += ['q5a - conversas que consigo entener tudo que é dito', 'q5a - conversas de fundo, que não consigo entender o que é dito', 'q5a - teclados, passos, abertura e fechamento de gavetas, etc', 'q5a - ar-condicionado', 'q5a - outros equipamentos', 'q5a - telefones tocando', 'q5a - barulho externo, vindo da rua']
         PeR['resposta'] += ruidos_opcoes
@@ -177,10 +187,14 @@ if next_page_button('Próximo'):
         PeR['id_pergunta'].append('q5a - qual seu nível de satisfação com a acústica da sua estação de trabalho')
         PeR['resposta'].append(satisfacao_ruidos)
         PeR['id_pergunta'] += ['q5a - as conversas dos colegas me incomodam', 'q5a - o barulho do ar-condicionado me incomoda', 'q5a - o barulho de outros equipamentos me incomoda', 'q5a - o barulho de telefones tocando me incomoda', 'q5a - o barulho externo, vindo da rua, me incomoda', 'q5a - não há um local adequado para ter uma conversa privada com colegas', 'q5a - não hpa um local adequado para fazer um telefonema ou chamada de vídeo'] 
-        PeR['resposta'] += [ruidos_checkbox1, ruidos_checkbox2, ruidos_checkbox3, ruidos_checkbox4, ruidos_checkbox5, ruidos_checkbox6, ruidos_checkbox7]
-        if outros:
-            PeR['id_pergunta'].append('q5a - outros motivos')
-            PeR['resposta'].append(entrada)
-        switch_page('hi')
+        if insatisfacao_ruidos:
+            PeR['resposta'] += [ruidos_checkbox1, ruidos_checkbox2, ruidos_checkbox3, ruidos_checkbox4, ruidos_checkbox5, ruidos_checkbox6, ruidos_checkbox7]
+            if outros:
+                PeR['id_pergunta'].append('q5a - outros motivos')
+                PeR['resposta'].append(entrada)
+        if level_hierarchy >= 2:
+            switch_page('hi')
+        else:
+            switch_page('cg') 
     else:
-        st.error('Responda **todas** as questões para prosseguir')
+        st.error(message)

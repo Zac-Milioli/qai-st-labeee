@@ -22,4 +22,10 @@ if next_page_button('Próximo'):
     else:
         PeR['id_pergunta'] += ['q5 - sinto desconforto com conversas dos colegas', 'q5 - sinto desconforto com ruídos de equipamentos', 'q5 - sinto desconforto com o barulho externo, vindo da rua']
         PeR['resposta'] += q5_quest
-        switch_page('q5a') 
+        if ('sempre' in q5_quest) or ('muitas vezes' in q5_quest) or ('às vezes' in q5_quest): 
+            switch_page('q5a')
+        else:
+            if level_hierarchy >= 2:
+                switch_page('hi')
+            else:
+                switch_page('cg')

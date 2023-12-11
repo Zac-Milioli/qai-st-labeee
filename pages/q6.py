@@ -25,9 +25,12 @@ st.title('')
 st.title('')
 if next_page_button('Submeter', phrase='Suas respostas serão gravadas quando você encerrar a pesquisa, clicando em Submeter.'):
     ok = True
-    if None in [faixa_etaria_radio, escolaridade_radio, genero_radio]:
+    options = [faixa_etaria_radio, escolaridade_radio, genero_radio]
+    if None in options:
         ok = False
     if ok:
+        PeR['id_pergunta'] += ['q6 - faixa etária', 'q6 - escolaridade', 'q6 - gênero']
+        PeR['resposta'] += options
         switch_page('fim')
     else:
         st.error('Responda **todas** as perguntas para submeter')

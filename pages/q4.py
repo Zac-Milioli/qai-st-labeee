@@ -30,4 +30,7 @@ if next_page_button('Próximo'):
     else:
         PeR['id_pergunta'] += ['q4 - sinto desconforto com o ambiente muito claro (muito iluminado)', 'q4 - sinto desconforto com o ambiente muito escuro (pouco iluminado)', 'q4 - sinto desconforto com o ofuscamento', 'q4 - sinto desconforto com os reflexos na tela do meu computador', 'q4 - sinto desconforto com luzes piscando', 'q4 - sinto desconforto pois não consigo diferenciar objetos (alto e/ou baixo contraste)']
         PeR['resposta'] += respostas
-        switch_page('q4a')
+        if ('sempre' in respostas) or ('muitas vezes' in respostas) or ('às vezes' in respostas): 
+            switch_page('q4a')
+        else:
+            switch_page('q5')

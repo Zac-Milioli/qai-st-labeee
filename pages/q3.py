@@ -21,4 +21,7 @@ if next_page_button('Próximo'):
     else:
         PeR['id_pergunta'] += ['q3 - desconforto por cheiros e odores', 'q3 - desconforto por ambiente abafado', 'q3 - desconforto com ar interno seco ou úmido demais', 'q3 - desconforto devido à poeira']
         PeR['resposta'] += valores
-        switch_page('q3a') 
+        if ('sempre' in valores) or ('muitas vezes' in valores) or ('às vezes' in valores): 
+            switch_page('q3a')
+        else:
+            switch_page('q4')

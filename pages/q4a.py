@@ -1,5 +1,6 @@
 from configurate import *
 
+level_hierarchy += 1
 img_width = 200
 create_top(big_text_title='Opa, encontramos um problema com o conforto visual...', img_url=r'static\Q4a.png')
 
@@ -180,54 +181,67 @@ st.subheader('qual o seu nível de satisfação com o ambiente luminoso na sua e
 st.title('')
 satisfacaocomambienteluminoso = create_radio(divide=True, extreme_left='insatisfatória', extreme_right='satisfatória', min=1, max=5, key='satisfacaocomambienteluminoso')
 
-st.title('')
-st.title('')
-st.title('')
-st.title('')
-st.title('Temos uma nota baixa para o ambiente luminoso...')
-st.subheader('Então, para termos certeza, por favor indique os motivos pelos quais você está insatisfeito(a) com a iluminação em geral.')
-st.title('')
-luminosocheckbox = st.checkbox('sinto desconforto com o ambiente muito claro (muito iluminado)', key='cheiroscheckbox')
-escurocheckbox = st.checkbox('sinto desconforto com o ambiente muito escuro (pouco iluminado)', key='escurocheckbox')
-ofuscamentolampadacheckbox = st.checkbox('sinto desconforto com o ofuscamento gerado por lâmpadas e luminárias', key='ofuscamentolampadacheckbox')
-ofuscamentosolcheckbox = st.checkbox('sinto desconforto com o ofuscamento gerado pela luz do sol e do céu', key='ofuscamentosolcheckbox')
-reflexoscheckbox = st.checkbox('sinto desconforto com a iluminação que gera reflexos na tela do meu computador', key='reflexoscheckbox')
-luzespiscandocheckbox = st.checkbox('sinto desconforto com luzes piscando', key='luzespiscandocheckbox')
-objetoscheckbox = st.checkbox('sinto desconforto pois não consigo diferenciar objetos (alto e/ou baixo contraste)', key='objetoscheckbox')
-if nenhumcontrolenatural1 or nenhumcontrolenatural2 or algumcontrolenatural1:
-    brisescheckbox = st.checkbox('sinto desconforto por não poder controlar os elementos de sombreamento (cortinas ou brises)', key='brisescheckbox')
-if nenhumcontroleartificial1 or nenhumcontroleartificial2 or nenhumcontroleartificial3 or algumcontroleartificial1 or algumcontroleartificial2 or algumcontroleartificial3:
-    acionarlampadacheckbox = st.checkbox('sinto desconforto por não poder controlar o acionamento das lâmpadas e luminárias', key='acionarlampadacheckbox')
-outros = st.checkbox('outro, por favor especifique:', key='outros_2')
-if outros:
-    entrada = st.text_area(label='no label', label_visibility='hidden',value=None, key='entrybox_2', placeholder='Descreva aqui', max_chars=150)
+insatisfeito_luminoso = False
+if satisfacaocomambienteluminoso:
+    if satisfacaocomambienteluminoso <= 2:
+        insatisfeito_luminoso = True
+        st.title('')
+        st.title('')
+        st.title('')
+        st.title('')
+        st.title('Temos uma nota baixa para o ambiente luminoso...')
+        st.subheader('Então, para termos certeza, por favor indique os motivos pelos quais você está insatisfeito(a) com a iluminação em geral.')
+        st.title('')
+        luminosocheckbox = st.checkbox('sinto desconforto com o ambiente muito claro (muito iluminado)', key='cheiroscheckbox')
+        escurocheckbox = st.checkbox('sinto desconforto com o ambiente muito escuro (pouco iluminado)', key='escurocheckbox')
+        ofuscamentolampadacheckbox = st.checkbox('sinto desconforto com o ofuscamento gerado por lâmpadas e luminárias', key='ofuscamentolampadacheckbox')
+        ofuscamentosolcheckbox = st.checkbox('sinto desconforto com o ofuscamento gerado pela luz do sol e do céu', key='ofuscamentosolcheckbox')
+        reflexoscheckbox = st.checkbox('sinto desconforto com a iluminação que gera reflexos na tela do meu computador', key='reflexoscheckbox')
+        luzespiscandocheckbox = st.checkbox('sinto desconforto com luzes piscando', key='luzespiscandocheckbox')
+        objetoscheckbox = st.checkbox('sinto desconforto pois não consigo diferenciar objetos (alto e/ou baixo contraste)', key='objetoscheckbox')
+        if nenhumcontrolenatural1 or nenhumcontrolenatural2 or algumcontrolenatural1:
+            brisescheckbox = st.checkbox('sinto desconforto por não poder controlar os elementos de sombreamento (cortinas ou brises)', key='brisescheckbox')
+        if nenhumcontroleartificial1 or nenhumcontroleartificial2 or nenhumcontroleartificial3 or algumcontroleartificial1 or algumcontroleartificial2 or algumcontroleartificial3:
+            acionarlampadacheckbox = st.checkbox('sinto desconforto por não poder controlar o acionamento das lâmpadas e luminárias', key='acionarlampadacheckbox')
+        outros = st.checkbox('outro, por favor especifique:', key='outros_2')
+        if outros:
+            entrada = st.text_area(label='no label', label_visibility='hidden',value=None, key='entrybox_2', placeholder='Descreva aqui', max_chars=150)
 
 st.title('')
 st.title('')
 st.title('')
 if next_page_button('Próximo'):
+    message = 'Erro: '
     ok = True
     sec1 = [iluminacaoartificial, ofuscamentoluzartificial]
     if None in sec1:
         ok = False
+        message += '|Faltou resposta para disponibilidade e ofuscamento de luz artificial'
     sec2 = [disp_verao_luznatural, disp_manha_luznatural, disp_inverno_luznatural, disp_tarde_luznatural, ofuscamento_verao_luznarutal, ofuscamento_manha_luznarutal, ofuscamento_inverno_luznarutal, ofuscamento_tarde_luznarutal]
     if None in sec2:
         ok = False
+        message += '|Faltou resposta para disponibilidade e ofuscamento de luz natural'
     artificialluz = {'os interruptores não estão localizados na sala': nenhumcontroleartificial1, 'as luminárias são acionadas por um único interruptor (todas acesas ou todas apagadas)': nenhumcontroleartificial2, 'a decisão de acender ou apagar as luzes não é minha': nenhumcontroleartificial3, 'os interruptores estão muito afastados da minha estação de trabalho': algumcontroleartificial1, 'posso optar por acender as luminárias de acordo com a luz natural disponível': algumcontroleartificial2, 'todos os colegas dão sua opinião e chegamos a um acordo': algumcontroleartificial3, 'acendo ou apago as luzes sempre que me sinto desconfortável com a iluminação artificial': controletotalartificial}
     verdadeirosartificial = [chave for chave, valor in artificialluz.items() if valor]
     if len(verdadeirosartificial) != 1:
         ok = False
+        message += '|Responda **uma** alternativa para o nível de controle sobre luz artificial'
     naturalluz = {'não existem elementos de sombreamento (cortinas ou persianas) para controle da iluminação natural': nenhumcontrolenatural1, 'a decisão de abrir ou fechar as cortinas não é minha': nenhumcontrolenatural2, 'todos os colegas dão sua opinião e chegamos a um acordo': algumcontrolenatural1, 'abro e fecho a cortina mais próxima à minha estação de trabalho sempre que me sinto desconfortável com a iluminação natural': controletotalnarutal1, 'abro e fecho a cortina mais próxima à minha estação de trabalho sempre que me sinto desconfortável com o sol direto': controletotalnarutal2}
     verdadeirosnatural = [chave for chave, valor in naturalluz.items() if valor]
     if len(verdadeirosnatural) != 1:
         ok = False
+        message += '|Responda **uma** alternativa para o nível de controle sobre luz natural'
     if not privacidadevisual:
         ok = False
+        message += '|Responda alguma aternativa sobre classificação de privacidade visual'
     if not satisfacaocomambienteluminoso:
         ok = False
-    if outros:
-        if not entrada:
-            ok = False
+        message += '|Responda alguma aternativa sobre seu nível de satisfação com ambiente luminoso'
+    if insatisfeito_luminoso:
+        if outros:
+            if not entrada:
+                ok = False
+                message += '|Caixa de texto não preenchida'
     if ok:
         PeR['resposta'] += sec1
         PeR['id_pergunta'] += ['q4a - a disponibilidade de iluminação artificial (lâmpadas e luminárias)?', 'q4a - a ocorrência de ofuscamento gerado pela iluminação artificial?']
@@ -239,17 +253,18 @@ if next_page_button('Próximo'):
         PeR['resposta'].append(verdadeirosnatural[0])
         PeR['id_pergunta'] += ['q4a - nível de satisfação com privacidade visual', 'q4a - nível de satisfação com ambiente luminoso']
         PeR['resposta'] += [privacidadevisual, satisfacaocomambienteluminoso]
-        PeR['id_pergunta'] += ['q4a - sinto desconforto com o ambiente muito claro (muito iluminado)', 'q4a - sinto desconforto com o ambiente muito escuro (pouco iluminado)', 'q4a - sinto desconforto com o ofuscamento gerado por lâmpadas e luminárias', 'q4a - sinto desconforto com o ofuscamento gerado pela luz do sol e do céu', 'q4a - sinto desconforto com a iluminação que gera reflexos na tela do meu computador', 'q4a - sinto desconforto com luzes piscando', 'q4a - sinto desconforto pois não consigo diferenciar objetos (alto e/ou baixo contraste)']
-        PeR['resposta'] += [luminosocheckbox, escurocheckbox, ofuscamentolampadacheckbox, ofuscamentosolcheckbox, reflexoscheckbox, luzespiscandocheckbox, objetoscheckbox]
-        if nenhumcontrolenatural1 or nenhumcontrolenatural2 or algumcontrolenatural1:
-            PeR['id_pergunta'].append('q4a - sinto desconforto por não poder controlar os elementos de sombreamento (cortinas ou brises)')
-            PeR['resposta'].append(brisescheckbox)
-        if nenhumcontroleartificial1 or nenhumcontroleartificial2 or nenhumcontroleartificial3 or algumcontroleartificial1 or algumcontroleartificial2 or algumcontroleartificial3:
-            PeR['id_pergunta'].append('q4a - sinto desconforto por não poder controlar o acionamento das lâmpadas e luminárias')
-            PeR['resposta'].append(acionarlampadacheckbox)
-        if outros:
-            PeR['id_pergunta'].append('q4a - outros motivos')
-            PeR['resposta'].append(entrada)
+        if insatisfeito_luminoso:
+            PeR['id_pergunta'] += ['q4a - sinto desconforto com o ambiente muito claro (muito iluminado)', 'q4a - sinto desconforto com o ambiente muito escuro (pouco iluminado)', 'q4a - sinto desconforto com o ofuscamento gerado por lâmpadas e luminárias', 'q4a - sinto desconforto com o ofuscamento gerado pela luz do sol e do céu', 'q4a - sinto desconforto com a iluminação que gera reflexos na tela do meu computador', 'q4a - sinto desconforto com luzes piscando', 'q4a - sinto desconforto pois não consigo diferenciar objetos (alto e/ou baixo contraste)']
+            PeR['resposta'] += [luminosocheckbox, escurocheckbox, ofuscamentolampadacheckbox, ofuscamentosolcheckbox, reflexoscheckbox, luzespiscandocheckbox, objetoscheckbox]
+            if nenhumcontrolenatural1 or nenhumcontrolenatural2 or algumcontrolenatural1:
+                PeR['id_pergunta'].append('q4a - sinto desconforto por não poder controlar os elementos de sombreamento (cortinas ou brises)')
+                PeR['resposta'].append(brisescheckbox)
+            if nenhumcontroleartificial1 or nenhumcontroleartificial2 or nenhumcontroleartificial3 or algumcontroleartificial1 or algumcontroleartificial2 or algumcontroleartificial3:
+                PeR['id_pergunta'].append('q4a - sinto desconforto por não poder controlar o acionamento das lâmpadas e luminárias')
+                PeR['resposta'].append(acionarlampadacheckbox)
+            if outros:
+                PeR['id_pergunta'].append('q4a - outros motivos')
+                PeR['resposta'].append(entrada)
         switch_page('q5')
     else:
-        st.error('Responda **todas** as questões para prosseguir')
+        st.error(message)

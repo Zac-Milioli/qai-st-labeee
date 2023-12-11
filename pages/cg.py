@@ -16,7 +16,7 @@ entrada_confortogeral = direita.text_area(label='no label', label_visibility='hi
 st.title('')
 if next_page_button('Próximo'):
     if None in [confortogeral]:
-        st.error('Responda para continuar')
+        st.error('Responda a questão para continuar')
     else:
         PeR['id_pergunta'] += ['cg - nível de satisfação com o conforto geral da estação de trabalho', 'cg - comentários']
         PeR['resposta'] += [confortogeral, entrada_confortogeral]

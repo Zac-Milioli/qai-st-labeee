@@ -28,6 +28,6 @@ if next_page_button(name='Próximo'):
     if None in options:
         st.error('Responda **todas** as questões para prosseguir')
     else:
-        PeR['id_pergunta'] += ['c0-1','c0-2','c0-3','c0-4','c0-5','c0-6','c0-7','c0-8']
+        PeR['id_pergunta'] += ['c0 - conforto térmico','c0 - qualidade do ar','c0 - conforto visual','c0 - conforto acústico','c0 - privacidade visual','c0 - privacidade acústica','c0 - conforto térmico','c0 - proximidade de colegas']
         PeR['resposta'] += options
         switch_page('q1b')
