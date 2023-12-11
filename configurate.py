@@ -1,3 +1,8 @@
+import os
+os.system('pip install streamlit_extras')
+os.system('pip install st_pages')
+os.system('pip install email')
+
 import streamlit as st 
 from streamlit_extras.switch_page_button import switch_page
 from st_pages import hide_pages
