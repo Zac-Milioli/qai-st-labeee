@@ -1,7 +1,3 @@
-import os
-os.system('pip install streamlit_extras')
-os.system('pip install st_pages')
-os.system('pip install email')
 from configurate import *
 
 create_top(big_text_title='QAI em Escritórios', subtitle='Design e organização: Luiza de Castro', subtitle2='Desenvolvimento: Zac Milioli')
