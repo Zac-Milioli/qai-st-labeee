@@ -5,5 +5,15 @@ create_top(big_text_title='QAI em Escritórios', subtitle='Design e organizaçã
 st.markdown('***Caso a barra lateral (sidebar) esteja aberta, feche-a. Ela serve apenas para configuração do questionário**')
 
 st.title('')
+mail = st.text_input('no label', label_visibility='hidden', max_chars=100, key='emaildoparticipante', placeholder='Insira seu email')
+
+st.title('')
 if centered_button('Iniciar questionário'):
-    switch_page('q0')
+    if not mail:
+        st.error('Preencha seu email para prosseguir')
+    elif mail:
+        if '@' not in mail:
+            st.error('Insira um email válido para prosseguir')
+        else:
+            participante['Email'] = mail
+            switch_page('q0')

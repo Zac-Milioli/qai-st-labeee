@@ -1,8 +1,12 @@
 import streamlit as st 
 from streamlit_extras.switch_page_button import switch_page
 from st_pages import hide_pages
+import smtplib
+import email.message
+    
 
 PeR = {'id_pergunta': [], 'resposta': []}
+participante = {'Email': ''}
 level_hierarchy = {'num': []}
 placeholder_img = r'static\placeholder.png'
 
@@ -127,3 +131,18 @@ def nested_radio(name: str = None, text_left:str = None, text_right:str = None, 
         else:
             valor = meio.radio(label='No name', label_visibility='hidden', options=opt, horizontal=True, format_func=(lambda x: ''), index=None, key=key)
     return valor
+
+def mail_me(mail_person:str, perguntas_e_respostas:dict):
+    corpo_email = f'{perguntas_e_respostas}'
+    msg = email.message.Message()
+    msg['Subject'] = f'RESPOSTAS DE {mail_person}'
+    msg['From'] = 'escritorios.qai.bot@gmail.com'
+    msg['To'] = 'escritorios.qai.bot@gmail.com'
+    password = 'sxux ztfv fsiw aqfp'
+    msg.set_payload(corpo_email)
+
+    s = smtplib.SMTP('smtp.gmail.com: 587')
+    s.starttls()
+
+    s.login(msg['From'], password)
+    s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
