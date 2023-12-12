@@ -6,7 +6,6 @@ import email.message
     
 
 PeR = {'id_pergunta': [], 'resposta': []}
-participante = {'Email': ''}
 level_hierarchy = {'num': []}
 placeholder_img = r'static/placeholder.png'
 

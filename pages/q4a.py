@@ -252,7 +252,7 @@ if next_page_button('Próximo'):
         PeR['id_pergunta'] += ['q4a - a disponibilidade de iluminação artificial (lâmpadas e luminárias)?', 'q4a - a ocorrência de ofuscamento gerado pela iluminação artificial?']
         PeR['resposta'] += sec2
         PeR['id_pergunta'] += ['q4a - a disponibilidade de iluminação natural (luz do sol e o céu) durante o verão e/ou meses quentes', 'q4a - a disponibilidade de iluminação natural (luz do sol e o céu) no período da manhã', 'q4a - a disponibilidade de iluminação natural (luz do sol e o céu) durante o inverno e/ou meses frios', 'q4a - a disponibilidade de iluminação natural (luz do sol e o céu) no período da tarde', 'q4a - a ocorrência de ofuscamento gerado pela iluminação natural durante o verão e/ou meses quentes', 'q4a - a ocorrência de ofuscamento gerado pela iluminação natural no período da manhã', 'q4a - a ocorrência de ofuscamento gerado pela iluminação natural durante o inverno e/ou meses frios', 'q4a - a ocorrência de ofuscamento gerado pela iluminação natural no período da tarde']
-        PeR['id_pergunta'] += 'q4a - nível de controle sobre iluminação artificial'
+        PeR['id_pergunta'].append('q4a - nível de controle sobre iluminação artificial')
         PeR['resposta'].append(verdadeirosartificial[0])
         if existe_janela:
             PeR['id_pergunta'] += 'q4a - nível de controle sobre iluminação natural'
