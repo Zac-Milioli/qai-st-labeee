@@ -5,9 +5,9 @@ select_width = 200
 
 esquerda, meio, direita = st.columns(3)
 
-esquerda.image(r'static\Q1b_janela.png', width=select_width)
-meio.image(r'static\Q1b_janelalonge.png', width=select_width)
-direita.image(r'static\Q1b_semjanela.png', width=select_width)
+esquerda.image(r'static/Q1b_janela.png', width=select_width)
+meio.image(r'static/Q1b_janelalonge.png', width=select_width)
+direita.image(r'static/Q1b_semjanela.png', width=select_width)
 
 simconsigo = esquerda.checkbox('sim, consigo ver o exterior mesmo quando estou sentado(a) em minha estação de trabalho')
 simporem = meio.checkbox('sim, porém estão muito afastadas da minha estação de trabalho')

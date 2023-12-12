@@ -1,13 +1,13 @@
 from configurate import *
 
 level_hierarchy['num'].append('0')
-existe_janela = open(r'base\janela.txt', 'r').read()
+existe_janela = open(r'base/janela.txt', 'r').read()
 if existe_janela == '1':
     existe_janela = True
 else:
     existe_janela = False
 
-create_top(big_text_title='Parece que temos um probleminha com o ambiente térmico...', img_url=r'static\Q2a.png')
+create_top(big_text_title='Parece que temos um probleminha com o ambiente térmico...', img_url=r'static/Q2a.png')
 img_width = 200
 st.subheader('Por favor indique quais dos itens a seguir estão presentes no seu ambiente de trabalho:')
 st.title('')
@@ -21,9 +21,9 @@ esquerda.title('')
 esquerda.title('')
 esquerda.title('')
 esquerda.markdown('**sistema de climatização artificial**')
-meio.image(r'static\arcondicionado.png', width=img_width)
+meio.image(r'static/arcondicionado.png', width=img_width)
 arcondicionado = meio.checkbox(label='ar-condicionado')
-direita.image(r'static\aquecedor.png', width=img_width)
+direita.image(r'static/aquecedor.png', width=img_width)
 aquecedor = direita.checkbox(label='aquecedores')
 esquerda.title('')
 esquerda.title('')
@@ -34,9 +34,9 @@ esquerda.title('')
 meio.title('')
 direita.title('')
 esquerda.markdown('**ventiladores**')
-meio.image(r'static\ventiladorteto.png', width=img_width)
+meio.image(r'static/ventiladorteto.png', width=img_width)
 vent_teto = meio.checkbox(label='de teto e/ou parede')
-direita.image(r'static\ventiladormesa.png', width=img_width) 
+direita.image(r'static/ventiladormesa.png', width=img_width) 
 vent_mesa = direita.checkbox(label='portáteis, de mesa e/ou individuais')
 
 st.title('')
@@ -139,11 +139,11 @@ if existe_janela:
     classificacoes.write('')
     classificacoes.write('')
     classificacoes.write('')
-    esquerda.image(r'static\nenhumcontrolejanela1.png', width=img_width)
+    esquerda.image(r'static/nenhumcontrolejanela1.png', width=img_width)
     nenhumcontrolejanela1 = esquerda.checkbox(label='as janelas não são operáveis e estão sempre fechadas', key='nenhumcontrolejanela1')
-    meioesquerda.image(r'static\nenhumcontrolejanela2.png', width=img_width)
+    meioesquerda.image(r'static/nenhumcontrolejanela2.png', width=img_width)
     nenhumcontrolejanela2 = meioesquerda.checkbox(label='as janelas são operáveis, porém é obrigatório que estejam sempre fechadas', key='nenhumcontrolejanela2')
-    meiodireita.image(r'static\nenhumcontrolejanela3.png', width=img_width)
+    meiodireita.image(r'static/nenhumcontrolejanela3.png', width=img_width)
     nenhumcontrolejanela3 = meiodireita.checkbox(label='a decisão de abrir ou fechar as janelas não é minha', key='nenhumcontrolejanela3')
     meioesquerda.title('')
     esquerda.title('')
@@ -157,13 +157,13 @@ if existe_janela:
     classificacoes.write('')
     classificacoes.write('')
     classificacoes.write('')
-    esquerda.image(r'static\opiniaogeral.png', width=img_width)
+    esquerda.image(r'static/opiniaogeral.png', width=img_width)
     algumcontrolejanela = esquerda.checkbox(label='todos os colegas dão sua opinião e chegamos a um acordo', key='opiniaogeraljanela')
 
     esquerda.title('')
 
     classificacoes.markdown('**controle total:**')
-    esquerda.image(r'static\controletotaljanela.png', width=img_width)
+    esquerda.image(r'static/controletotaljanela.png', width=img_width)
     controletotaljanela = esquerda.checkbox(label='abro/fecho a janela mais próxima à minha estação de trabalho sempre que me sinto desconfortável com a temperatura, o movimento e/ou a velocidade do ar', key='controletotaljanela')
 
 if arcondicionado or aquecedor:
@@ -188,9 +188,9 @@ if arcondicionado or aquecedor:
     classificacoes.title('')
     classificacoes.title('')
     classificacoes.title('')
-    esquerda.image(r'static\nenhumcontroletermostato1.png', width=img_width)
+    esquerda.image(r'static/nenhumcontroletermostato1.png', width=img_width)
     nenhumcontroletermostato1 = esquerda.checkbox(label='o controle do termostato e da velocidade e direção do ar-condicionado não está disponível', key='nenhumcontroletermostato1')
-    meioesquerda.image(r'static\nenhumcontroletermostato2.png', width=img_width)
+    meioesquerda.image(r'static/nenhumcontroletermostato2.png', width=img_width)
     nenhumcontroletermostato2 = meioesquerda.checkbox(label='a decisão de ligar ou desligar o ar-condicionado não é minha', key='nenhumcontroletermostato2')
     meioesquerda.title('')
     esquerda.title('')
@@ -219,11 +219,11 @@ if arcondicionado or aquecedor:
     classificacoes.title('')
     classificacoes.title('')
     classificacoes.title('')
-    esquerda.image(r'static\algumcontroletermostato1.png', width=img_width)
+    esquerda.image(r'static/algumcontroletermostato1.png', width=img_width)
     algumcontroletermostato1 = esquerda.checkbox(label='não posso controlar o termostato do ar-condicionado, apenas a velocidade e direção do ar', key='algumcontroletermostato1')
-    meioesquerda.image(r'static\algumcontroletermostato2.png', width=img_width)
+    meioesquerda.image(r'static/algumcontroletermostato2.png', width=img_width)
     algumcontroletermostato2 = meioesquerda.checkbox(label='não posso controlar a velocidade e direção do ar-condicionado, apenas o termostato', key='algumcontroletermostato2')
-    meiodireita.image(r'static\algumcontroletermostato3.png', width=img_width)
+    meiodireita.image(r'static/algumcontroletermostato3.png', width=img_width)
     algumcontroletermostato3 = meiodireita.checkbox(label='é possível realizar alterações na temperatura conforme a minha preferência, porém é necessário abrir um chamado e/ou acionar o responsável pelo sistema', key='algumcontroletermostato3')
     direita.image(r'static\opiniaogeral.png', width=img_width)
     algumcontroletermostato4 = direita.checkbox(label='todos os colegas dão sua opinião e chegamos a um acordo', key='opiniaogeraltermostato')
@@ -234,7 +234,7 @@ if arcondicionado or aquecedor:
     direita.title('')
 
     classificacoes.markdown('**controle total:**')
-    esquerda.image(r'static\controletotaltermostato.png', width=img_width)
+    esquerda.image(r'static/controletotaltermostato.png', width=img_width)
     controletotaltermostato = esquerda.checkbox(label='altero o termostato e a velocidade e direção do ar-condicionado sempre que me sinto desconfortável com a temperatura interna', key='controletotaltermostato')
 
 if vent_mesa or vent_teto:
@@ -259,9 +259,9 @@ if vent_mesa or vent_teto:
     classificacoes.write('')
     classificacoes.write('')
     classificacoes.write('')
-    esquerda.image(r'static\nenhumcontroleventilador1.png', width=img_width)
+    esquerda.image(r'static/nenhumcontroleventilador1.png', width=img_width)
     nenhumcontroleventilador1 = esquerda.checkbox(label='não posso controlar os ventiladores (ligar ou desligar, mudar a direção e intensidade do vento)', key='nenhumcontroleventilador1')
-    meioesquerda.image(r'static\nenhumcontroleventilador2.png', width=img_width)
+    meioesquerda.image(r'static/nenhumcontroleventilador2.png', width=img_width)
     nenhumcontroleventilador2 = meioesquerda.checkbox(label='a decisão de ligar ou desligar os ventiladores não é minha', key='nenhumcontroleventilador2')
 
     classificacoes.markdown('**algum controle:**')
@@ -274,13 +274,13 @@ if vent_mesa or vent_teto:
     classificacoes.write('')
     classificacoes.write('')
     classificacoes.write('')
-    esquerda.image(r'static\opiniaogeral.png', width=img_width)
+    esquerda.image(r'static/opiniaogeral.png', width=img_width)
     algumcontroleventilador = esquerda.checkbox(label='todos os colegas dão sua opinião e chegamos a um acordo', key='algumcontroleventilador')
 
     esquerda.title('')
 
     classificacoes.markdown('**controle total:**')
-    esquerda.image(r'static\controletotalventilador.png')
+    esquerda.image(r'static/controletotalventilador.png')
     controletotalventilador = esquerda.checkbox(label='ligo e desligo o(s) ventilador(es) mais próximo à minha estação de trabalho sempre que me sinto desconfortável', key='controletotalventilador')
 
 st.title('')

@@ -2,9 +2,9 @@ from configurate import *
 
 level_hierarchy['num'].append('0')
 img_width = 200
-create_top(big_text_title='Opa, encontramos um problema com o conforto visual...', img_url=r'static\Q4a.png')
+create_top(big_text_title='Opa, encontramos um problema com o conforto visual...', img_url=r'static/Q4a.png')
 
-existe_janela = open(r'base\janela.txt', 'r').read()
+existe_janela = open(r'base/janela.txt', 'r').read()
 if existe_janela == '1':
     existe_janela = True
 else:
@@ -74,11 +74,11 @@ classificacoes.write('')
 classificacoes.write('')
 classificacoes.write('')
 classificacoes.write('')
-esquerda.image(r'static\nenhumcontroleartificial1.png', width=img_width)
+esquerda.image(r'static/nenhumcontroleartificial1.png', width=img_width)
 nenhumcontroleartificial1 = esquerda.checkbox(label='os interruptores não estão localizados na sala', key='nenhumcontroleartificial1')
-meio.image(r'static\nenhumcontroleartificial2.png', width=img_width)
+meio.image(r'static/nenhumcontroleartificial2.png', width=img_width)
 nenhumcontroleartificial2 = meio.checkbox(label='as luminárias são acionadas por um único interruptor (todas acesas ou todas apagadas)', key='nenhumcontroleartificial2')
-direita.image(r'static\nenhumcontroleartificial3.png', width=img_width)
+direita.image(r'static/nenhumcontroleartificial3.png', width=img_width)
 nenhumcontroleartificial3 = direita.checkbox(label='a decisão de acender ou apagar as luzes não é minha', key='nenhumcontroleartificial3')
 meio.title('')
 meio.write('')
@@ -97,16 +97,16 @@ classificacoes.write('')
 classificacoes.write('')
 esquerda.image(placeholder_img, width=img_width)
 algumcontroleartificial1 = esquerda.checkbox(label='todos os colegas dão sua opinião e chegamos a um acordo', key='algumcontroleartificial1')
-meio.image(r'static\algumcontroleartificial2.png', width=img_width)
+meio.image(r'static/algumcontroleartificial2.png', width=img_width)
 algumcontroleartificial2 = meio.checkbox(label='todos os colegas dão sua opinião e chegamos a um acordo', key='algumcontroleartificial2')
-direita.image(r'static\opiniaogeral.png', width=img_width)
+direita.image(r'static/opiniaogeral.png', width=img_width)
 algumcontroleartificial3 = direita.checkbox(label='todos os colegas dão sua opinião e chegamos a um acordo', key='algumcontroleartificial3')
 esquerda.title('')
 meio.title('')
 direita.title('')
 
 classificacoes.markdown('**controle total:**')
-esquerda.image(r'static\controletotalartificial.png', width=img_width)
+esquerda.image(r'static/controletotalartificial.png', width=img_width)
 controletotalartificial = esquerda.checkbox(label='acendo ou apago as luzes sempre que me sinto desconfortável com a iluminação artificial', key='controletotalartificial')
 
 if existe_janela:
@@ -134,9 +134,9 @@ if existe_janela:
     classificacoes.write('')
     classificacoes.write('')
     classificacoes.write('')
-    esquerda.image(r'static\nenhumcontrolenatural1.png', width=img_width)
+    esquerda.image(r'static/nenhumcontrolenatural1.png', width=img_width)
     nenhumcontrolenatural1 = esquerda.checkbox(label='não existem elementos de sombreamento (cortinas ou persianas) para controle da iluminação natural', key='nenhumcontrolenatural1')
-    meio.image(r'static\nenhumcontrolenatural2.png', width=img_width)
+    meio.image(r'static/nenhumcontrolenatural2.png', width=img_width)
     nenhumcontrolenatural2 = meio.checkbox(label='a decisão de abrir ou fechar as cortinas não é minha', key='nenhumcontrolenatural2')
     meio.title('')
     esquerda.title('')
@@ -149,7 +149,7 @@ if existe_janela:
     classificacoes.title('')
     classificacoes.write('')
     classificacoes.write('')
-    esquerda.image(r'static\opiniaogeral.png', width=img_width)
+    esquerda.image(r'static/opiniaogeral.png', width=img_width)
     algumcontrolenatural1 = esquerda.checkbox(label='todos os colegas dão sua opinião e chegamos a um acordo', key='algumcontrolenatural1')
     esquerda.title('')
     meio.title('')
@@ -163,9 +163,9 @@ if existe_janela:
     meio.write('')
 
     classificacoes.markdown('**controle total:**')
-    esquerda.image(r'static\controletotalnatural1.png', width=img_width)
+    esquerda.image(r'static/controletotalnatural1.png', width=img_width)
     controletotalnarutal1 = esquerda.checkbox(label='abro e fecho a cortina mais próxima à minha estação de trabalho sempre que me sinto desconfortável com a iluminação natural', key='controletotalnarutal1')
-    meio.image(r'static\controletotalnatural2.png', width=img_width)
+    meio.image(r'static/controletotalnatural2.png', width=img_width)
     controletotalnarutal2 = meio.checkbox(label='abro e fecho a cortina mais próxima à minha estação de trabalho sempre que me sinto desconfortável com o sol direto', key='controletotalnarutal2')
 
 

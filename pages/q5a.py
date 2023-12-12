@@ -1,11 +1,11 @@
 from configurate import * 
 
-create_top(big_text_title='Parece que encontramos um ponto crítico com a acústica...', img_url=r'static\Q5a.png')
+create_top(big_text_title='Parece que encontramos um ponto crítico com a acústica...', img_url=r'static/Q5a.png')
 
 level_hierarchy['num'].append('0')
 img_width = 200
 
-existe_janela = open(r'base\janela.txt', 'r').read()
+existe_janela = open(r'base/janela.txt', 'r').read()
 if existe_janela == '1':
     existe_janela = True
 else:
@@ -96,11 +96,11 @@ if existe_janela:
     classificacoes.write('')
     classificacoes.write('')
     classificacoes.write('')
-    esquerda.image(r'static\nenhumcontrolejanela1.png', width=img_width)
+    esquerda.image(r'static/nenhumcontrolejanela1.png', width=img_width)
     nenhumcontrolejanela1 = esquerda.checkbox(label='as janelas não são operáveis e estão sempre fechadas', key='ruido_nenhumcontrolejanela1')
-    meioesquerda.image(r'static\nenhumcontrolejanela2.png', width=img_width)
+    meioesquerda.image(r'static/nenhumcontrolejanela2.png', width=img_width)
     nenhumcontrolejanela2 = meioesquerda.checkbox(label='as janelas são operáveis, porém a política da empresa não permite que sejam abertas', key='ruido_nenhumcontrolejanela2')
-    meiodireita.image(r'static\nenhumcontrolejanela3.png', width=img_width)
+    meiodireita.image(r'static/nenhumcontrolejanela3.png', width=img_width)
     nenhumcontrolejanela3 = meiodireita.checkbox(label='a decisão de abrir ou fechar as janelas não é minha', key='ruido_nenhumcontrolejanela3')
     meioesquerda.title('')
     esquerda.title('')
@@ -114,13 +114,13 @@ if existe_janela:
     classificacoes.write('')
     classificacoes.write('')
     classificacoes.write('')
-    esquerda.image(r'static\opiniaogeral.png', width=img_width)
+    esquerda.image(r'static/opiniaogeral.png', width=img_width)
     algumcontrolejanela = esquerda.checkbox(label='todos os colegas dão sua opinião e chegamos a um acordo', key='ruido_opiniaogeraljanela')
 
     esquerda.title('')
 
     classificacoes.markdown('**controle total:**')
-    esquerda.image(r'static\controletotaljanela.png', width=img_width)
+    esquerda.image(r'static/controletotaljanela.png', width=img_width)
     controletotaljanela = esquerda.checkbox(label='abro e fecho a janela mais próxima à minha estação de trabalho sempre que me sinto desconfortável com ruídos externos', key='ruido_controletotaljanela')
 
 st.title('')
