@@ -205,8 +205,9 @@ if satisfacaocomambienteluminoso:
         reflexoscheckbox = st.checkbox('sinto desconforto com a iluminação que gera reflexos na tela do meu computador', key='reflexoscheckbox')
         luzespiscandocheckbox = st.checkbox('sinto desconforto com luzes piscando', key='luzespiscandocheckbox')
         objetoscheckbox = st.checkbox('sinto desconforto pois não consigo diferenciar objetos (alto e/ou baixo contraste)', key='objetoscheckbox')
-        if nenhumcontrolenatural1 or nenhumcontrolenatural2 or algumcontrolenatural1:
-            brisescheckbox = st.checkbox('sinto desconforto por não poder controlar os elementos de sombreamento (cortinas ou brises)', key='brisescheckbox')
+        if existe_janela:
+            if nenhumcontrolenatural1 or nenhumcontrolenatural2 or algumcontrolenatural1:
+                brisescheckbox = st.checkbox('sinto desconforto por não poder controlar os elementos de sombreamento (cortinas ou brises)', key='brisescheckbox')
         if nenhumcontroleartificial1 or nenhumcontroleartificial2 or nenhumcontroleartificial3 or algumcontroleartificial1 or algumcontroleartificial2 or algumcontroleartificial3:
             acionarlampadacheckbox = st.checkbox('sinto desconforto por não poder controlar o acionamento das lâmpadas e luminárias', key='acionarlampadacheckbox')
         outros = st.checkbox('outro, por favor especifique:', key='outros_2')
