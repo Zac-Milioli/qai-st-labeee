@@ -1,6 +1,6 @@
 from configurate import *
 
-level_hierarchy['num'].append('0')
+open(r'base/hierarquia.txt', 'a').write('x')
 img_width = 200
 create_top(big_text_title='Opa, encontramos um problema com o conforto visual...', img_url=r'static/Q4a.png')
 

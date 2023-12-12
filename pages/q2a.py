@@ -1,6 +1,6 @@
 from configurate import *
 
-level_hierarchy['num'].append('0')
+open(r'base/hierarquia.txt', 'a').write('x')
 existe_janela = open(r'base/janela.txt', 'r').read()
 if existe_janela == '1':
     existe_janela = True

@@ -1,6 +1,6 @@
 from configurate import *
 
-level_hierarchy['num'].append('0')
+open(r'base/hierarquia.txt', 'a').write('x')
 create_top(big_text_title='Puxa, encontramos um problema com a qualidade do ar interno...', img_url=r'static/Q3a.png')
 
 st.subheader('Com relação ao ar interno próximo à sua estação de trabalho, com qual frequência você costuma identificar algum dos itens ou sintomas a seguir?')
