@@ -15,5 +15,6 @@ if centered_button('Iniciar questionário'):
         if '@' not in mail:
             st.error('Insira um email válido para prosseguir')
         else:
+            open(r'base/hierarquia.txt', 'w').write('')
             open(r'base/person_mail.txt', 'w').write(mail)
             switch_page('q0')
