@@ -8,7 +8,7 @@ import email.message
 PeR = {'id_pergunta': [], 'resposta': []}
 participante = {'Email': ''}
 level_hierarchy = {'num': []}
-placeholder_img = r'static\placeholder.png'
+placeholder_img = r'static/placeholder.png'
 
 def create_top(big_text_title: str = None, subtitle: str = None, subtitle2: str = None, subsubtitle: str = None, img_url: str = None):
     st.set_page_config(

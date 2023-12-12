@@ -225,7 +225,7 @@ if arcondicionado or aquecedor:
     algumcontroletermostato2 = meioesquerda.checkbox(label='não posso controlar a velocidade e direção do ar-condicionado, apenas o termostato', key='algumcontroletermostato2')
     meiodireita.image(r'static/algumcontroletermostato3.png', width=img_width)
     algumcontroletermostato3 = meiodireita.checkbox(label='é possível realizar alterações na temperatura conforme a minha preferência, porém é necessário abrir um chamado e/ou acionar o responsável pelo sistema', key='algumcontroletermostato3')
-    direita.image(r'static\opiniaogeral.png', width=img_width)
+    direita.image(r'static/opiniaogeral.png', width=img_width)
     algumcontroletermostato4 = direita.checkbox(label='todos os colegas dão sua opinião e chegamos a um acordo', key='opiniaogeraltermostato')
 
     esquerda.title('')
