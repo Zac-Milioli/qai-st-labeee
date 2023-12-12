@@ -1,6 +1,6 @@
 from configurate import *
 
-create_top(big_text_title='Pesquisa de clima organizacional', img_url='https://github.com/Zac-Milioli/Quest_Luiza/blob/master/static/Q0.png?raw=true')
+create_top(big_text_title='Pesquisa de clima organizacional', img_url=r'static\Q0.png')
 
 place_left_subtitle('Como você classifica a sua satisfação com as condições físicas (temperatura, qualidade do ar interno, iluminação e acústica) do seu ambiente de trabalho para a realização das suas atividades?')
 
