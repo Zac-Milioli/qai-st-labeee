@@ -75,9 +75,8 @@ if existe_janela:
     st.title('')
     st.title('')
     st.title('')
-    st.title('')
-    st.title('Sobre os controles existentes no seu ambiente de trabalho,')
-    st.subheader('como você classifica o nível de controle que você possui sobre ruídos externos?')
+    st.title('Sobre os controles existentes no seu ambiente de trabalho')
+    st.subheader('Como você classifica o nível de controle que você possui sobre ruídos externos?')
     st.info('As ilustrações abaixo podem auxiliá-lo(a) a diferenciar os tipos de controle')
     st.title('')
     classificacoes, esquerda, meioesquerda, meiodireita, direita = st.columns([0.5,1,1,1,1])
@@ -127,7 +126,6 @@ if existe_janela:
 st.title('')
 st.title('')
 st.title('')
-st.title('')
 st.title('Considerando todos os aspectos,')
 st.subheader('qual o seu nível de satisfação com a acústica da sua estação de trabalho?')
 st.title('')
@@ -138,7 +136,6 @@ insatisfacao_ruidos = False
 if satisfacao_ruidos:
     if satisfacao_ruidos <= 2:
         insatisfacao_ruidos = True
-        st.title('')
         st.title('')
         st.title('')
         st.title('')

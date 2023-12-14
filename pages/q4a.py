@@ -11,12 +11,19 @@ else:
     existe_janela = False
 
 st.subheader('Na sua estação de trabalho, como você descreve ou classifica...')
-width_selected = [1,1,0.2,0.6,1]
-iluminacaoartificial = create_radio(phrase='a disponibilidade de iluminação artificial (lâmpadas e luminárias)?', extreme_left='baixa', extreme_right='alta', min=1, max=5, divide=True, key='disponibilidadedeluzartificial', five_columns_width=width_selected)
-ofuscamentoluzartificial = create_radio(phrase='a ocorrência de ofuscamento gerado pela iluminação artificial?', extreme_left='recorrente', extreme_right='inexistente', min=1, max=5, divide=True, key='ofuscamentoporluzartificial', five_columns_width=width_selected)
+st.title('')
+esquerda, meio, direita = st.columns(3)
+with meio:
+    iluminacaoartificial = nested_radio(text_left='baixa', text_right='alta', min=1, max=5, key='disponibilidadedeluzartificial')
+    ofuscamentoluzartificial = nested_radio(text_left='recorrente', text_right='inexistente', min=1, max=5, key='ofuscamentoporluzartificial')
+with esquerda:
+    st.write('')
+    st.write('')
+    st.write('a disponibilidade de iluminação artificial (lâmpadas e luminárias)?')
+    st.write('')
+    st.write('')
+    st.write('a ocorrência de ofuscamento gerado pela iluminação artificial?')
 
-st.title('')
-st.title('')
 st.title('')
 st.title('')
 esquerda, meio, direita = st.columns(3)
@@ -54,8 +61,8 @@ with direita:
 st.title('')
 st.title('')
 st.title('')
-st.title('')
-st.subheader('como você classifica o nível de controle que você possui sobre a iluminação artificial?')
+st.title('Sobre os controles existentes no seu ambiente de trabalho')
+st.subheader('Como você classifica o nível de controle que você possui sobre a iluminação artificial?')
 st.info('As ilustrações abaixo podem auxiliá-lo(a) a diferenciar os tipos de controle')
 st.title('')
 classificacoes, esquerda, meio, direita = st.columns([0.5,1,1,1])
@@ -114,9 +121,7 @@ if existe_janela:
     st.title('')
     st.title('')
     st.title('')
-    st.title('')
-    st.title('Sobre os controles existentes no seu ambiente de trabalho,')
-    st.subheader('como você classifica o nível de controle que você possui sobre a iluminação natural?')
+    st.subheader('Como você classifica o nível de controle que você possui sobre a iluminação natural?')
     st.info('As ilustrações abaixo podem auxiliá-lo(a) a diferenciar os tipos de controle')
     st.title('')
     classificacoes, esquerda, meio, direita = st.columns([0.5,1,1,1])
@@ -174,13 +179,11 @@ if existe_janela:
 st.title('')
 st.title('')
 st.title('')
-st.title('')
 st.title('Como você descreve ou classifica')
 st.subheader('a sua estação de trabalho com relação a privacidade visual (não ser visto por outros)?')
 st.title('')
 privacidadevisual = create_radio(divide=True, extreme_left='insatisfatória', extreme_right='satisfatória', min=1, max=5, key='satisfacaoprivacidadevisual')
 
-st.title('')
 st.title('')
 st.title('')
 st.title('')
@@ -193,7 +196,6 @@ insatisfeito_luminoso = False
 if satisfacaocomambienteluminoso:
     if satisfacaocomambienteluminoso <= 2:
         insatisfeito_luminoso = True
-        st.title('')
         st.title('')
         st.title('')
         st.title('')

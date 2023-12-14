@@ -1,12 +1,13 @@
 from configurate import *
 
-create_top(big_text_title='Considerando todos os aspectos,')
+create_top(big_text_title='Considerando todos os aspectos,', use_line=False)
 
 st.subheader('por favor indique o seu nível de satisfação com o conforto em geral da sua estação de trabalho.')
 
 st.title('')
 confortogeral = create_radio(divide=True, min=1, max=5, extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', key='confortogeral')
 
+st.title('')
 st.title('')
 st.title('')
 esquerda, direita = st.columns(2, gap='large')

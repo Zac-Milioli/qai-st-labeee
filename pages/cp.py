@@ -1,20 +1,18 @@
 from configurate import *
 
-create_top(big_text_title='Qual é o seu nível de satisfação com a disponibilidade de controle')
+def reset_var(var):
+    var = None
 
+create_top(use_line=False)
+st.info('Estamos quase acabando! Precisamos apenas dos últimos detalhes')
+st.title('Qual é o seu nível de satisfação com a disponibilidade de controle')
 st.subheader('dos itens a seguir para adaptação da sua estação de trabalho de forma a atender às suas preferências?')
 my_width = [1.5,0.5,0.4,0.6,0.5]
 st.title('')
 esquerda, direita = st.columns([1,0.2])
-with esquerda:
-    st.title('')
-    arcondicionado = create_radio(phrase='ar-condicionado e/ou aquecedores', extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='controlearcondicionado', min=1, max=5, five_columns_width=my_width)
-    ventiladores = create_radio(phrase='ventiladores', extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='controleventiladores', min=1, max=5, five_columns_width=my_width)
-    janelas = create_radio(phrase='abrir ou fechar janelas', extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='controlejanelas', min=1, max=5, five_columns_width=my_width)
-    cortinas = create_radio(phrase='abrir ou fechar cortinas', extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='controlecortinas', min=1, max=5, five_columns_width=my_width)
-    luzes = create_radio(phrase='acender ou apagar as luzes', extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='controleluzes', min=1, max=5, five_columns_width=my_width)
+
 with direita:
-    st.markdown('**Não possui**')
+    st.caption('não possui')
     st.write('')
     st.write('')
     arcondicionado_checkbox = st.checkbox('no label', label_visibility='hidden', key='arcondicionado_checkbox')
@@ -26,6 +24,28 @@ with direita:
     cortinas_checkbox = st.checkbox('no label', label_visibility='hidden', key='cortinas_checkbox')
     st.title('')
     luzes_checkbox = st.checkbox('no label', label_visibility='hidden', key='luzes_checkbox')
+with esquerda:
+    st.title('')
+    if arcondicionado_checkbox:
+        arcondicionado = create_radio(desabilitado=True, phrase='ar-condicionado e/ou aquecedores', extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='controlearcondicionado', min=1, max=5, five_columns_width=my_width)
+    else:
+        arcondicionado = create_radio(phrase='ar-condicionado e/ou aquecedores', extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='controlearcondicionado', min=1, max=5, five_columns_width=my_width)
+    if ventiladores_checkbox:
+        ventiladores = create_radio(desabilitado=True, phrase='ventiladores', extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='controleventiladores', min=1, max=5, five_columns_width=my_width)
+    else:
+        ventiladores = create_radio(phrase='ventiladores', extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='controleventiladores', min=1, max=5, five_columns_width=my_width)
+    if janelas_checkbox:
+        janelas = create_radio(desabilitado=True, phrase='abrir ou fechar janelas', extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='controlejanelas', min=1, max=5, five_columns_width=my_width)
+    else:
+        janelas = create_radio(phrase='abrir ou fechar janelas', extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='controlejanelas', min=1, max=5, five_columns_width=my_width)
+    if cortinas_checkbox:
+        cortinas = create_radio(desabilitado=True, phrase='abrir ou fechar cortinas', extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='controlecortinas', min=1, max=5, five_columns_width=my_width)
+    else:
+        cortinas = create_radio(phrase='abrir ou fechar cortinas', extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='controlecortinas', min=1, max=5, five_columns_width=my_width)
+    if luzes_checkbox:
+        luzes = create_radio(desabilitado=True, phrase='acender ou apagar as luzes', extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='controleluzes', min=1, max=5, five_columns_width=my_width)
+    else:
+        luzes = create_radio(phrase='acender ou apagar as luzes', extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='controleluzes', min=1, max=5, five_columns_width=my_width)
 
 st.title('')
 if next_page_button('Próximo'):

@@ -1,6 +1,6 @@
 from configurate import *
 
-create_top(big_text_title='Considerando a atual configuração física do seu escritório,')
+create_top(big_text_title='Considerando a atual configuração física do seu escritório,', use_line=False)
 
 st.subheader('você poderia indicar a importância dos fatores a seguir na realização das suas atividades de trabalho diárias?')
 left = 'pouco importante'
@@ -16,6 +16,7 @@ fat6 = create_radio(phrase='proximidade e/ou acesso a vistas externas', divide=T
 fat7 = create_radio(phrase='privacidade visual', divide=True, extreme_left=left, extreme_right=right, min=1, max=5, key='fat7')
 fat8 = create_radio(phrase='privacidade acústica', divide=True, extreme_left=left, extreme_right=right, min=1, max=5, key='fat8')
 fat9 = create_radio(phrase='estar próximo à colegas e equipe de trabalho mesmo que não esteja totalmente confortável', divide=True, extreme_left=left, extreme_right=right, min=1, max=5, key='fat9')
+
 
 st.title('')
 if next_page_button('Próximo'):
