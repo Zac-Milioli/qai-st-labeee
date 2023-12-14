@@ -5,16 +5,30 @@ create_top(big_text_title='Puxa, encontramos um problema com a qualidade do ar i
 
 st.subheader('Com relação ao ar interno próximo à sua estação de trabalho, com qual frequência você costuma identificar algum dos itens ou sintomas a seguir?')
 opt = ['diariamente, na maior parte do tempo', 'diariamente, durante algumas horas', 'eventualmente, durante algumas horas', 'raramente, durante algumas horas', 'nunca sinto']
-width_choosen = [0.3,1.3]
+width_choosen = [1.5,2]
 
-st.title('')
-cheiro = create_radio(phrase='sinto cheiros e/ou odores no ambiente', large=True, two_columns_width=width_choosen, selection=opt, use_list_selection=True, show_values=True, key='cheirosfortes')
-st.markdown('---')
-fadiga = create_radio(phrase='sensação de fadiga e/ou sonolência', large=True, two_columns_width=width_choosen, selection=opt, use_list_selection=True, show_values=True, key='fadiga')
-st.markdown('---')
-ressecamento = create_radio(phrase='sensação de ressecamento nos olhos, nariz e/ou mãos', large=True, two_columns_width=width_choosen, selection=opt, use_list_selection=True, show_values=True, key='ressecamento')
-st.markdown('---')
-alergia = create_radio(phrase='irritações na pele e/ou alergias', large=True, two_columns_width=width_choosen, selection=opt, use_list_selection=True, show_values=True, key='alergias')
+st.markdown("""
+    <style>
+    [role=radiogroup]{
+        gap: 7rem;
+    }
+    </style>
+    """,unsafe_allow_html=True)
+
+
+esquerda, meio, direita = st.columns([1,1.3,0.1], gap='large')
+with meio:
+    sempre, muitas_vezes, as_vezes, poucas_vezes, nunca, nao_possui = st.columns(6, gap='medium')
+    sempre.write('diariamente, na maior parte do tempo')
+    muitas_vezes.write('diariamente, durante algumas horas')
+    as_vezes.write('eventualmente, durante algumas horas')
+    poucas_vezes.write('raramente, durante algumas horas')
+    nunca.write('nunca sinto')
+
+cheiro = create_radio(phrase='sinto cheiros e/ou odores no ambiente', large=True, two_columns_width=width_choosen, selection=opt, use_list_selection=True, key='cheirosfortes')
+fadiga = create_radio(phrase='sensação de fadiga e/ou sonolência', large=True, two_columns_width=width_choosen, selection=opt, use_list_selection=True, key='fadiga')
+ressecamento = create_radio(phrase='sensação de ressecamento nos olhos, nariz e/ou mãos', large=True, two_columns_width=width_choosen, selection=opt, use_list_selection=True, key='ressecamento')
+alergia = create_radio(phrase='irritações na pele e/ou alergias', large=True, two_columns_width=width_choosen, selection=opt, use_list_selection=True, key='alergias')
 
 st.title('')
 st.title('')
