@@ -121,6 +121,7 @@ if existe_janela:
     st.title('')
     st.title('')
     st.subheader('como você classifica o nível de controle que você possui sobre a ventilação natural?')
+    st.info('As ilustrações abaixo podem auxiliá-lo(a) a diferenciar os tipos de controle')
     st.title('')
     classificacoes, esquerda, meioesquerda, meiodireita, direita = st.columns([0.5,1,1,1,1])
     classificacoes.title('')
@@ -172,6 +173,7 @@ if arcondicionado or aquecedor:
     st.title('')
     st.title('')
     st.subheader('como você classifica o nível de controle que você possui sobre o aquecimento e/ou resfriamento?')
+    st.info('As ilustrações abaixo podem auxiliá-lo(a) a diferenciar os tipos de controle')
     st.title('')
     classificacoes, esquerda, meioesquerda, meiodireita, direita = st.columns([0.5,1,1,1,1])
     classificacoes.title('')
@@ -243,6 +245,7 @@ if vent_mesa or vent_teto:
     st.title('')
     st.title('')
     st.subheader('como você classifica o nível de controle que você possui sobre os ventiladores?') 
+    st.info('As ilustrações abaixo podem auxiliá-lo(a) a diferenciar os tipos de controle')
     st.title('')
     classificacoes, esquerda, meioesquerda, meiodireita, direita = st.columns([0.5,1,1,1,1])
     classificacoes.title('')
@@ -318,6 +321,7 @@ if veraosatisfacao:
         st.title('')
         st.title('Temos uma nota baixa para os meses quentes...')
         st.subheader('Então, para termos certeza, por favor indique os motivos pelos quais você está insatisfeito(a) com o ambiente térmico durante esse período.')
+        st.info('Você pode selecionar mais de um, se aplicável.')
         st.title('')
         baixaquentes6,baixaquentes12,baixaquentes7,baixaquentes8,baixaquentes11 = False,False,False,False,False
         baixaquentes1 = st.checkbox(label='sinto desconforto por calor', key='baixasquentes1')
@@ -337,7 +341,7 @@ if veraosatisfacao:
         baixaquentes10 = st.checkbox(label='sinto desconforto por frio ou calor em alguma parte específica do corpo (mãos, pés, pescoço, cabeça, etc)', key='baixasquentes10')
         baixasquentes_outros_checkbox = st.checkbox(label='outro: por favor, especifique', key='outros1')
         if baixasquentes_outros_checkbox:
-            entrada_baixasquentes = st.text_area(label='no label', label_visibility='hidden', placeholder='Descreva aqui', value=None, max_chars=150, key='entrada insatisfacao quentes')
+            entrada_baixasquentes = st.text_input(label='no label', label_visibility='hidden', placeholder='Descreva aqui', value=None, max_chars=150, key='entrada insatisfacao quentes')
 if invernosatisfacao:
     if invernosatisfacao <= 2:
         insatisfeito_frios = True
@@ -347,6 +351,7 @@ if invernosatisfacao:
         st.title('')
         st.title('Temos uma nota baixa para os meses frios...')
         st.subheader('Então, para termos certeza, por favor indique os motivos pelos quais você está insatisfeito(a) com o ambiente térmico durante esse período.')
+        st.info('Você pode selecionar mais de um, se aplicável.')
         st.title('')
         baixafrias6,baixafrias12,baixafrias7,baixafrias8,baixafrias11 = False,False,False,False,False
         baixafrias1 = st.checkbox(label='sinto desconforto por calor', key='baixafrias1')
@@ -366,7 +371,7 @@ if invernosatisfacao:
         baixafrias10 = st.checkbox(label='sinto desconforto por frio ou calor em alguma parte específica do corpo (mãos, pés, pescoço, cabeça, etc)', key='baixafrias10')
         baixasfrias_outros_checkbox = st.checkbox(label='outro: por favor, especifique', key='outros2')
         if baixasfrias_outros_checkbox:
-            entrada_baixasfrias = st.text_area(label='no label', label_visibility='hidden', placeholder='Descreva aqui', value=None, max_chars=150, key='entrada insatisfacao frios')
+            entrada_baixasfrias = st.text_input(label='no label', label_visibility='hidden', placeholder='Descreva aqui', value=None, max_chars=150, key='entrada insatisfacao frios')
 
 
 st.title('')

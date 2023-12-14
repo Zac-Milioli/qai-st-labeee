@@ -56,6 +56,7 @@ st.title('')
 st.title('')
 st.title('')
 st.subheader('como você classifica o nível de controle que você possui sobre a iluminação artificial?')
+st.info('As ilustrações abaixo podem auxiliá-lo(a) a diferenciar os tipos de controle')
 st.title('')
 classificacoes, esquerda, meio, direita = st.columns([0.5,1,1,1])
 classificacoes.title('')
@@ -116,6 +117,7 @@ if existe_janela:
     st.title('')
     st.title('Sobre os controles existentes no seu ambiente de trabalho,')
     st.subheader('como você classifica o nível de controle que você possui sobre a iluminação natural?')
+    st.info('As ilustrações abaixo podem auxiliá-lo(a) a diferenciar os tipos de controle')
     st.title('')
     classificacoes, esquerda, meio, direita = st.columns([0.5,1,1,1])
     classificacoes.title('')
@@ -197,6 +199,7 @@ if satisfacaocomambienteluminoso:
         st.title('')
         st.title('Temos uma nota baixa para o ambiente luminoso...')
         st.subheader('Então, para termos certeza, por favor indique os motivos pelos quais você está insatisfeito(a) com a iluminação em geral.')
+        st.info('Você pode selecionar mais de um, se aplicável.')
         st.title('')
         luminosocheckbox = st.checkbox('sinto desconforto com o ambiente muito claro (muito iluminado)', key='cheiroscheckbox')
         escurocheckbox = st.checkbox('sinto desconforto com o ambiente muito escuro (pouco iluminado)', key='escurocheckbox')
@@ -212,7 +215,7 @@ if satisfacaocomambienteluminoso:
             acionarlampadacheckbox = st.checkbox('sinto desconforto por não poder controlar o acionamento das lâmpadas e luminárias', key='acionarlampadacheckbox')
         outros = st.checkbox('outro, por favor especifique:', key='outros_2')
         if outros:
-            entrada = st.text_area(label='no label', label_visibility='hidden',value=None, key='entrybox_2', placeholder='Descreva aqui', max_chars=150)
+            entrada = st.text_input(label='no label', label_visibility='hidden',value=None, key='entrybox_2', placeholder='Descreva aqui', max_chars=150)
 
 st.title('')
 if next_page_button('Próximo'):
@@ -263,9 +266,10 @@ if next_page_button('Próximo'):
         if insatisfeito_luminoso:
             PeR['id_pergunta'] += ['q4a - sinto desconforto com o ambiente muito claro (muito iluminado)', 'q4a - sinto desconforto com o ambiente muito escuro (pouco iluminado)', 'q4a - sinto desconforto com o ofuscamento gerado por lâmpadas e luminárias', 'q4a - sinto desconforto com o ofuscamento gerado pela luz do sol e do céu', 'q4a - sinto desconforto com a iluminação que gera reflexos na tela do meu computador', 'q4a - sinto desconforto com luzes piscando', 'q4a - sinto desconforto pois não consigo diferenciar objetos (alto e/ou baixo contraste)']
             PeR['resposta'] += [luminosocheckbox, escurocheckbox, ofuscamentolampadacheckbox, ofuscamentosolcheckbox, reflexoscheckbox, luzespiscandocheckbox, objetoscheckbox]
-            if nenhumcontrolenatural1 or nenhumcontrolenatural2 or algumcontrolenatural1:
-                PeR['id_pergunta'].append('q4a - sinto desconforto por não poder controlar os elementos de sombreamento (cortinas ou brises)')
-                PeR['resposta'].append(brisescheckbox)
+            if existe_janela:
+                if nenhumcontrolenatural1 or nenhumcontrolenatural2 or algumcontrolenatural1:
+                    PeR['id_pergunta'].append('q4a - sinto desconforto por não poder controlar os elementos de sombreamento (cortinas ou brises)')
+                    PeR['resposta'].append(brisescheckbox)
             if nenhumcontroleartificial1 or nenhumcontroleartificial2 or nenhumcontroleartificial3 or algumcontroleartificial1 or algumcontroleartificial2 or algumcontroleartificial3:
                 PeR['id_pergunta'].append('q4a - sinto desconforto por não poder controlar o acionamento das lâmpadas e luminárias')
                 PeR['resposta'].append(acionarlampadacheckbox)

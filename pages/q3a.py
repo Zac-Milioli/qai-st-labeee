@@ -52,7 +52,8 @@ if qualidadedoar:
         st.title('')
         st.title("Temos uma nota baixa para a qualidade do ar...")
         st.subheader('Então, para termos certeza, por favor indique os motivos pelos quais você está insatisfeito(a).')
-
+        st.info('Você pode selecionar mais de um, se aplicável.')
+        st.title('')
         cheiroscheckbox = st.checkbox('cheiros e odores', key='cheiroscheckbox')
         abafadocheckbox = st.checkbox('ambiente abafado', key='abafadocheckbox')
         arsecocheckbox = st.checkbox('ar interno muito seco', key='arsecocheckbox')
@@ -61,7 +62,7 @@ if qualidadedoar:
         alergiascheckbox = st.checkbox('há produtos que causam irritação ou alergias', key='alergiascheckbox')
         outros = st.checkbox('outro, por favor especifique:', key='outros')
         if outros:
-            entrada = st.text_area(label='no label', label_visibility='hidden',value=None, key='entrybox', placeholder='Descreva aqui', max_chars=150)
+            entrada = st.text_input(label='no label', label_visibility='hidden',value=None, key='entrybox', placeholder='Descreva aqui', max_chars=150)
 
 st.title('')
 if next_page_button('Próximo'):

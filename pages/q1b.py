@@ -3,6 +3,8 @@ from configurate import *
 create_top(big_text_title='Proximidade a janelas', subtitle='Existem janelas e/ou outras áreas envidraçadas no seu ambiente de trabalho?')
 select_width = 200
 
+st.info('As ilustrações abaixo podem auxiliá-lo(a) a diferenciar as alternativas')
+
 esquerda, meio, direita = st.columns(3)
 
 esquerda.image(r'static/Q1b_janela.png', width=select_width)
@@ -18,7 +20,7 @@ if next_page_button('Próximo'):
     options = {'Sim consigo': simconsigo, 'Sim porém estão muito afastadas': simporem, 'Não': nao}
     verdadeiros = [chave for chave,valor in options.items() if valor]
     if len(verdadeiros) != 1:
-        st.error('Selecione **uma** opção para continuar')
+        st.error('Selecione **apenas uma** opção para continuar')
     else:
         PeR['id_pergunta'].append('q1b')
         PeR['resposta'].append(verdadeiros[0])

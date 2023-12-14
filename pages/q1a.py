@@ -1,8 +1,9 @@
 from configurate import *
 
-create_top(big_text_title='O seu ambiente de trabalho', subtitle='Por favor selecione o tipo de layout do escritório que representa o seu ambiente de trabalho. (apenas um item)')
+create_top(big_text_title='O seu ambiente de trabalho', subtitle='Por favor selecione o tipo de layout do escritório que representa o seu ambiente de trabalho.')
 select_width = 120
 
+st.info('As ilustrações abaixo podem auxiliá-lo(a) a diferenciar os tipos de layout')
 
 esquerda, meioesquerda, meio, meiodireita = st.columns(4)
 esquerda.title('')
@@ -55,7 +56,7 @@ if next_page_button(name='Próximo'):
     options = {'individual': individual, 'fixa': compartilhada, 'sem divisórias': semdivisorias, 'com divisórias baixas': comdivisoriasbaixas, 'com divisórias altas': comdivisoriasaltas, 'sem localização fixa': semlocalizacaofixa}
     verdadeiros = [chave for chave, valor in options.items() if valor]
     if len(verdadeiros) != 1:
-        st.error('Selecione **uma** opção para prosseguir')
+        st.error('Selecione **apenas uma** opção para prosseguir')
     else:
         PeR['id_pergunta'].append('q1a')
         PeR['resposta'].append(verdadeiros[0])

@@ -78,6 +78,7 @@ if existe_janela:
     st.title('')
     st.title('Sobre os controles existentes no seu ambiente de trabalho,')
     st.subheader('como você classifica o nível de controle que você possui sobre ruídos externos?')
+    st.info('As ilustrações abaixo podem auxiliá-lo(a) a diferenciar os tipos de controle')
     st.title('')
     classificacoes, esquerda, meioesquerda, meiodireita, direita = st.columns([0.5,1,1,1,1])
     classificacoes.title('')
@@ -143,6 +144,7 @@ if satisfacao_ruidos:
         st.title('')
         st.title('Temos uma nota baixa para o ambiente acústico...')
         st.subheader('Então, para termos certeza, por favor indique os motivos pelos quais você está insatisfeito(a) com os ruídos em geral.')
+        st.info('Você pode selecionar mais de um, se aplicável.')
         st.title('')
         ruidos_checkbox1 = st.checkbox('as conversas dos colegas me incomodam', key='ruidos_checkbox1')
         ruidos_checkbox2 = st.checkbox('o barulho do ar-condicionado me incomoda', key='ruidos_checkbox2')
@@ -153,7 +155,7 @@ if satisfacao_ruidos:
         ruidos_checkbox7 = st.checkbox('não há um local adequado para fazer um telefonema ou chamada de vídeo', key='ruidos_checkbox7')
         outros = st.checkbox('outro, por favor especifique:', key='outros_3')
         if outros:
-            entrada = st.text_area(label='no label', label_visibility='hidden',value=None, key='entrybox_3', placeholder='Descreva aqui', max_chars=150)
+            entrada = st.text_input(label='no label', label_visibility='hidden',value=None, key='entrybox_3', placeholder='Descreva aqui', max_chars=150)
 
 
 
