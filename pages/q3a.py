@@ -1,6 +1,5 @@
 from configurate import *
 
-open(r'base/hierarquia.txt', 'a').write('x')
 create_top(big_text_title='Puxa, encontramos um problema com a qualidade do ar interno...', img_url=r'static/Q3a.png')
 
 st.subheader('Com relação ao ar interno próximo à sua estação de trabalho, com qual frequência você costuma identificar algum dos itens ou sintomas a seguir?')
@@ -86,6 +85,7 @@ if next_page_button('Próximo'):
             if outros:
                 PeR['id_pergunta'].append('outros motivos')
                 PeR['resposta'].append(entrada)
+        open(r'base/hierarquia.txt', 'a').write('x')
         switch_page('q4')
     else:
         st.error(message)

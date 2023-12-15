@@ -2,7 +2,6 @@ from configurate import *
 
 create_top(big_text_title='Parece que encontramos um ponto crítico com a acústica...', img_url=r'static/Q5a.png')
 
-open(r'base/hierarquia.txt', 'a').write('x')
 img_width = 200
 
 existe_janela = open(r'base/janela.txt', 'r').read()
@@ -189,6 +188,7 @@ if next_page_button('Próximo'):
             if outros:
                 PeR['id_pergunta'].append('q5a - outros motivos')
                 PeR['resposta'].append(entrada)
+        open(r'base/hierarquia.txt', 'a').write('x')
         if len(open(r'base/hierarquia.txt', 'r').read()) >= 2:
             switch_page('hi')
         else:

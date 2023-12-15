@@ -1,6 +1,5 @@
 from configurate import *
 
-open(r'base/hierarquia.txt', 'a').write('x')
 existe_janela = open(r'base/janela.txt', 'r').read()
 if existe_janela == '1':
     existe_janela = True
@@ -480,6 +479,7 @@ if next_page_button('Próximo'):
             if baixasfrias_outros_checkbox:
                 PeR['id_pergunta'].append('q2a - outros motivos de desconforto em meses frios')
                 PeR['resposta'].append(entrada_baixasfrias)
+        open(r'base/hierarquia.txt', 'a').write('x')
         switch_page('q3')
     else:
         st.error(message) 

@@ -1,6 +1,5 @@
 from configurate import *
 
-open(r'base/hierarquia.txt', 'a').write('x')
 img_width = 200
 create_top(big_text_title='Opa, encontramos um problema com o conforto visual...', img_url=r'static/Q4a.png')
 
@@ -278,6 +277,7 @@ if next_page_button('Próximo'):
             if outros:
                 PeR['id_pergunta'].append('q4a - outros motivos')
                 PeR['resposta'].append(entrada)
+        open(r'base/hierarquia.txt', 'a').write('x')
         switch_page('q5')
     else:
         st.error(message)
