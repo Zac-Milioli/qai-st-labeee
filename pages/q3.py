@@ -1,6 +1,6 @@
 from configurate import *
 
-create_top(big_text_title='Qualidade do ar interno')
+create_top(big_text_title='Qualidade do ar interno', use_progress=True, progress_percentage=40)
 
 st.markdown("""
     <style>

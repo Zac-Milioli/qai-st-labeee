@@ -15,8 +15,10 @@ if submit:
     elif mail:
         if '@' not in mail:
             st.error('Insira um email válido para receber o código de verificação')
+        if ' ' in mail:
+            st.error('Não utilize espaços no seu endereço de email')
         else:
-            st.session_state.authorization_code_random = mail_auth_code(mail_person=mail)
+            st.session_state['auth'] = mail_auth_code(mail_person=mail)
 
 
 esquerda, meio, direita = st.columns([1.6,1,1.8])
@@ -25,14 +27,15 @@ confirmacao_texto = meio.text_input('nolabel', label_visibility='hidden', max_ch
 st.title('')
 if centered_button('Iniciar questionário'):
     if confirmacao_texto:
-        try: 
-            if confirmacao_texto != st.session_state.authorization_code_random:
+        if st.session_state['auth']:
+            st.write(st.session_state['auth']) 
+            if confirmacao_texto != st.session_state['auth']:
                 st.error('Usuário não autorizado / Código incorreto')
             else:
                 open(r'base/hierarquia.txt', 'w').write('')
                 open(r'base/person_mail.txt', 'w').write(mail)
                 switch_page('q0')
-        except:
+        else:
             st.error('Código de verificação não gerado, insira seu email, clique no botão de envio e copie o código que receber por email')
     else:
         st.error('Código de verificação não inserido')

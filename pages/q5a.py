@@ -1,6 +1,6 @@
 from configurate import * 
 
-create_top(big_text_title='Parece que encontramos um ponto crítico com a acústica...', img_url=r'static/Q5a.png')
+create_top(big_text_title='Parece que encontramos um ponto crítico com a acústica...', img_url=r'static/Q5a.png', use_progress=True, progress_percentage=65)
 
 img_width = 200
 

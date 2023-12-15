@@ -1,6 +1,6 @@
 from configurate import *
 
-create_top(big_text_title='Você pode escolher diariamente a sua estação de trabalho -', subtitle='queremos saber um pouco mais sobre isso.')
+create_top(big_text_title='Você pode escolher diariamente a sua estação de trabalho -', subtitle='queremos saber um pouco mais sobre isso.', use_progress=True, progress_percentage=21)
 
 st.subheader('Quais dos fatores a seguir são mais importantes na escolha da sua estação de trabalho?')
 

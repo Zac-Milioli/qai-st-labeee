@@ -1,6 +1,6 @@
 from configurate import *
 
-create_top(big_text_title='Considerando a atual configuração física do seu escritório,', use_line=False)
+create_top(big_text_title='Considerando a atual configuração física do seu escritório,', use_line=False, use_progress=True, progress_percentage=70)
 
 st.subheader('você poderia indicar a importância dos fatores a seguir na realização das suas atividades de trabalho diárias?')
 left = 'pouco importante'

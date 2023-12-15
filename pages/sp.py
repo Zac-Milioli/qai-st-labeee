@@ -1,6 +1,6 @@
 from configurate import *
 
-create_top('Ao solicitar algum ajuste e/ou alteração nos sistemas a seguir a fim de atender à sua preferência,', use_line=False)
+create_top('Ao solicitar algum ajuste e/ou alteração nos sistemas a seguir a fim de atender à sua preferência,', use_line=False, use_progress=True, progress_percentage=85)
 
 st.subheader('qual o seu nível de satisfação com a velocidade e a eficiência da resposta à sua solicitação?')
 

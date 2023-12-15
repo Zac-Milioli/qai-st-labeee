@@ -1,6 +1,6 @@
 from configurate import *
 
-create_top(big_text_title='O seu ambiente de trabalho', subtitle='Por favor selecione o tipo de layout do escritório que representa o seu ambiente de trabalho.')
+create_top(big_text_title='O seu ambiente de trabalho', subtitle='Por favor selecione o tipo de layout do escritório que representa o seu ambiente de trabalho.', use_progress=True, progress_percentage=15)
 select_width = 120
 
 st.info('As ilustrações abaixo podem auxiliá-lo(a) a diferenciar os tipos de layout', icon='ℹ️')

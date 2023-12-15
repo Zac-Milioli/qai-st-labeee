@@ -1,6 +1,6 @@
 from configurate import *
 
-create_top(big_text_title='Conforto Térmico', subtitle='Com relação ao ambiente térmico da sua estação de trabalho, você costuma sentir algum dos itens a seguir?')
+create_top(big_text_title='Conforto Térmico', subtitle='Com relação ao ambiente térmico da sua estação de trabalho, você costuma sentir algum dos itens a seguir?', use_progress=True, progress_percentage=30)
 
 st.markdown("""
     <style>

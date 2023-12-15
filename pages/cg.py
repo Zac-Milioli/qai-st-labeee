@@ -1,6 +1,6 @@
 from configurate import *
 
-create_top(big_text_title='Considerando todos os aspectos,', use_line=False)
+create_top(big_text_title='Considerando todos os aspectos,', use_line=False, use_progress=True, progress_percentage=75)
 
 st.subheader('por favor indique o seu nível de satisfação com o conforto em geral da sua estação de trabalho.')
 

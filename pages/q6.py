@@ -1,6 +1,6 @@
 from configurate import *
 
-create_top(big_text_title='Dados pessoais')
+create_top(big_text_title='Dados pessoais', use_progress=True, progress_percentage=95)
 
 st.subheader('Para caracterizar a amostra da nossa pesquisa, precisamos de algumas informações pessoais')
 st.title('')

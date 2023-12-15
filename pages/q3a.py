@@ -1,6 +1,6 @@
 from configurate import *
 
-create_top(big_text_title='Puxa, encontramos um problema com a qualidade do ar interno...', img_url=r'static/Q3a.png')
+create_top(big_text_title='Puxa, encontramos um problema com a qualidade do ar interno...', img_url=r'static/Q3a.png', use_progress=True, progress_percentage=45)
 
 st.subheader('Com relação ao ar interno próximo à sua estação de trabalho, com qual frequência você costuma identificar algum dos itens ou sintomas a seguir?')
 opt = ['diariamente, na maior parte do tempo', 'diariamente, durante algumas horas', 'eventualmente, durante algumas horas', 'raramente, durante algumas horas', 'nunca sinto']

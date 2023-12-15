@@ -8,10 +8,10 @@ from random import randint
 
 PeR = {'id_pergunta': [], 'resposta': []}
 placeholder_img = r'static/placeholder.png'
-
+st.session_state['auth'] = False
 authorization_list = ['teste1', 'teste2', 'teste3', 'teste4', 'teste5']
 
-def create_top(big_text_title: str = None, subtitle: str = None, subtitle2: str = None, subsubtitle: str = None, img_url: str = None, use_line: bool = True):
+def create_top(big_text_title: str = None, subtitle: str = None, subtitle2: str = None, subsubtitle: str = None, img_url: str = None, use_line: bool = True, use_progress: bool = False, progress_percentage:int = 0):
     st.set_page_config(
     page_title='QAI em Escritórios',
     page_icon = '🖥️',
@@ -30,6 +30,11 @@ def create_top(big_text_title: str = None, subtitle: str = None, subtitle2: str 
     hide_pages(['QAI', 'q0', 'introq1_sat', 'introq1_insat', 'q1a', 'c0', 'q1b', 'q1c', 'q2', 'q2a', 'q3', 'q3a', 'q4', 'q4a', 'q5', 'q5a', 'hi', 'cg', 'cp', 'sp', 'q6', 'fim'])
     with st.container():
         esquerda, meio, direita = st.columns(3)
+        if use_progress:
+            meio.progress(progress_percentage)
+
+    with st.container():
+        esquerda, meio, direita = st.columns([1.1,1, 1])
         meio.image(r'static/lab_banner.png', width=400)
 
     with st.container():
@@ -168,6 +173,7 @@ def mail_auth_code(mail_person:str):
     <p>Seu código de verificação para o questionário é<p>
     <h1><strong>{auth_code}</strong></h1>
     <p>Copie e cole exatamente este código na tela inicial do QAI<p>
+    <br>
     <hr>
     <p>Este é um email automático, responde-lo não resultará em nada</p><br><br>
     <a href="https://labeee.ufsc.br/pt-br/en-welcome"><img src="https://labeee.ufsc.br/sites/default/files/labeee_final_completo_maior.png" width="400" /></a>"""
@@ -187,6 +193,7 @@ def mail_auth_code(mail_person:str):
 def send_thanks_email(mail_person:str):
     corpo_email = f"""
     <h2>A equipe LabEEE agradece pela participação na pesquisa!</h2>
+    <br>
     <hr>
     <p>Este é um email automático, responde-lo não resultará em nada</p><br><br>
     <a href="https://labeee.ufsc.br/pt-br/en-welcome"><img src="https://labeee.ufsc.br/sites/default/files/labeee_final_completo_maior.png" width="400" /></a>"""
@@ -195,6 +202,7 @@ def send_thanks_email(mail_person:str):
     msg['From'] = 'escritorios.qai.bot@gmail.com'
     msg['To'] = mail_person
     password = 'sxux ztfv fsiw aqfp'
+    msg.add_header('Content-Type', 'text/html')
     msg.set_payload(corpo_email)
     s = smtplib.SMTP('smtp.gmail.com: 587')
     s.starttls()

@@ -1,6 +1,6 @@
 from configurate import *
 
-create_top(big_text_title='Conforto acústico')
+create_top(big_text_title='Conforto acústico', use_progress=True, progress_percentage=60)
 
 st.subheader('Com relação ao conforto acústico na sua estação de trabalho, você costuma sentir algum dos itens a seguir?')
 

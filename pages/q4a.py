@@ -1,7 +1,7 @@
 from configurate import *
 
 img_width = 200
-create_top(big_text_title='Opa, encontramos um problema com o conforto visual...', img_url=r'static/Q4a.png')
+create_top(big_text_title='Opa, encontramos um problema com o conforto visual...', img_url=r'static/Q4a.png', use_progress=True, progress_percentage=55)
 
 existe_janela = open(r'base/janela.txt', 'r').read()
 if existe_janela == '1':

@@ -6,7 +6,7 @@ if existe_janela == '1':
 else:
     existe_janela = False
 
-create_top(big_text_title='Parece que temos um probleminha com o ambiente térmico...', img_url=r'static/Q2a.png')
+create_top(big_text_title='Parece que temos um probleminha com o ambiente térmico...', img_url=r'static/Q2a.png', use_progress=True, progress_percentage=35)
 img_width = 200
 st.subheader('Por favor indique quais dos itens a seguir estão presentes no seu ambiente de trabalho:')
 st.title('')

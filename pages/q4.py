@@ -1,6 +1,6 @@
 from configurate import *
 
-create_top(big_text_title='Conforto visual')
+create_top(big_text_title='Conforto visual', use_progress=True, progress_percentage=50)
 
 st.subheader('Com relação ao conforto visual na sua estação de trabalho, você costuma sentir algum dos itens a seguir?')
 

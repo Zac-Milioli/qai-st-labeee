@@ -1,6 +1,6 @@
 from configurate import *
 
-create_top(big_text_title='Pesquisa de clima organizacional', img_url=r'static/Q0.png', use_line=False)
+create_top(big_text_title='Pesquisa de clima organizacional', img_url=r'static/Q0.png', use_line=False, use_progress=True, progress_percentage=5)
 
 st.markdown("""
     <style>
