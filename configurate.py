@@ -12,7 +12,8 @@ def create_top(big_text_title: str = None, subtitle: str = None, subtitle2: str 
     st.set_page_config(
     page_title='QAI em Escritórios',
     page_icon = '🖥️',
-    layout='wide'
+    layout='wide',
+    initial_sidebar_state='collapsed'
     )
     hide_pages(['QAI', 'q0', 'introq1_sat', 'introq1_insat', 'q1a', 'c0', 'q1b', 'q1c', 'q2', 'q2a', 'q3', 'q3a', 'q4', 'q4a', 'q5', 'q5a', 'hi', 'cg', 'cp', 'sp', 'q6', 'fim'])
     with st.container():
