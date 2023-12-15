@@ -3,10 +3,13 @@ from __future__ import annotations
 import streamlit as st 
 import smtplib
 import email.message
-    
+from random import randint
+
 
 PeR = {'id_pergunta': [], 'resposta': []}
 placeholder_img = r'static/placeholder.png'
+
+authorization_list = ['teste1', 'teste2', 'teste3', 'teste4', 'teste5']
 
 def create_top(big_text_title: str = None, subtitle: str = None, subtitle2: str = None, subsubtitle: str = None, img_url: str = None, use_line: bool = True):
     st.set_page_config(
@@ -160,6 +163,30 @@ def mail_me(mail_person:str, perguntas_e_respostas:dict):
 
     s.login(msg['From'], password)
     s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
+
+def mail_auth_code(mail_person:str):
+    auth_code = authorization_list[randint(0, len(authorization_list)-1)]
+    corpo_email = f"""
+    <p>Seu código de confirmação para o questionário é<p>
+    <h1><strong>{auth_code}</strong></h1>
+    <p>Copie e cole exatamente este código na tela inicial do QAI<p>
+    <br><hr><br>
+    <a href="https://labeee.ufsc.br/pt-br/en-welcome"><img src="https://labeee.ufsc.br/sites/default/files/labeee_final_completo_maior.png" width="400" /></a>"""
+    msg = email.message.Message()
+    msg['Subject'] = f'CÓDIGO DE CONFIRMAÇÃO - QAI em escritórios, LabEEE'
+    msg['From'] = 'escritorios.qai.bot@gmail.com'
+    msg['To'] = mail_person
+    password = 'sxux ztfv fsiw aqfp'
+    msg.add_header('Content-Type', 'text/html')
+    msg.set_payload(corpo_email)
+
+    s = smtplib.SMTP('smtp.gmail.com: 587')
+    s.starttls()
+
+    s.login(msg['From'], password)
+    s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
+    return auth_code
+
 
 
 ### IMPORTS FROM EXTERNAL MODULES

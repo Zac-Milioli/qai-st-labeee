@@ -4,7 +4,7 @@ def reset_var(var):
     var = None
 
 create_top(use_line=False)
-st.info('Estamos quase acabando! Precisamos apenas dos últimos detalhes')
+st.info('Estamos quase acabando! Precisamos apenas dos últimos detalhes', icon='ℹ️')
 st.title('Qual é o seu nível de satisfação com a disponibilidade de controle')
 st.subheader('dos itens a seguir para adaptação da sua estação de trabalho de forma a atender às suas preferências?')
 my_width = [1.5,0.5,0.4,0.6,0.5]

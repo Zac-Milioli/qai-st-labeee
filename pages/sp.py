@@ -24,7 +24,7 @@ with meio:
     else:
         clima = create_radio(extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='clima', min=1, max=5, five_columns_width=my_width)
 esquerda, direita = st.columns([1.2,0.2])
-esquerda.info('por exemplo, elevar ou reduzir a temperatura do sistema de climatização')
+esquerda.info('por exemplo, elevar ou reduzir a temperatura do sistema de climatização', icon='ℹ️')
 
 
 esquerda, meio, direita = st.columns([0.2,1,0.2])
@@ -40,7 +40,7 @@ with meio:
     else:
         ventilacao = create_radio(extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='ventilacao', min=1, max=5, five_columns_width=my_width)
 esquerda, direita = st.columns([1.2,0.2])
-esquerda.info('por exemplo, aumentar ou reduzir a velocidade e/ou direção do ar')
+esquerda.info('por exemplo, aumentar ou reduzir a velocidade e/ou direção do ar', icon='ℹ️')
 
 
 esquerda, meio, direita = st.columns([0.2,1,0.2])
@@ -56,7 +56,7 @@ with meio:
     else:
         iluminacao = create_radio(extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)', divide=True, key='iluminacao', min=1, max=5, five_columns_width=my_width)
 esquerda, direita = st.columns([1.2,0.2])
-esquerda.info('por exemplo, trocar, acender ou apagar lâmpadas; abrir ou fechar elementos de sombreamento')
+esquerda.info('por exemplo, trocar, acender ou apagar lâmpadas; abrir ou fechar elementos de sombreamento', icon='ℹ️')
 
 st.title('')
 st.title('')

@@ -1,7 +1,7 @@
 from configurate import *
 
 create_top(big_text_title='Onde você passa mais tempo?', subtitle='Em um dia típico de trabalho, com que frequência você estima que utilize...', use_line=True)
-st.info('Já sabemos como é o layout da sua estação de trabalho e a sua proximidade com as aberturas. Agora precisamos saber o tempo que você costuma utilizar cada um desses ambientes.')
+st.info('Já sabemos como é o layout da sua estação de trabalho e a sua proximidade com as aberturas. Agora precisamos saber o tempo que você costuma utilizar cada um desses ambientes.', icon='ℹ️')
 st.markdown("""
     <style>
     [role=radiogroup]{

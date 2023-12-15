@@ -3,7 +3,7 @@ from configurate import *
 create_top(big_text_title='Proximidade a janelas', subtitle='Existem janelas e/ou outras áreas envidraçadas no seu ambiente de trabalho?')
 select_width = 200
 
-st.info('As ilustrações abaixo podem auxiliá-lo(a) a diferenciar as alternativas')
+st.info('As ilustrações abaixo podem auxiliá-lo(a) a diferenciar as alternativas', icon='ℹ️')
 
 esquerda, meio, direita = st.columns(3)
 

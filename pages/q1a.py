@@ -3,7 +3,7 @@ from configurate import *
 create_top(big_text_title='O seu ambiente de trabalho', subtitle='Por favor selecione o tipo de layout do escritório que representa o seu ambiente de trabalho.')
 select_width = 120
 
-st.info('As ilustrações abaixo podem auxiliá-lo(a) a diferenciar os tipos de layout')
+st.info('As ilustrações abaixo podem auxiliá-lo(a) a diferenciar os tipos de layout', icon='ℹ️')
 
 esquerda, meioesquerda, meio, meiodireita = st.columns(4)
 esquerda.title('')

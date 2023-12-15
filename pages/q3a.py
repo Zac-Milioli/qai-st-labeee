@@ -51,7 +51,7 @@ if qualidadedoar:
         st.title('')
         st.title("Temos uma nota baixa para a qualidade do ar...")
         st.subheader('Então, para termos certeza, por favor indique os motivos pelos quais você está insatisfeito(a).')
-        st.info('Você pode selecionar mais de um, se aplicável.')
+        st.info('Você pode selecionar mais de um, se aplicável.', icon='ℹ️')
         st.title('')
         cheiroscheckbox = st.checkbox('cheiros e odores', key='cheiroscheckbox')
         abafadocheckbox = st.checkbox('ambiente abafado', key='abafadocheckbox')
