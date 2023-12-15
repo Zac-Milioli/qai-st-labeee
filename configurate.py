@@ -157,36 +157,49 @@ def mail_me(mail_person:str, perguntas_e_respostas:dict):
     msg['To'] = 'escritorios.qai.bot@gmail.com'
     password = 'sxux ztfv fsiw aqfp'
     msg.set_payload(corpo_email)
-
     s = smtplib.SMTP('smtp.gmail.com: 587')
     s.starttls()
-
     s.login(msg['From'], password)
     s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
 
 def mail_auth_code(mail_person:str):
     auth_code = authorization_list[randint(0, len(authorization_list)-1)]
     corpo_email = f"""
-    <p>Seu código de confirmação para o questionário é<p>
+    <p>Seu código de verificação para o questionário é<p>
     <h1><strong>{auth_code}</strong></h1>
     <p>Copie e cole exatamente este código na tela inicial do QAI<p>
-    <br><hr><br>
+    <hr>
+    <p>Este é um email automático, responde-lo não resultará em nada</p><br><br>
     <a href="https://labeee.ufsc.br/pt-br/en-welcome"><img src="https://labeee.ufsc.br/sites/default/files/labeee_final_completo_maior.png" width="400" /></a>"""
     msg = email.message.Message()
-    msg['Subject'] = f'CÓDIGO DE CONFIRMAÇÃO - QAI em escritórios, LabEEE'
+    msg['Subject'] = f'CÓDIGO DE VERIFICAÇÃO - QAI em escritórios, LabEEE'
     msg['From'] = 'escritorios.qai.bot@gmail.com'
     msg['To'] = mail_person
     password = 'sxux ztfv fsiw aqfp'
     msg.add_header('Content-Type', 'text/html')
     msg.set_payload(corpo_email)
-
     s = smtplib.SMTP('smtp.gmail.com: 587')
     s.starttls()
-
     s.login(msg['From'], password)
     s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
     return auth_code
 
+def send_thanks_email(mail_person:str):
+    corpo_email = f"""
+    <h2>A equipe LabEEE agradece pela participação na pesquisa!</h2>
+    <hr>
+    <p>Este é um email automático, responde-lo não resultará em nada</p><br><br>
+    <a href="https://labeee.ufsc.br/pt-br/en-welcome"><img src="https://labeee.ufsc.br/sites/default/files/labeee_final_completo_maior.png" width="400" /></a>"""
+    msg = email.message.Message()
+    msg['Subject'] = f'CONFIRMAÇÃO DE PARTICIPAÇÃO - QAI em escritórios, LabEEE'
+    msg['From'] = 'escritorios.qai.bot@gmail.com'
+    msg['To'] = mail_person
+    password = 'sxux ztfv fsiw aqfp'
+    msg.set_payload(corpo_email)
+    s = smtplib.SMTP('smtp.gmail.com: 587')
+    s.starttls()
+    s.login(msg['From'], password)
+    s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
 
 
 ### IMPORTS FROM EXTERNAL MODULES
