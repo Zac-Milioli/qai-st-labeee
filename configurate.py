@@ -24,8 +24,12 @@ def create_top(big_text_title: str = None, subtitle: str = None, subtitle2: str 
     [data-testid="collapsedControl"] {
         display: none
     }
+    [data-testid="stToolbarActions"] {
+        display: none
+    }
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
+
 </style>
 """,
     unsafe_allow_html=True,)
