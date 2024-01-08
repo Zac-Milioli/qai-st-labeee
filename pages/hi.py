@@ -41,7 +41,7 @@ with st.form('hierarquia de importância'):
             selecao.pop(indice_sorteado)
     st.title('')
     st.title('')
-    esquerda, meio, direita = st.columns(3)
+    esquerda, direita = st.columns([2,0.5])
     with direita:
         seguir = st.form_submit_button('Próximo')
     st.title('')
