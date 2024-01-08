@@ -12,7 +12,7 @@ st.title('')
 esquerda, direita = st.columns([1,0.2])
 
 with direita:
-    st.caption('não possui')
+    st.caption('meu escritório não possui')
     st.write('')
     st.write('')
     arcondicionado_checkbox = st.checkbox('no label', label_visibility='hidden', key='arcondicionado_checkbox')
