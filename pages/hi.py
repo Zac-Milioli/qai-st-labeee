@@ -40,14 +40,13 @@ with st.form('hierarquia de importância'):
             fat9 = create_radio(phrase='estar próximo à colegas e equipe de trabalho mesmo que não esteja totalmente confortável', divide=True, extreme_left=left, extreme_right=right, min=1, max=5, key='fat9')
             selecao.pop(indice_sorteado)
 
-
-st.title('')
-seguir = st.form_submit_button('Próximo')
-if seguir:
-    questoes = [fat1, fat2, fat3, fat4, fat5, fat6, fat7, fat8, fat9]
-    if None in questoes:
-        st.error('Responda **todas** as questões para prosseguir')
-    else:
-        PeR['id_pergunta'] += ['hi - conforto térmico', 'hi - qualidade do ar', 'hi - conforto visual', 'hi - conforto acústico', 'hi - ambientes específicos para atividades diferenciadas', 'hi - proximidade e/ou acesso a vistas externas', 'hi - privacidade visual', 'hi - privacidade acústica', 'hi - estar próximo à colegas e equipe de trabalho mesmo que não esteja totalmente confortável']
-        PeR['resposta'] += questoes
-        switch_page('cg')
+    st.title('')
+    seguir = st.form_submit_button('Próximo')
+    if seguir:
+        questoes = [fat1, fat2, fat3, fat4, fat5, fat6, fat7, fat8, fat9]
+        if None in questoes:
+            st.error('Responda **todas** as questões para prosseguir')
+        else:
+            PeR['id_pergunta'] += ['hi - conforto térmico', 'hi - qualidade do ar', 'hi - conforto visual', 'hi - conforto acústico', 'hi - ambientes específicos para atividades diferenciadas', 'hi - proximidade e/ou acesso a vistas externas', 'hi - privacidade visual', 'hi - privacidade acústica', 'hi - estar próximo à colegas e equipe de trabalho mesmo que não esteja totalmente confortável']
+            PeR['resposta'] += questoes
+            switch_page('cg')
