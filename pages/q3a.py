@@ -3,24 +3,24 @@ from configurate import *
 create_top(big_text_title='Puxa, encontramos um problema com a qualidade do ar interno...', img_url=r'static/Q3a.png', use_progress=True, progress_percentage=45)
 
 st.subheader('Com relação ao ar interno próximo à sua estação de trabalho, com qual frequência você costuma identificar algum dos itens ou sintomas a seguir?')
-opt = ['diariamente, na maior parte do tempo', 'diariamente, durante algumas horas', 'eventualmente, durante algumas horas', 'raramente, durante algumas horas', 'nunca sinto']
+opt = ['sempre', 'muitas vezes', 'às vezes', 'poucas vezes', 'nunca']
 width_choosen = [1.5,2]
 
 
-esquerda, meio, direita = st.columns([1,1.3,0.1], gap='large')
+esquerda, meio, direita = st.columns([1.1,1.1,0.3], gap='large')
 with meio:
-    sempre, muitas_vezes, as_vezes, poucas_vezes, nunca, nao_possui = st.columns(6, gap='medium')
-    sempre.write('diariamente, na maior parte do tempo')
-    muitas_vezes.write('diariamente, durante algumas horas')
-    as_vezes.write('eventualmente, durante algumas horas')
-    poucas_vezes.write('raramente, durante algumas horas')
-    nunca.write('nunca sinto')
+    sempre, muitas_vezes, as_vezes, poucas_vezes, nunca, nao_possui = st.columns(6, gap='large')
+    sempre.write('sempre')
+    muitas_vezes.write('muitas vezes')
+    as_vezes.write('às vezes')
+    poucas_vezes.write('poucas vezes')
+    nunca.write('nunca')
 
 with st.container():
     st.markdown("""
     <style>
     [role=radiogroup]{
-        gap: 7rem;
+        gap: 5rem;
     }
     </style>
     """,unsafe_allow_html=True)
@@ -37,22 +37,8 @@ st.title('Considerando todos os aspectos,')
 st.subheader('qual o seu nível de satisfação com a qualidade do ar interno na sua estação de trabalho?')
 st.title('')
 
-# new_width = [0.8,0.2,0.25,0.4,0.4]
-# qualidadedoar = create_radio(divide=True, five_columns_width=new_width, min=1, max=5, extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)')
-space, pos1,pos2,pos3,pos4,pos5 = st.columns([2.3,0.5,0.5,0.5,0.5,0.5])
-pos1.subheader('😟')
-pos2.subheader('🙁')
-pos3.subheader('😐')
-pos4.subheader('🙂')
-pos5.subheader('😄')
-esquerda, esquerda_check, caption_esquerda, slider_local, caption_direita = st.columns([0.3,0.7,0.15,1,0.2], gap='medium')
-# checkbox_pergunta = esquerda_check.checkbox('Responder a pergunta')
-caption_direita.title('')
-caption_esquerda.title('')
-caption_esquerda.caption('insatisfeito(a)')
-caption_direita.caption('satisfeito(a)')
-with slider_local:
-    qualidadedoar = st.slider(label='nolabel', label_visibility='hidden', min_value=1, max_value=5, value=5, key='testeslider', format='')
+new_width = [0.8,0.2,0.25,0.4,0.4]
+qualidadedoar = create_radio(divide=True, five_columns_width=new_width, min=1, max=5, extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)')
 
 qualidadedoar_ruim = False
 if qualidadedoar:
