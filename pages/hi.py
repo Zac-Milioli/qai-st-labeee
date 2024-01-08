@@ -39,9 +39,11 @@ with st.form('hierarquia de importância'):
         elif valor_sorteado == 9:
             fat9 = create_radio(phrase='estar próximo à colegas e equipe de trabalho mesmo que não esteja totalmente confortável', divide=True, extreme_left=left, extreme_right=right, min=1, max=5, key='fat9')
             selecao.pop(indice_sorteado)
-
+    esquerda, meio, direita = st.columns(3)
     st.title('')
-    seguir = st.form_submit_button('Próximo')
+    st.title('')
+    with direita:
+        seguir = st.form_submit_button('Próximo')
     if seguir:
         questoes = [fat1, fat2, fat3, fat4, fat5, fat6, fat7, fat8, fat9]
         if None in questoes:
