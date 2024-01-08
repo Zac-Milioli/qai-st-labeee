@@ -9,6 +9,7 @@ from random import randint
 PeR = {'id_pergunta': [], 'resposta': []}
 placeholder_img = r'static/placeholder.png'
 st.session_state['auth'] = False
+st.session_state['sorteou'] = False
 authorization_list = ['teste1', 'teste2', 'teste3', 'teste4', 'teste5']
 
 def create_top(big_text_title: str = None, subtitle: str = None, subtitle2: str = None, subsubtitle: str = None, img_url: str = None, use_line: bool = True, use_progress: bool = False, progress_percentage:int = 0):
