@@ -44,6 +44,8 @@ with st.form('hierarquia de importância'):
     esquerda, meio, direita = st.columns(3)
     with direita:
         seguir = st.form_submit_button('Próximo')
+    st.title('')
+    st.title('')
     if seguir:
         questoes = [fat1, fat2, fat3, fat4, fat5, fat6, fat7, fat8, fat9]
         if None in questoes:
