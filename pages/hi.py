@@ -1,7 +1,7 @@
 from configurate import *
 
 create_top(big_text_title='Considerando a atual configuração física do seu escritório,', use_line=False, use_progress=True, progress_percentage=70)
-sorteio = open(r'base/sorteio.txt', 'r').read()
+sorteio = str(open(r'base/sorteio.txt', 'r').read())
 
 st.subheader('você poderia indicar a importância dos fatores a seguir na realização das suas atividades de trabalho diárias?')
 left = 'pouco importante'
@@ -9,7 +9,7 @@ right = 'muito importante'
 
 st.title('')
 selecao = [1,2,3,4,5,6,7,8,9]
-if not sorteio:
+if sorteio == '0':
     open(r'base/sorteio.txt', 'w').write('1')
     with st.container():
         while len(selecao) >= 1:
