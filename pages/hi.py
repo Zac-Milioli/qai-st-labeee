@@ -9,6 +9,7 @@ right = 'muito importante'
 st.title('')
 selecao = [1,2,3,4,5,6,7,8,9]
 if not st.session_state['sorteou']:
+    st.session_state['sorteou'] = True
     with st.container():
         while len(selecao) >= 1:
             indice_sorteado = randint(0,len(selecao)-1)
