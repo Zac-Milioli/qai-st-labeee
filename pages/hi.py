@@ -7,7 +7,7 @@ left = 'pouco importante'
 right = 'muito importante'
 
 st.title('')
-with st.form():
+with st.form('hierarquia de importância'):
     selecao = [1,2,3,4,5,6,7,8,9]
     while len(selecao) >= 1:
         indice_sorteado = randint(0,len(selecao)-1)
