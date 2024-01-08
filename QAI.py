@@ -2,7 +2,7 @@ from configurate import *
 
 create_top(big_text_title='QAI em Escritórios', subtitle='Design e organização: Luiza de Castro', subtitle2='Desenvolvimento: Zac Milioli')
 
-st.info('Para iniciar o questionário, é necessário inserir um email válido, copiar o código que receber em sua caixa de entrada e colar no local designado. Fazemos isso para garantir a autenticidade da pesquisa. **Seus email não será visto por ninguém além da equipe de pesquisadores**.', icon='ℹ️')
+st.info('Para garantir a autenticidade da pesquisa, será enviado um código de verificação para seu email. **Suas respostas são anônimas e confidenciais.**', icon='ℹ️')
 st.title('')
 caixa_email, botao_enviar = st.columns([1,0.1])
 mail = caixa_email.text_input('no label', label_visibility='hidden', max_chars=100, key='emaildoparticipante', placeholder='Insira seu email')

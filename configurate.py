@@ -177,10 +177,10 @@ def mail_auth_code(mail_person:str):
     corpo_email = f"""
     <p>Seu código de verificação para o questionário é<p>
     <h1><strong>{auth_code}</strong></h1>
-    <p>Copie e cole exatamente este código na tela inicial do QAI<p>
+    <p>Esta é uma mensagem automática, não é necessário respondê-la.<p>
     <br>
     <hr>
-    <p>Este é um email automático, responde-lo não resultará em nada</p><br><br>
+    <p>Esta é uma mensagem automática, não é necessário respondê-la.</p><br><br>
     <a href="https://labeee.ufsc.br/pt-br/en-welcome"><img src="https://labeee.ufsc.br/sites/default/files/labeee_final_completo_maior.png" width="400" /></a>"""
     msg = email.message.Message()
     msg['Subject'] = f'CÓDIGO DE VERIFICAÇÃO - QAI em escritórios, LabEEE'
@@ -200,7 +200,7 @@ def send_thanks_email(mail_person:str):
     <h2>A equipe LabEEE agradece pela participação na pesquisa!</h2>
     <br>
     <hr>
-    <p>Este é um email automático, responde-lo não resultará em nada</p><br><br>
+    <p>Esta é uma mensagem automática, não é necessário respondê-la.</p><br><br>
     <a href="https://labeee.ufsc.br/pt-br/en-welcome"><img src="https://labeee.ufsc.br/sites/default/files/labeee_final_completo_maior.png" width="400" /></a>"""
     msg = email.message.Message()
     msg['Subject'] = f'CONFIRMAÇÃO DE PARTICIPAÇÃO - QAI em escritórios, LabEEE'
