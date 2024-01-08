@@ -34,6 +34,7 @@ if centered_button('Iniciar questionário'):
             else:
                 open(r'base/hierarquia.txt', 'w').write('')
                 open(r'base/person_mail.txt', 'w').write(mail)
+                open(r'base/sorteio.txt', 'w').write('0')
                 switch_page('q0')
         else:
             st.error('Código de verificação não gerado, insira seu email, clique no botão de envio e copie o código que receber por email')
