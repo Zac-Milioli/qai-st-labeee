@@ -4,7 +4,7 @@ create_top(big_text_title='Puxa, encontramos um problema com a qualidade do ar i
 
 st.subheader('Com relação ao ar interno próximo à sua estação de trabalho, com qual frequência você costuma identificar algum dos itens ou sintomas a seguir?')
 opt = ['sempre', 'muitas vezes', 'às vezes', 'poucas vezes', 'nunca']
-width_choosen = [1.5,2]
+width_choosen = [1.7,2]
 
 
 esquerda, meio, direita = st.columns([1.1,1.1,0.3], gap='large')
@@ -15,6 +15,7 @@ with meio:
     as_vezes.write('às vezes')
     poucas_vezes.write('poucas vezes')
     nunca.write('nunca')
+
 
 with st.container():
     st.markdown("""
@@ -37,8 +38,7 @@ st.title('Considerando todos os aspectos,')
 st.subheader('qual o seu nível de satisfação com a qualidade do ar interno na sua estação de trabalho?')
 st.title('')
 
-new_width = [0.8,0.2,0.25,0.4,0.4]
-qualidadedoar = create_radio(divide=True, five_columns_width=new_width, min=1, max=5, extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)')
+qualidadedoar = create_radio(divide=True, min=1, max=5, extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)')
 
 qualidadedoar_ruim = False
 if qualidadedoar:
