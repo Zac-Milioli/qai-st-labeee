@@ -41,12 +41,7 @@ with st.form('hierarquia de importância'):
             selecao.pop(indice_sorteado)
     st.title('')
     st.title('')
-    esquerda, direita = st.columns([2,0.5])
-    with direita:
-        seguir = st.form_submit_button('Próximo')
-    st.title('')
-    st.title('')
-    if seguir:
+    if next_page_button('Próximo'):
         questoes = [fat1, fat2, fat3, fat4, fat5, fat6, fat7, fat8, fat9]
         if None in questoes:
             st.error('Responda **todas** as questões para prosseguir')
