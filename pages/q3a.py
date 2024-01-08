@@ -38,7 +38,7 @@ st.title('Considerando todos os aspectos,')
 st.subheader('qual o seu nível de satisfação com a qualidade do ar interno na sua estação de trabalho?')
 st.title('')
 
-my_width = [1,0.5,1,0.6,1]
+my_width = [1,0.5,0.4,1,1]
 qualidadedoar = create_radio(divide=True, five_columns_width=my_width,min=1, max=5, extreme_left='insatisfeito(a)', extreme_right='satisfeito(a)')
 
 qualidadedoar_ruim = False
