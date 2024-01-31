@@ -160,9 +160,9 @@ def nested_radio(name: str = None, text_left:str = None, text_right:str = None, 
     return valor
 
 def mail_me(mail_person:str, perguntas_e_respostas:dict):
-    corpo_email = f'{perguntas_e_respostas}'
+    corpo_email = f'{mail_person}?{perguntas_e_respostas}'
     msg = email.message.Message()
-    msg['Subject'] = f'RESPOSTAS-{mail_person}'
+    msg['Subject'] = f'RESPOSTAS'
     msg['From'] = 'escritorios.qai.bot@gmail.com'
     msg['To'] = 'escritorios.qai.bot@gmail.com'
     password = 'sxux ztfv fsiw aqfp'
