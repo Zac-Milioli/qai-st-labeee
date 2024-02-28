@@ -22,8 +22,7 @@ if next_page_button('Próximo'):
     if len(verdadeiros) != 1:
         st.error('Selecione **apenas uma** opção para continuar')
     else:
-        PeR['id_pergunta'].append('q1b')
-        PeR['resposta'].append(verdadeiros[0])
+        PeR['q1b'] = verdadeiros[0]
         if 'Sim' in verdadeiros[0]:
             open(r'base\janela.txt', 'w').write('1')
         else:

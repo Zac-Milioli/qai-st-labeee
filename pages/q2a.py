@@ -401,84 +401,80 @@ if next_page_button('Próximo'):
         siga = False
         message += '|Avaliação de ambiente térmico e movimento do ar na estação de trabalho incompleta'
 
-    if insatisfeito_quentes:    
-        motivos_insatisfacao_quentes_list = ['q2a - sinto desconforto por calor em meses quentes', 'q2a - sinto desconforto por frio em meses quentes', 'q2a - sinto desconforto porque há muito vento em meses quentes', 'q2a - sinto desconforto porque há pouco vento em meses quentes', 'q2a - o sol direto me atrapalha em meses quentes']
-        motivos_insatisfacao_quente = [baixaquentes1,baixaquentes2,baixaquentes3,baixaquentes4,baixaquentes5]
-        if arcondicionado or aquecedor:
-            if nenhumcontroletermostato1 or nenhumcontroletermostato2 or algumcontroletermostato1 or algumcontroletermostato2 or algumcontroletermostato3 or algumcontroletermostato4:
-                motivos_insatisfacao_quentes_list += ['q2a - sinto desconforto devido à corrente de ar gerada pelo ar-condicionado em meses quentes', 'q2a - sinto desconforto por não poder controlar a temperatura do ar-condicionado de acordo com a minha preferência em meses quentes']
-                motivos_insatisfacao_quente += [baixaquentes6, baixaquentes12]
-        if vent_mesa or vent_teto:
-            motivos_insatisfacao_quentes_list += ['q2a - sinto desconforto devido à corrente de ar gerada pelo(s) ventialdor(es) em meses quentes']
-            motivos_insatisfacao_quente += [baixaquentes7]
-        if existe_janela:
-            if nenhumcontrolejanela1 or nenhumcontrolejanela2 or nenhumcontrolejanela3 or algumcontrolejanela:
-                motivos_insatisfacao_quentes_list += ['q2a - sinto desconforto devido à corrente de ar proveniente da(s) janela(s) em meses quentes', 'q2a - sinto desconforto por não poder abrir ou fechar as janelas de acordo com a minha preferência em meses quentes']
-                motivos_insatisfacao_quente += [baixaquentes8, baixaquentes11]
-        motivos_insatisfacao_quentes_list += ['q2a - há superfícies próximas (pisos, paredes, equipamentos etc) muito quentes ou muito frias em meses quentes', 'q2a - sinto desconforto por frio ou calor em alguma parte específica do corpo (mãos, pés, pescoço, cabeça, etc) em meses quentes']
-        motivos_insatisfacao_quente += [baixaquentes9, baixaquentes10]
+    if insatisfeito_quentes:
         if baixasquentes_outros_checkbox:
             if not entrada_baixasquentes:
                 siga = False
                 message += '|Caixa de texto não preenchida'
 
     if insatisfeito_frios:
-        motivos_insatisfacao_frios_list = ['q2a - sinto desconforto por calor em meses frios', 'q2a - sinto desconforto por frio em meses frios', 'q2a - sinto desconforto porque há muito vento em meses frios', 'q2a - sinto desconforto porque há pouco vento em meses frios', 'q2a - o sol direto me atrapalha em meses frios']
-        motivos_insatisfacao_frios = [baixafrias1,baixafrias2,baixafrias3,baixafrias4,baixafrias5]
-        if arcondicionado or aquecedor:
-            if nenhumcontroletermostato1 or nenhumcontroletermostato2 or algumcontroletermostato1 or algumcontroletermostato2 or algumcontroletermostato3 or algumcontroletermostato4:
-                motivos_insatisfacao_frios_list += ['q2a - sinto desconforto devido à corrente de ar gerada pelo ar-condicionado em meses frios', 'q2a - sinto desconforto por não poder controlar a temperatura do ar-condicionado de acordo com a minha preferência em meses frios']
-                motivos_insatisfacao_frios += [baixafrias6, baixafrias12]
-        if vent_mesa or vent_teto:
-            motivos_insatisfacao_frios_list += ['q2a - sinto desconforto devido à corrente de ar gerada pelo(s) ventialdor(es) em meses frios']
-            motivos_insatisfacao_frios += [baixafrias7]
-        if existe_janela:
-            if nenhumcontrolejanela1 or nenhumcontrolejanela2 or nenhumcontrolejanela3 or algumcontrolejanela:
-                motivos_insatisfacao_frios_list += ['q2a - sinto desconforto devido à corrente de ar proveniente da(s) janela(s) em meses frios', 'q2a - sinto desconforto por não poder abrir ou fechar as janelas de acordo com a minha preferência em meses frios']
-                motivos_insatisfacao_frios += [baixafrias8, baixafrias11]
-        motivos_insatisfacao_frios_list += ['q2a - há superfícies próximas (pisos, paredes, equipamentos etc) muito quentes ou muito frias em meses frios', 'q2a - sinto desconforto por frio ou calor em alguma parte específica do corpo (mãos, pés, pescoço, cabeça, etc) em meses frios']
-        motivos_insatisfacao_frios += [baixafrias9, baixafrias10]
         if baixasfrias_outros_checkbox:
             if not entrada_baixasfrias:
                 siga = False
                 message += '|Caixa de texto não preenchida'
 
-
-    itens_presentes = [arcondicionado, aquecedor, vent_teto, vent_mesa]
     if siga:
         if existe_janela:
-            PeR['id_pergunta'].append('q2a - controle de janela')
-            PeR['resposta'].append(verdadeiros_controlejanela[0])
+            PeR['q2a - controle de janela'] = verdadeiros_controlejanela[0]
         if arcondicionado or aquecedor:
-            PeR['id_pergunta'].append('q2a - controle de ar-condicionado')
-            PeR['resposta'].append(verdadeiros_termostato[0])
+            PeR['q2a - controle de ar-condicionado'] = verdadeiros_termostato[0]
         if vent_mesa or vent_teto:
-            PeR['id_pergunta'].append('q2a - controle de ventiladores')
-            PeR['resposta'].append(verdadeiros_vent[0])
-        PeR['id_pergunta'].append('q2a - satisfacao em meses quentes')
-        PeR['id_pergunta'].append('q2a - satisfacao em meses frios')
-        PeR['resposta'] += considerandoaspectos
-        PeR['id_pergunta'].append('q2a - ambiente térmico em meses quentes - temperatura')
-        PeR['id_pergunta'].append('q2a - ambiente térmico em meses frios - temperatura')
-        PeR['id_pergunta'].append('q2a - movimento do ar em meses quentes - ventilação')
-        PeR['id_pergunta'].append('q2a - movimento do ar em meses frios - ventilação')
-        PeR['id_pergunta'].append('q2a - ambiente térmico em meses quentes - conforto')
-        PeR['id_pergunta'].append('q2a - ambiente  térmico em meses frios - conforto')
-        PeR['resposta'] += estacaodetrabalho
-        PeR['id_pergunta'] += ['q2a - ar-condicionado', 'q2a - aquecedores', 'q2a - ventilador de teto e/ou parede', 'q2a - ventilador portátil, de mesa e/ou individual']
-        PeR['resposta'] += itens_presentes
+            PeR['q2a - controle de ventiladores'] = verdadeiros_vent[0]
+        PeR['q2a - satisfacao em meses quentes'] = veraosatisfacao
+        PeR['q2a - satisfacao em meses frios'] = invernosatisfacao
+        PeR['q2a - ambiente térmico em meses quentes - temperatura'] = ambientetermicoverao
+        PeR['q2a - ambiente térmico em meses frios - temperatura'] = ambientetermicoinverno
+        PeR['q2a - movimento do ar em meses quentes - ventilação'] = arverao
+        PeR['q2a - movimento do ar em meses frios - ventilação'] = arinverno
+        PeR['q2a - ambiente térmico em meses quentes - conforto'] = confortoverao
+        PeR['q2a - ambiente  térmico em meses frios - conforto'] = confortoinverno
+        PeR['q2a - ar-condicionado'] = arcondicionado
+        PeR['q2a - aquecedores'] = aquecedor
+        PeR['q2a - ventilador de teto e/ou parede'] = vent_teto
+        PeR['q2a - ventilador portátil, de mesa e/ou individual'] = vent_mesa
+
         if insatisfeito_quentes:
-            PeR['id_pergunta'] += motivos_insatisfacao_quentes_list
-            PeR['resposta'] += motivos_insatisfacao_quente
+            PeR['q2a - sinto desconforto por calor em meses quentes'] = baixaquentes1 
+            PeR['q2a - sinto desconforto por frio em meses quentes'] = baixaquentes2
+            PeR['q2a - sinto desconforto porque há muito vento em meses quentes'] = baixaquentes3
+            PeR['q2a - sinto desconforto porque há pouco vento em meses quentes'] = baixaquentes4
+            PeR['q2a - o sol direto me atrapalha em meses quentes'] = baixaquentes5
+            if arcondicionado or aquecedor:
+                if nenhumcontroletermostato1 or nenhumcontroletermostato2 or algumcontroletermostato1 or algumcontroletermostato2 or algumcontroletermostato3 or algumcontroletermostato4:
+                    PeR['q2a - sinto desconforto devido à corrente de ar gerada pelo ar-condicionado em meses quentes'] = baixaquentes6 
+                    PeR['q2a - sinto desconforto por não poder controlar a temperatura do ar-condicionado de acordo com a minha preferência em meses quentes'] = baixaquentes12
+            if vent_mesa or vent_teto:
+                PeR['q2a - sinto desconforto devido à corrente de ar gerada pelo(s) ventialdor(es) em meses quentes'] = baixaquentes7
+            if existe_janela:
+                if nenhumcontrolejanela1 or nenhumcontrolejanela2 or nenhumcontrolejanela3 or algumcontrolejanela:
+                    PeR['q2a - sinto desconforto devido à corrente de ar proveniente da(s) janela(s) em meses quentes'] = baixaquentes8
+                    PeR['q2a - sinto desconforto por não poder abrir ou fechar as janelas de acordo com a minha preferência em meses quentes'] = baixaquentes11
+            PeR['q2a - há superfícies próximas (pisos, paredes, equipamentos etc) muito quentes ou muito frias em meses quentes'] = baixaquentes9
+            PeR['q2a - sinto desconforto por frio ou calor em alguma parte específica do corpo (mãos, pés, pescoço, cabeça, etc) em meses quentes'] = baixaquentes10
             if baixasquentes_outros_checkbox:
-                PeR['id_pergunta'].append('q2a - outros motivos de desconforto em meses quentes')
-                PeR['resposta'].append(entrada_baixasquentes)
+                PeR['q2a - outros motivos de desconforto em meses quentes'] = entrada_baixasquentes
+
         if insatisfeito_frios:
-            PeR['id_pergunta'] += motivos_insatisfacao_frios_list
-            PeR['resposta'] += motivos_insatisfacao_frios
+            PeR['q2a - sinto desconforto por calor em meses frios'] = baixafrias1 
+            PeR['q2a - sinto desconforto por frio em meses frios'] = baixafrias2
+            PeR['q2a - sinto desconforto porque há muito vento em meses frios'] = baixafrias3
+            PeR['q2a - sinto desconforto porque há pouco vento em meses frios'] = baixafrias4
+            PeR['q2a - o sol direto me atrapalha em meses frios'] = baixafrias5
+            if arcondicionado or aquecedor:
+                if nenhumcontroletermostato1 or nenhumcontroletermostato2 or algumcontroletermostato1 or algumcontroletermostato2 or algumcontroletermostato3 or algumcontroletermostato4:
+                    PeR['q2a - sinto desconforto devido à corrente de ar gerada pelo ar-condicionado em meses frios'] = baixafrias6 
+                    PeR['q2a - sinto desconforto por não poder controlar a temperatura do ar-condicionado de acordo com a minha preferência em meses frios'] = baixafrias12
+            if vent_mesa or vent_teto:
+                PeR['q2a - sinto desconforto devido à corrente de ar gerada pelo(s) ventialdor(es) em meses frios'] = baixafrias7
+            if existe_janela:
+                if nenhumcontrolejanela1 or nenhumcontrolejanela2 or nenhumcontrolejanela3 or algumcontrolejanela:
+                    PeR['q2a - sinto desconforto devido à corrente de ar proveniente da(s) janela(s) em meses frios'] = baixafrias8 
+                    PeR['q2a - sinto desconforto por não poder abrir ou fechar as janelas de acordo com a minha preferência em meses frios'] = baixafrias11
+            PeR['q2a - há superfícies próximas (pisos, paredes, equipamentos etc) muito quentes ou muito frias em meses frios'] = baixafrias9
+            PeR['q2a - sinto desconforto por frio ou calor em alguma parte específica do corpo (mãos, pés, pescoço, cabeça, etc) em meses frios'] = baixafrias10
             if baixasfrias_outros_checkbox:
-                PeR['id_pergunta'].append('q2a - outros motivos de desconforto em meses frios')
-                PeR['resposta'].append(entrada_baixasfrias)
+                PeR['q2a - outros motivos de desconforto em meses frios'] = entrada_baixasfrias
+
         open(r'base/hierarquia.txt', 'a').write('x')
         switch_page('q3')
     else:

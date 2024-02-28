@@ -58,8 +58,7 @@ if next_page_button(name='Próximo'):
     if len(verdadeiros) != 1:
         st.error('Selecione **apenas uma** opção para prosseguir')
     else:
-        PeR['id_pergunta'].append('q1a')
-        PeR['resposta'].append(verdadeiros[0])
+        PeR['q1a'] = verdadeiros[0]
         if verdadeiros[0] == 'sem localização fixa':
             switch_page('c0')
         else:

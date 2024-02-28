@@ -66,35 +66,30 @@ if next_page_button('Próximo'):
         if not luzes_checkbox:
             ok = False
     if ok:
-        PeR['id_pergunta'].append('cp - controle de ar-condicionado e aquecedores')
         if arcondicionado_checkbox:
-            PeR['resposta'].append('Não possui')
+            PeR['cp - controle de ar-condicionado e aquecedores'] = 'Não possui'
         else:
-            PeR['resposta'].append(arcondicionado)
+            PeR['cp - controle de ar-condicionado e aquecedores'] = arcondicionado
 
-        PeR['id_pergunta'].append('cp - controle de ventiladores')
         if ventiladores_checkbox:
-            PeR['resposta'].append('Não possui')
+            PeR['cp - controle de ventiladores'] = 'Não possui'
         else:
-            PeR['resposta'].append(ventiladores)
+            PeR['cp - controle de ventiladores'] = ventiladores
 
-        PeR['id_pergunta'].append('cp - controle de janelas')
         if janelas_checkbox:
-            PeR['resposta'].append('Não possui')
+            PeR['cp - controle de janelas'] = 'Não possui'
         else:
-            PeR['resposta'].append(janelas)
+            PeR['cp - controle de janelas'] = janelas
 
-        PeR['id_pergunta'].append('cp - controle de cortinas')
         if cortinas_checkbox:
-            PeR['resposta'].append('Não possui')
+            PeR['cp - controle de cortinas'] = 'Não possui'
         else:
-            PeR['resposta'].append(cortinas)
+            PeR['cp - controle de cortinas'] = cortinas
 
-        PeR['id_pergunta'].append('cp - controle de luzes')
         if luzes_checkbox:
-            PeR['resposta'].append('Não possui')
+            PeR['cp - controle de luzes'] = 'Não possui'
         else:
-            PeR['resposta'].append(luzes)
+            PeR['cp - controle de luzes'] = luzes
 
         switch_page('sp')
     else:

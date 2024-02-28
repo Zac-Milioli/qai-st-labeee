@@ -37,6 +37,10 @@ if next_page_button('Próximo'):
     if None in options:
         st.error('Responda **todas** as questões para prosseguir') 
     else:
-        PeR['id_pergunta'] += ['q1c - estação de trabalho', 'q1c - estações de trabalho rotativas', 'q1c - áreas para atividades em grupo', 'q1c - áreas para atividades focadas ou individuais', 'q1c - salas comerciais ou de reunião', 'q1c - atividades externas ou fica fora do escritório']
-        PeR['resposta'] += options
+        PeR['q1c - estação de trabalho'] = estacaodetrabalho
+        PeR['q1c - estações de trabalho rotativas'] = estacaodetrabalhorotativa
+        PeR['q1c - áreas para atividades em grupo'] = areagrupo
+        PeR['q1c - áreas para atividades focadas ou individuais'] =  individual
+        PeR['q1c - salas comerciais ou de reunião'] = conferencia
+        PeR['q1c - atividades externas ou fica fora do escritório'] = fora
         switch_page('q2')

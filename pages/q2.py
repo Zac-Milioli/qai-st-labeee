@@ -37,8 +37,13 @@ if next_page_button('Próximo'):
     if None in options:
         st.error('Responda **todas** as questões para continuar')
     else:
-        PeR['id_pergunta'] += ['q2 - desconforto pelo calor', 'q2 - desconforto pelo frio', 'q2 - desconforto por excesso de vento', 'q2 - desconforto por falta de vento', 'q2 - desconforto por sol direto', 'q2 - desconforto com temperatura de superfícies próximas', 'q2 - desconforto por frio ou calor em partes específicas do corpo']
-        PeR['resposta'] += options
+        PeR['q2 - desconforto pelo calor'] = calor
+        PeR['q2 - desconforto pelo frio'] =frio
+        PeR['q2 - desconforto por excesso de vento'] = mvento
+        PeR['q2 - desconforto por falta de vento'] = pvento
+        PeR['q2 - desconforto por sol direto'] = sol
+        PeR['q2 - desconforto com temperatura de superfícies próximas'] = superficie
+        PeR['q2 - desconforto por frio ou calor em partes específicas do corpo'] = corpo
         if ('sempre' in options) or ('muitas vezes' in options) or ('às vezes' in options): 
             switch_page('q2a')
         else:
