@@ -36,8 +36,10 @@ if next_page_button('Próximo'):
     if None in valores:
         st.error('Responda **todas** as questões para prosseguir')
     else:
-        PeR['id_pergunta'] += ['q3 - desconforto por cheiros e odores', 'q3 - desconforto por ambiente abafado', 'q3 - desconforto com ar interno seco ou úmido demais', 'q3 - desconforto devido à poeira']
-        PeR['resposta'] += valores
+        PeR['q3 - desconforto por cheiros e odores'] = cheiros 
+        PeR['q3 - desconforto por ambiente abafado'] = abafado
+        PeR['q3 - desconforto com ar interno seco ou úmido demais'] = arseco 
+        PeR['q3 - desconforto devido à poeira'] = poeira
         if ('sempre' in valores) or ('muitas vezes' in valores) or ('às vezes' in valores): 
             switch_page('q3a')
         else:

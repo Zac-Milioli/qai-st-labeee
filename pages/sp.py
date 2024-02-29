@@ -77,26 +77,22 @@ if next_page_button('Próximo'):
         if not iluminacao_checkbox:
             ok = False
     if ok:
-        PeR['id_pergunta'].append('sp - velocidade de resposta à solicitação de aquecimento e/ou resfriamento')
         if clima_checkbox:
-            PeR['resposta'].append('Não possui')
+            PeR['sp - velocidade de resposta à solicitação de aquecimento e/ou resfriamento'] = 'Não possui'
         else:
-            PeR['resposta'].append(clima)
-
-        PeR['id_pergunta'].append('sp - velocidade de resposta à solicitação de controle de ventilação')
+            PeR['sp - velocidade de resposta à solicitação de aquecimento e/ou resfriamento'] = clima
+ 
         if ventilacao_checkbox:
-            PeR['resposta'].append('Não possui')
+            PeR['sp - velocidade de resposta à solicitação de controle de ventilação'] = 'Não possui'
         else:
-            PeR['resposta'].append(ventilacao)
+            PeR['sp - velocidade de resposta à solicitação de controle de ventilação'] = ventilacao
 
-        PeR['id_pergunta'].append('sp - velocidade de resposta à solicitação de alteração de iluminação')
         if iluminacao_checkbox:
-            PeR['resposta'].append('Não possui')
+            PeR['sp - velocidade de resposta à solicitação de alteração de iluminação'] = 'Não possui'
         else:
-            PeR['resposta'].append(iluminacao)
+            PeR['sp - velocidade de resposta à solicitação de alteração de iluminação'] = iluminacao
         
-        PeR['id_pergunta'].append('sp - comentários')
-        PeR['resposta'].append(entrada_solicitacao)
+        PeR['sp - comentários'] = entrada_solicitacao
         switch_page('q6')
     else:
         st.error('Responda **todas** as perguntas para prosseguir')

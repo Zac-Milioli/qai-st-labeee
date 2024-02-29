@@ -35,8 +35,9 @@ if next_page_button('Próximo'):
     if None in q5_quest:
         st.error('Responda **todas** as questões pra prosseguir')
     else:
-        PeR['id_pergunta'] += ['q5 - sinto desconforto com conversas dos colegas', 'q5 - sinto desconforto com ruídos de equipamentos', 'q5 - sinto desconforto com o barulho externo, vindo da rua']
-        PeR['resposta'] += q5_quest
+        PeR['q5 - sinto desconforto com conversas dos colegas'] = conversacolegas
+        PeR['q5 - sinto desconforto com ruídos de equipamentos'] = ruidoequipamentos
+        PeR['q5 - sinto desconforto com o barulho externo, vindo da rua'] = barulhoexterno
         if ('sempre' in q5_quest) or ('muitas vezes' in q5_quest) or ('às vezes' in q5_quest): 
             switch_page('q5a')
         else:

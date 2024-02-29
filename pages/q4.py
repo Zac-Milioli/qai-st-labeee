@@ -38,8 +38,12 @@ if next_page_button('Próximo'):
     if None in respostas:
         st.error('Responda **todas** as questões para prosseguir')
     else:
-        PeR['id_pergunta'] += ['q4 - sinto desconforto com o ambiente muito claro (muito iluminado)', 'q4 - sinto desconforto com o ambiente muito escuro (pouco iluminado)', 'q4 - sinto desconforto com o ofuscamento', 'q4 - sinto desconforto com os reflexos na tela do meu computador', 'q4 - sinto desconforto com luzes piscando', 'q4 - sinto desconforto pois não consigo diferenciar objetos (alto e/ou baixo contraste)']
-        PeR['resposta'] += respostas
+        PeR['q4 - sinto desconforto com o ambiente muito claro (muito iluminado)'] = claro
+        PeR['q4 - sinto desconforto com o ambiente muito escuro (pouco iluminado)'] = escuro
+        PeR['q4 - sinto desconforto com o ofuscamento'] = ofuscamento
+        PeR['q4 - sinto desconforto com os reflexos na tela do meu computador'] = reflexos
+        PeR['q4 - sinto desconforto com luzes piscando'] = luzes
+        PeR['q4 - sinto desconforto pois não consigo diferenciar objetos (alto e/ou baixo contraste)'] = objetos
         if ('sempre' in respostas) or ('muitas vezes' in respostas) or ('às vezes' in respostas): 
             switch_page('q4a')
         else:

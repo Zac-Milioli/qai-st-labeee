@@ -175,19 +175,26 @@ if next_page_button('Próximo'):
                 siga = False
                 message += '|Caixa de texto vazia'
     if siga:
-        PeR['id_pergunta'] += ['q5a - conversas que consigo entener tudo que é dito', 'q5a - conversas de fundo, que não consigo entender o que é dito', 'q5a - teclados, passos, abertura e fechamento de gavetas, etc', 'q5a - ar-condicionado', 'q5a - outros equipamentos', 'q5a - telefones tocando', 'q5a - barulho externo, vindo da rua']
-        PeR['resposta'] += ruidos_opcoes
+        PeR['q5a - conversas que consigo entener tudo que é dito'] = ruidos_colegas_1 
+        PeR['q5a - conversas de fundo, que não consigo entender o que é dito'] = ruidos_colegas_2
+        PeR['q5a - teclados, passos, abertura e fechamento de gavetas, etc'] = ruidos_colegas_3
+        PeR['q5a - ar-condicionado'] = ruidos_edificio_1
+        PeR['q5a - outros equipamentos'] = ruidos_edificio_2
+        PeR['q5a - telefones tocando'] = ruidos_edificio_3
+        PeR['q5a - barulho externo, vindo da rua'] = ruido_externo
         if existe_janela:
-            PeR['id_pergunta'].append('q2a - controle de janela')
-            PeR['resposta'].append(verdadeiros_controlejanela[0])
-        PeR['id_pergunta'].append('q5a - qual seu nível de satisfação com a acústica da sua estação de trabalho')
-        PeR['resposta'].append(satisfacao_ruidos)
-        PeR['id_pergunta'] += ['q5a - as conversas dos colegas me incomodam', 'q5a - o barulho do ar-condicionado me incomoda', 'q5a - o barulho de outros equipamentos me incomoda', 'q5a - o barulho de telefones tocando me incomoda', 'q5a - o barulho externo, vindo da rua, me incomoda', 'q5a - não há um local adequado para ter uma conversa privada com colegas', 'q5a - não hpa um local adequado para fazer um telefonema ou chamada de vídeo'] 
+            PeR['q2a - controle de janela'] = verdadeiros_controlejanela[0]
+        PeR['q5a - qual seu nível de satisfação com a acústica da sua estação de trabalho'] = satisfacao_ruidos
         if insatisfacao_ruidos:
-            PeR['resposta'] += [ruidos_checkbox1, ruidos_checkbox2, ruidos_checkbox3, ruidos_checkbox4, ruidos_checkbox5, ruidos_checkbox6, ruidos_checkbox7]
+            PeR['q5a - as conversas dos colegas me incomodam'] = ruidos_checkbox1
+            PeR['q5a - o barulho do ar-condicionado me incomoda'] = ruidos_checkbox2
+            PeR['q5a - o barulho de outros equipamentos me incomoda'] = ruidos_checkbox3
+            PeR['q5a - o barulho de telefones tocando me incomoda'] = ruidos_checkbox4
+            PeR['q5a - o barulho externo, vindo da rua, me incomoda'] = ruidos_checkbox5
+            PeR['q5a - não há um local adequado para ter uma conversa privada com colegas'] = ruidos_checkbox6
+            PeR['q5a - não hpa um local adequado para fazer um telefonema ou chamada de vídeo'] = ruidos_checkbox7
             if outros:
-                PeR['id_pergunta'].append('q5a - outros motivos')
-                PeR['resposta'].append(entrada)
+                PeR['q5a - outros motivos'] = entrada
         open(r'base/hierarquia.txt', 'a').write('x')
         if len(open(r'base/hierarquia.txt', 'r').read()) >= 2:
             switch_page('hi')

@@ -253,30 +253,36 @@ if next_page_button('Próximo'):
                 ok = False
                 message += '|Caixa de texto não preenchida'
     if ok:
-        PeR['resposta'] += sec1
-        PeR['id_pergunta'] += ['q4a - a disponibilidade de iluminação artificial (lâmpadas e luminárias)?', 'q4a - a ocorrência de ofuscamento gerado pela iluminação artificial?']
-        PeR['resposta'] += sec2
-        PeR['id_pergunta'] += ['q4a - a disponibilidade de iluminação natural (luz do sol e o céu) durante o verão e/ou meses quentes', 'q4a - a disponibilidade de iluminação natural (luz do sol e o céu) no período da manhã', 'q4a - a disponibilidade de iluminação natural (luz do sol e o céu) durante o inverno e/ou meses frios', 'q4a - a disponibilidade de iluminação natural (luz do sol e o céu) no período da tarde', 'q4a - a ocorrência de ofuscamento gerado pela iluminação natural durante o verão e/ou meses quentes', 'q4a - a ocorrência de ofuscamento gerado pela iluminação natural no período da manhã', 'q4a - a ocorrência de ofuscamento gerado pela iluminação natural durante o inverno e/ou meses frios', 'q4a - a ocorrência de ofuscamento gerado pela iluminação natural no período da tarde']
-        PeR['id_pergunta'].append('q4a - nível de controle sobre iluminação artificial')
-        PeR['resposta'].append(verdadeirosartificial[0])
+        PeR['q4a - a disponibilidade de iluminação artificial (lâmpadas e luminárias)?'] = sec1[0]
+        PeR['q4a - a ocorrência de ofuscamento gerado pela iluminação artificial?'] = sec1[1]
+        PeR['q4a - a disponibilidade de iluminação natural (luz do sol e o céu) durante o verão e/ou meses quentes'] = sec2[0]
+        PeR['q4a - a disponibilidade de iluminação natural (luz do sol e o céu) no período da manhã'] = sec2[1]
+        PeR['q4a - a disponibilidade de iluminação natural (luz do sol e o céu) durante o inverno e/ou meses frios'] = sec2[2]
+        PeR['q4a - a disponibilidade de iluminação natural (luz do sol e o céu) no período da tarde'] = sec2[3]
+        PeR['q4a - a ocorrência de ofuscamento gerado pela iluminação natural durante o verão e/ou meses quentes'] = sec2[4]
+        PeR['q4a - a ocorrência de ofuscamento gerado pela iluminação natural no período da manhã'] = sec2[5]
+        PeR['q4a - a ocorrência de ofuscamento gerado pela iluminação natural durante o inverno e/ou meses frios'] = sec2[6]
+        PeR['q4a - a ocorrência de ofuscamento gerado pela iluminação natural no período da tarde'] = sec2[7]
+        PeR['q4a - nível de controle sobre iluminação artificial'] = verdadeirosartificial[0]
         if existe_janela:
-            PeR['id_pergunta'] += 'q4a - nível de controle sobre iluminação natural'
-            PeR['resposta'].append(verdadeirosnatural[0])
-        PeR['id_pergunta'] += ['q4a - nível de satisfação com privacidade visual', 'q4a - nível de satisfação com ambiente luminoso']
-        PeR['resposta'] += [privacidadevisual, satisfacaocomambienteluminoso]
+            PeR['q4a - nível de controle sobre iluminação natural'] = verdadeirosnatural[0]
+        PeR['q4a - nível de satisfação com privacidade visual'] = privacidadevisual
+        PeR['q4a - nível de satisfação com ambiente luminoso'] = satisfacaocomambienteluminoso
         if insatisfeito_luminoso:
-            PeR['id_pergunta'] += ['q4a - sinto desconforto com o ambiente muito claro (muito iluminado)', 'q4a - sinto desconforto com o ambiente muito escuro (pouco iluminado)', 'q4a - sinto desconforto com o ofuscamento gerado por lâmpadas e luminárias', 'q4a - sinto desconforto com o ofuscamento gerado pela luz do sol e do céu', 'q4a - sinto desconforto com a iluminação que gera reflexos na tela do meu computador', 'q4a - sinto desconforto com luzes piscando', 'q4a - sinto desconforto pois não consigo diferenciar objetos (alto e/ou baixo contraste)']
-            PeR['resposta'] += [luminosocheckbox, escurocheckbox, ofuscamentolampadacheckbox, ofuscamentosolcheckbox, reflexoscheckbox, luzespiscandocheckbox, objetoscheckbox]
+            PeR['q4a - sinto desconforto com o ambiente muito claro (muito iluminado)'] = luminosocheckbox
+            PeR['q4a - sinto desconforto com o ambiente muito escuro (pouco iluminado)'] = escurocheckbox
+            PeR['q4a - sinto desconforto com o ofuscamento gerado por lâmpadas e luminárias'] = ofuscamentolampadacheckbox
+            PeR['q4a - sinto desconforto com o ofuscamento gerado pela luz do sol e do céu'] = ofuscamentosolcheckbox
+            PeR['q4a - sinto desconforto com a iluminação que gera reflexos na tela do meu computador'] = reflexoscheckbox
+            PeR['q4a - sinto desconforto com luzes piscando'] = luzespiscandocheckbox
+            PeR['q4a - sinto desconforto pois não consigo diferenciar objetos (alto e/ou baixo contraste)'] = objetoscheckbox
             if existe_janela:
                 if nenhumcontrolenatural1 or nenhumcontrolenatural2 or algumcontrolenatural1:
-                    PeR['id_pergunta'].append('q4a - sinto desconforto por não poder controlar os elementos de sombreamento (cortinas ou brises)')
-                    PeR['resposta'].append(brisescheckbox)
+                    PeR['q4a - sinto desconforto por não poder controlar os elementos de sombreamento (cortinas ou brises)'] = brisescheckbox
             if nenhumcontroleartificial1 or nenhumcontroleartificial2 or nenhumcontroleartificial3 or algumcontroleartificial1 or algumcontroleartificial2 or algumcontroleartificial3:
-                PeR['id_pergunta'].append('q4a - sinto desconforto por não poder controlar o acionamento das lâmpadas e luminárias')
-                PeR['resposta'].append(acionarlampadacheckbox)
+                PeR['q4a - sinto desconforto por não poder controlar o acionamento das lâmpadas e luminárias'] = acionarlampadacheckbox
             if outros:
-                PeR['id_pergunta'].append('q4a - outros motivos')
-                PeR['resposta'].append(entrada)
+                PeR['q4a - outros motivos'] = entrada
         open(r'base/hierarquia.txt', 'a').write('x')
         switch_page('q5')
     else:

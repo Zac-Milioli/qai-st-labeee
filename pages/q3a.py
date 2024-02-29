@@ -77,14 +77,20 @@ if next_page_button('Próximo'):
                 ok = False
                 message += '|Caixa de texto vazia'
     if ok:
-        PeR['id_pergunta'] += ['q3a - sinto cheiros e/ou odores no ambiente', 'q3a - sensação de fadiga e/ou sonolência', 'q3a - sensação de ressecamento nos olhos, nariz e/ou mãos', 'q3a - irritações na pele e/ou alergias', 'q3a - nível de satisfação com o ar interno']
-        PeR['resposta'] += arinterno
+        PeR['q3a - sinto cheiros e/ou odores no ambiente'] = cheiro
+        PeR['q3a - sensação de fadiga e/ou sonolência'] = fadiga
+        PeR['q3a - sensação de ressecamento nos olhos, nariz e/ou mãos'] = ressecamento
+        PeR['q3a - irritações na pele e/ou alergias'] = alergia
+        PeR['q3a - nível de satisfação com o ar interno'] = qualidadedoar
         if qualidadedoar_ruim:
-            PeR['id_pergunta'] += ['q3a - insatifação por cheiros e odores', 'q3a - insatifação por ambiente abafado', 'q3a - insatifação por ar interno muito seco', 'q3a - insatifação por ar interno muito úmido', 'q3a - insatifação por haver poeira que causa irritação ou alergias', 'q3a - insatifação por haver produtos que causam irritação ou alergias']
-            PeR['resposta'] += [cheiroscheckbox, abafadocheckbox, arsecocheckbox, arumidocheckbox, poeiracheckbox, alergiascheckbox]
+            PeR['q3a - insatifação por cheiros e odores'] = cheiroscheckbox
+            PeR['q3a - insatifação por ambiente abafado'] = abafadocheckbox
+            PeR['q3a - insatifação por ar interno muito seco'] =  arsecocheckbox
+            PeR['q3a - insatifação por ar interno muito úmido'] = arumidocheckbox
+            PeR['q3a - insatifação por haver poeira que causa irritação ou alergias'] = poeiracheckbox
+            PeR['q3a - insatifação por haver produtos que causam irritação ou alergias'] = alergiascheckbox
             if outros:
-                PeR['id_pergunta'].append('outros motivos')
-                PeR['resposta'].append(entrada)
+                PeR['q3a - outros motivos'] = entrada
         open(r'base/hierarquia.txt', 'a').write('x')
         switch_page('q4')
     else:
