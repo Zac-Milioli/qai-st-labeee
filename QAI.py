@@ -33,6 +33,7 @@ if centered_button('Iniciar questionário'):
                 st.error('Usuário não autorizado / Código incorreto')
             else:
                 open(r'base/hierarquia.txt', 'w').write('')
+                open(r'base/person_mail.txt', 'w').write('')
                 open(r'base/person_mail.txt', 'w').write(mail)
                 switch_page('q0')
         else:

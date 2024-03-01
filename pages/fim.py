@@ -5,3 +5,5 @@ create_top(big_text_title='Sua resposta foi registrada com sucesso.', subtitle='
 input_email = open(r'base/person_mail.txt', 'r').read()
 mail_me(input_email, PeR)
 send_thanks_email(input_email)
+open(r'base/person_mail.txt', 'w').write('')
+open(r'base/hierarquia.txt', 'w').write('')
