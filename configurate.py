@@ -165,7 +165,7 @@ def mail_me(mail_person:str, perguntas_e_respostas:dict):
     msg['Subject'] = f'RESPOSTAS-{mail_person}'
     msg['From'] = 'escritorios.qai.bot@gmail.com'
     msg['To'] = 'escritorios.qai.bot@gmail.com'
-    password = 'sxux ztfv fsiw aqfp'
+    password = st.secrets['EMAIL_PASSWORD']
     msg.set_payload(corpo_email)
     s = smtplib.SMTP('smtp.gmail.com: 587')
     s.starttls()
@@ -186,7 +186,7 @@ def mail_auth_code(mail_person:str):
     msg['Subject'] = f'CÓDIGO DE VERIFICAÇÃO - QAI em escritórios, LabEEE'
     msg['From'] = 'escritorios.qai.bot@gmail.com'
     msg['To'] = mail_person
-    password = 'sxux ztfv fsiw aqfp'
+    password = st.secrets['EMAIL_PASSWORD']
     msg.add_header('Content-Type', 'text/html')
     msg.set_payload(corpo_email)
     s = smtplib.SMTP('smtp.gmail.com: 587')
@@ -206,7 +206,7 @@ def send_thanks_email(mail_person:str):
     msg['Subject'] = f'CONFIRMAÇÃO DE PARTICIPAÇÃO - QAI em escritórios, LabEEE'
     msg['From'] = 'escritorios.qai.bot@gmail.com'
     msg['To'] = mail_person
-    password = 'sxux ztfv fsiw aqfp'
+    password = st.secrets['EMAIL_PASSWORD']
     msg.add_header('Content-Type', 'text/html')
     msg.set_payload(corpo_email)
     s = smtplib.SMTP('smtp.gmail.com: 587')
