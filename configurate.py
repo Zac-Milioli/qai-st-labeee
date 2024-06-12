@@ -130,7 +130,7 @@ def create_radio(name: str = None, phrase:str = None, extreme_left:str = None, e
             if show_values:
                 valor = st.radio(label='No name', label_visibility='hidden', options=opt, horizontal=True, index=None, key=key)
             else:
-                valor = st.radio(label='No name', label_visibility='hidden', options=opt, horizontal=True, format_func=(lambda x: ''), index=valor_inicial, key=key)
+                valor = st.radio(label='No name', label_visibility='hidden', options=opt, horizontal=True, format_func=(lambda x: ''), index=None, key=key)
     return valor
 
 def nested_radio(name: str = None, text_left:str = None, text_right:str = None, min:int = 0, max:int = 10, key = None, show_values:bool = False, columns_width:list = [0.2,0.6,0.6], selection:list = None, use_list_selection:bool = False):
