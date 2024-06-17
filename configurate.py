@@ -178,7 +178,6 @@ def mail_auth_code(mail_person:str):
     corpo_email = f"""
     <p>Seu código de verificação para o questionário é<p>
     <h1><strong>{auth_code}</strong></h1>
-    <p>Esta é uma mensagem automática, não é necessário respondê-la.<p>
     <br>
     <hr>
     <p>Esta é uma mensagem automática, não é necessário respondê-la.</p><br><br>
