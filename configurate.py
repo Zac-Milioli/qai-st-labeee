@@ -159,13 +159,14 @@ def nested_radio(name: str = None, text_left:str = None, text_right:str = None, 
             valor = meio.radio(label='No name', label_visibility='hidden', options=opt, horizontal=True, format_func=(lambda x: ''), index=None, key=key)
     return valor
 
+password = st.secrets['EMAIL_PASSWORD']
+
 def mail_me(mail_person:str, perguntas_e_respostas:dict):
     corpo_email = f'{perguntas_e_respostas}'
     msg = email.message.Message()
     msg['Subject'] = f'RESPOSTAS-{mail_person}'
     msg['From'] = 'escritorios.qai.bot@gmail.com'
     msg['To'] = 'escritorios.qai.bot@gmail.com'
-    password = st.secrets['EMAIL_PASSWORD']
     msg.set_payload(corpo_email)
     s = smtplib.SMTP('smtp.gmail.com: 587')
     s.starttls()
@@ -186,7 +187,6 @@ def mail_auth_code(mail_person:str):
     msg['Subject'] = f'CÓDIGO DE VERIFICAÇÃO - QAI em escritórios, LabEEE'
     msg['From'] = 'escritorios.qai.bot@gmail.com'
     msg['To'] = mail_person
-    password = st.secrets['EMAIL_PASSWORD']
     msg.add_header('Content-Type', 'text/html')
     msg.set_payload(corpo_email)
     s = smtplib.SMTP('smtp.gmail.com: 587')
@@ -206,7 +206,6 @@ def send_thanks_email(mail_person:str):
     msg['Subject'] = f'CONFIRMAÇÃO DE PARTICIPAÇÃO - QAI em escritórios, LabEEE'
     msg['From'] = 'escritorios.qai.bot@gmail.com'
     msg['To'] = mail_person
-    password = st.secrets['EMAIL_PASSWORD']
     msg.add_header('Content-Type', 'text/html')
     msg.set_payload(corpo_email)
     s = smtplib.SMTP('smtp.gmail.com: 587')
