@@ -35,7 +35,7 @@ if next_page_button('Próxima página'):
     if valor == None:
         st.error('Responda para prosseguir')
     else:
-        PeR['q0'] = valor
+        st.session_state['PeR']['q0'] = valor
         if valor <= 6:
             switch_page('introq1_insat')
         else:

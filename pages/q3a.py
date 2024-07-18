@@ -77,21 +77,28 @@ if next_page_button('Próximo'):
                 ok = False
                 message += '|Caixa de texto vazia'
     if ok:
-        PeR['q3a - sinto cheiros e/ou odores no ambiente'] = cheiro
-        PeR['q3a - sensação de fadiga e/ou sonolência'] = fadiga
-        PeR['q3a - sensação de ressecamento nos olhos, nariz e/ou mãos'] = ressecamento
-        PeR['q3a - irritações na pele e/ou alergias'] = alergia
-        PeR['q3a - nível de satisfação com o ar interno'] = qualidadedoar
+        st.session_state['PeR']['q3a - sinto cheiros e/ou odores no ambiente'] = cheiro
+        st.session_state['PeR']['q3a - sensação de fadiga e/ou sonolência'] = fadiga
+        st.session_state['PeR']['q3a - sensação de ressecamento nos olhos, nariz e/ou mãos'] = ressecamento
+        st.session_state['PeR']['q3a - irritações na pele e/ou alergias'] = alergia
+        st.session_state['PeR']['q3a - nível de satisfação com o ar interno'] = qualidadedoar
+        st.session_state['PeR']['q3a - insatifação por cheiros e odores'] = None
+        st.session_state['PeR']['q3a - insatifação por ambiente abafado'] = None
+        st.session_state['PeR']['q3a - insatifação por ar interno muito seco'] =  None
+        st.session_state['PeR']['q3a - insatifação por ar interno muito úmido'] = None
+        st.session_state['PeR']['q3a - insatifação por haver poeira que causa irritação ou alergias'] = None
+        st.session_state['PeR']['q3a - insatifação por haver produtos que causam irritação ou alergias'] = None
+        st.session_state['PeR']['q3a - outros motivos'] = None
         if qualidadedoar_ruim:
-            PeR['q3a - insatifação por cheiros e odores'] = cheiroscheckbox
-            PeR['q3a - insatifação por ambiente abafado'] = abafadocheckbox
-            PeR['q3a - insatifação por ar interno muito seco'] =  arsecocheckbox
-            PeR['q3a - insatifação por ar interno muito úmido'] = arumidocheckbox
-            PeR['q3a - insatifação por haver poeira que causa irritação ou alergias'] = poeiracheckbox
-            PeR['q3a - insatifação por haver produtos que causam irritação ou alergias'] = alergiascheckbox
+            st.session_state['PeR']['q3a - insatifação por cheiros e odores'] = cheiroscheckbox
+            st.session_state['PeR']['q3a - insatifação por ambiente abafado'] = abafadocheckbox
+            st.session_state['PeR']['q3a - insatifação por ar interno muito seco'] =  arsecocheckbox
+            st.session_state['PeR']['q3a - insatifação por ar interno muito úmido'] = arumidocheckbox
+            st.session_state['PeR']['q3a - insatifação por haver poeira que causa irritação ou alergias'] = poeiracheckbox
+            st.session_state['PeR']['q3a - insatifação por haver produtos que causam irritação ou alergias'] = alergiascheckbox
             if outros:
-                PeR['q3a - outros motivos'] = entrada
-        open(r'base/hierarquia.txt', 'a').write('x')
+                st.session_state['PeR']['q3a - outros motivos'] = entrada
+        st.session_state['hierarquia'] += 1
         switch_page('q4')
     else:
         st.error(message)

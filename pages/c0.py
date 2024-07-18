@@ -26,12 +26,12 @@ if next_page_button(name='Próximo'):
     if None in options:
         st.error('Responda **todas** as questões para prosseguir')
     else:
-        PeR['c0 - conforto térmico'] = confortotermico
-        PeR['c0 - qualidade do ar'] = qualidadedoar
-        PeR['c0 - conforto visual'] = confortovisual
-        PeR['c0 - conforto acústico'] = confortoacustico
-        PeR['c0 - privacidade visual'] = privacidadevisual
-        PeR['c0 - privacidade acústica'] = privacidadeacustica
-        PeR['c0 - conforto térmico'] = estarproximodecolegas
-        PeR['c0 - proximidade de colegas'] = aspectos
+        st.session_state['PeR']['c0 - conforto térmico'] = confortotermico
+        st.session_state['PeR']['c0 - qualidade do ar'] = qualidadedoar
+        st.session_state['PeR']['c0 - conforto visual'] = confortovisual
+        st.session_state['PeR']['c0 - conforto acústico'] = confortoacustico
+        st.session_state['PeR']['c0 - privacidade visual'] = privacidadevisual
+        st.session_state['PeR']['c0 - privacidade acústica'] = privacidadeacustica
+        st.session_state['PeR']['c0 - conforto térmico'] = estarproximodecolegas
+        st.session_state['PeR']['c0 - proximidade de colegas'] = aspectos
         switch_page('q1b')

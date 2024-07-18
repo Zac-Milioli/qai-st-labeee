@@ -4,8 +4,7 @@ create_top(big_text_title='Parece que encontramos um ponto crítico com a acúst
 
 img_width = 200
 
-existe_janela = open(r'base/janela.txt', 'r').read()
-if existe_janela == '1':
+if st.session_state.get('janela') == 1:
     existe_janela = True
 else:
     existe_janela = False
@@ -175,30 +174,51 @@ if next_page_button('Próximo'):
                 siga = False
                 message += '|Caixa de texto vazia'
     if siga:
-        PeR['q5a - conversas que consigo entener tudo que é dito'] = ruidos_colegas_1 
-        PeR['q5a - conversas de fundo, que não consigo entender o que é dito'] = ruidos_colegas_2
-        PeR['q5a - teclados, passos, abertura e fechamento de gavetas, etc'] = ruidos_colegas_3
-        PeR['q5a - ar-condicionado'] = ruidos_edificio_1
-        PeR['q5a - outros equipamentos'] = ruidos_edificio_2
-        PeR['q5a - telefones tocando'] = ruidos_edificio_3
-        PeR['q5a - barulho externo, vindo da rua'] = ruido_externo
+        st.session_state['PeR']['q5a - conversas que consigo entener tudo que é dito'] = ruidos_colegas_1 
+        st.session_state['PeR']['q5a - conversas de fundo, que não consigo entender o que é dito'] = ruidos_colegas_2
+        st.session_state['PeR']['q5a - teclados, passos, abertura e fechamento de gavetas, etc'] = ruidos_colegas_3
+        st.session_state['PeR']['q5a - ar-condicionado'] = ruidos_edificio_1
+        st.session_state['PeR']['q5a - outros equipamentos'] = ruidos_edificio_2
+        st.session_state['PeR']['q5a - telefones tocando'] = ruidos_edificio_3
+        st.session_state['PeR']['q5a - barulho externo, vindo da rua'] = ruido_externo
+        st.session_state['PeR']['q5a - qual seu nível de satisfação com a acústica da sua estação de trabalho'] = satisfacao_ruidos
+        
+        # não obrigatórios
+        st.session_state['PeR']['q2a - controle de janela'] = None
+        st.session_state['PeR']['q5a - as conversas dos colegas me incomodam'] = None
+        st.session_state['PeR']['q5a - o barulho do ar-condicionado me incomoda'] = None
+        st.session_state['PeR']['q5a - o barulho de outros equipamentos me incomoda'] = None
+        st.session_state['PeR']['q5a - o barulho de telefones tocando me incomoda'] = None
+        st.session_state['PeR']['q5a - o barulho externo, vindo da rua, me incomoda'] = None
+        st.session_state['PeR']['q5a - não há um local adequado para ter uma conversa privada com colegas'] = None
+        st.session_state['PeR']['q5a - não hpa um local adequado para fazer um telefonema ou chamada de vídeo'] = None
+        st.session_state['PeR']['q5a - outros motivos'] = None
+        
         if existe_janela:
-            PeR['q2a - controle de janela'] = verdadeiros_controlejanela[0]
-        PeR['q5a - qual seu nível de satisfação com a acústica da sua estação de trabalho'] = satisfacao_ruidos
+            st.session_state['PeR']['q2a - controle de janela'] = verdadeiros_controlejanela[0]
         if insatisfacao_ruidos:
-            PeR['q5a - as conversas dos colegas me incomodam'] = ruidos_checkbox1
-            PeR['q5a - o barulho do ar-condicionado me incomoda'] = ruidos_checkbox2
-            PeR['q5a - o barulho de outros equipamentos me incomoda'] = ruidos_checkbox3
-            PeR['q5a - o barulho de telefones tocando me incomoda'] = ruidos_checkbox4
-            PeR['q5a - o barulho externo, vindo da rua, me incomoda'] = ruidos_checkbox5
-            PeR['q5a - não há um local adequado para ter uma conversa privada com colegas'] = ruidos_checkbox6
-            PeR['q5a - não hpa um local adequado para fazer um telefonema ou chamada de vídeo'] = ruidos_checkbox7
+            st.session_state['PeR']['q5a - as conversas dos colegas me incomodam'] = ruidos_checkbox1
+            st.session_state['PeR']['q5a - o barulho do ar-condicionado me incomoda'] = ruidos_checkbox2
+            st.session_state['PeR']['q5a - o barulho de outros equipamentos me incomoda'] = ruidos_checkbox3
+            st.session_state['PeR']['q5a - o barulho de telefones tocando me incomoda'] = ruidos_checkbox4
+            st.session_state['PeR']['q5a - o barulho externo, vindo da rua, me incomoda'] = ruidos_checkbox5
+            st.session_state['PeR']['q5a - não há um local adequado para ter uma conversa privada com colegas'] = ruidos_checkbox6
+            st.session_state['PeR']['q5a - não hpa um local adequado para fazer um telefonema ou chamada de vídeo'] = ruidos_checkbox7
             if outros:
-                PeR['q5a - outros motivos'] = entrada
-        open(r'base/hierarquia.txt', 'a').write('x')
-        if len(open(r'base/hierarquia.txt', 'r').read()) >= 2:
+                st.session_state['PeR']['q5a - outros motivos'] = entrada
+        st.session_state['hierarquia'] += 1
+        if st.session_state.get('hierarquia') >= 2:
             switch_page('hi')
         else:
+            st.session_state['PeR']['hi - conforto térmico'] = None
+            st.session_state['PeR']['hi - qualidade do ar'] = None
+            st.session_state['PeR']['hi - conforto visual'] = None
+            st.session_state['PeR']['hi - conforto acústico'] = None
+            st.session_state['PeR']['hi - ambientes específicos para atividades diferenciadas'] = None
+            st.session_state['PeR']['hi - proximidade e/ou acesso a vistas externas'] = None
+            st.session_state['PeR']['hi - privacidade visual'] = None
+            st.session_state['PeR']['hi - privacidade acústica'] = None
+            st.session_state['PeR']['hi - estar próximo à colegas e equipe de trabalho mesmo que não esteja totalmente confortável'] = None
             switch_page('cg') 
     else:
         st.error(message)

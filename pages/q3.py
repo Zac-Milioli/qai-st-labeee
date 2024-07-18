@@ -36,11 +36,23 @@ if next_page_button('Próximo'):
     if None in valores:
         st.error('Responda **todas** as questões para prosseguir')
     else:
-        PeR['q3 - desconforto por cheiros e odores'] = cheiros 
-        PeR['q3 - desconforto por ambiente abafado'] = abafado
-        PeR['q3 - desconforto com ar interno seco ou úmido demais'] = arseco 
-        PeR['q3 - desconforto devido à poeira'] = poeira
+        st.session_state['PeR']['q3 - desconforto por cheiros e odores'] = cheiros 
+        st.session_state['PeR']['q3 - desconforto por ambiente abafado'] = abafado
+        st.session_state['PeR']['q3 - desconforto com ar interno seco ou úmido demais'] = arseco 
+        st.session_state['PeR']['q3 - desconforto devido à poeira'] = poeira
         if ('sempre' in valores) or ('muitas vezes' in valores) or ('às vezes' in valores): 
             switch_page('q3a')
         else:
+            st.session_state['PeR']['q3a - sinto cheiros e/ou odores no ambiente'] = None
+            st.session_state['PeR']['q3a - sensação de fadiga e/ou sonolência'] = None
+            st.session_state['PeR']['q3a - sensação de ressecamento nos olhos, nariz e/ou mãos'] = None
+            st.session_state['PeR']['q3a - irritações na pele e/ou alergias'] = None
+            st.session_state['PeR']['q3a - nível de satisfação com o ar interno'] = None
+            st.session_state['PeR']['q3a - insatifação por cheiros e odores'] = None
+            st.session_state['PeR']['q3a - insatifação por ambiente abafado'] = None
+            st.session_state['PeR']['q3a - insatifação por ar interno muito seco'] =  None
+            st.session_state['PeR']['q3a - insatifação por ar interno muito úmido'] = None
+            st.session_state['PeR']['q3a - insatifação por haver poeira que causa irritação ou alergias'] = None
+            st.session_state['PeR']['q3a - insatifação por haver produtos que causam irritação ou alergias'] = None
+            st.session_state['PeR']['q3a - outros motivos'] = None
             switch_page('q4')

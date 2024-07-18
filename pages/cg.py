@@ -19,6 +19,6 @@ if next_page_button('Próximo'):
     if None in [confortogeral]:
         st.error('Responda a questão para continuar')
     else:
-        PeR['cg - nível de satisfação com o conforto geral da estação de trabalho'] = confortogeral
-        PeR['cg - comentários'] = entrada_confortogeral
+        st.session_state['PeR']['cg - nível de satisfação com o conforto geral da estação de trabalho'] = confortogeral
+        st.session_state['PeR']['cg - comentários'] = entrada_confortogeral
         switch_page('cp')

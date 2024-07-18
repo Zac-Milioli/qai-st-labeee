@@ -37,14 +37,55 @@ if next_page_button('Próximo'):
     if None in options:
         st.error('Responda **todas** as questões para continuar')
     else:
-        PeR['q2 - desconforto pelo calor'] = calor
-        PeR['q2 - desconforto pelo frio'] =frio
-        PeR['q2 - desconforto por excesso de vento'] = mvento
-        PeR['q2 - desconforto por falta de vento'] = pvento
-        PeR['q2 - desconforto por sol direto'] = sol
-        PeR['q2 - desconforto com temperatura de superfícies próximas'] = superficie
-        PeR['q2 - desconforto por frio ou calor em partes específicas do corpo'] = corpo
+        st.session_state['PeR']['q2 - desconforto pelo calor'] = calor
+        st.session_state['PeR']['q2 - desconforto pelo frio'] =frio
+        st.session_state['PeR']['q2 - desconforto por excesso de vento'] = mvento
+        st.session_state['PeR']['q2 - desconforto por falta de vento'] = pvento
+        st.session_state['PeR']['q2 - desconforto por sol direto'] = sol
+        st.session_state['PeR']['q2 - desconforto com temperatura de superfícies próximas'] = superficie
+        st.session_state['PeR']['q2 - desconforto por frio ou calor em partes específicas do corpo'] = corpo
         if ('sempre' in options) or ('muitas vezes' in options) or ('às vezes' in options): 
             switch_page('q2a')
         else:
+            st.session_state['PeR']['q2a - satisfacao em meses quentes'] = None
+            st.session_state['PeR']['q2a - satisfacao em meses frios'] = None
+            st.session_state['PeR']['q2a - ambiente térmico em meses quentes - temperatura'] = None
+            st.session_state['PeR']['q2a - ambiente térmico em meses frios - temperatura'] = None
+            st.session_state['PeR']['q2a - movimento do ar em meses quentes - ventilação'] = None
+            st.session_state['PeR']['q2a - movimento do ar em meses frios - ventilação'] = None
+            st.session_state['PeR']['q2a - ambiente térmico em meses quentes - conforto'] = None
+            st.session_state['PeR']['q2a - ambiente  térmico em meses frios - conforto'] = None
+            st.session_state['PeR']['q2a - ar-condicionado'] = None
+            st.session_state['PeR']['q2a - aquecedores'] = None
+            st.session_state['PeR']['q2a - ventilador de teto e/ou parede'] = None
+            st.session_state['PeR']['q2a - ventilador portátil, de mesa e/ou individual'] = None
+            st.session_state['PeR']['q2a - controle de janela'] = None
+            st.session_state['PeR']['q2a - controle de ar-condicionado'] = None
+            st.session_state['PeR']['q2a - controle de ventiladores'] = None
+            st.session_state['PeR']['q2a - sinto desconforto por calor em meses quentes'] = None 
+            st.session_state['PeR']['q2a - sinto desconforto por frio em meses quentes'] = None
+            st.session_state['PeR']['q2a - sinto desconforto porque há muito vento em meses quentes'] = None
+            st.session_state['PeR']['q2a - sinto desconforto porque há pouco vento em meses quentes'] = None
+            st.session_state['PeR']['q2a - o sol direto me atrapalha em meses quentes'] = None
+            st.session_state['PeR']['q2a - sinto desconforto devido à corrente de ar gerada pelo ar-condicionado em meses quentes'] = None 
+            st.session_state['PeR']['q2a - sinto desconforto por não poder controlar a temperatura do ar-condicionado de acordo com a minha preferência em meses quentes'] = None
+            st.session_state['PeR']['q2a - sinto desconforto devido à corrente de ar gerada pelo(s) ventialdor(es) em meses quentes'] = None
+            st.session_state['PeR']['q2a - sinto desconforto devido à corrente de ar proveniente da(s) janela(s) em meses quentes'] = None
+            st.session_state['PeR']['q2a - sinto desconforto por não poder abrir ou fechar as janelas de acordo com a minha preferência em meses quentes'] = None
+            st.session_state['PeR']['q2a - há superfícies próximas (pisos, paredes, equipamentos etc) muito quentes ou muito frias em meses quentes'] = None
+            st.session_state['PeR']['q2a - sinto desconforto por frio ou calor em alguma parte específica do corpo (mãos, pés, pescoço, cabeça, etc) em meses quentes'] = None
+            st.session_state['PeR']['q2a - outros motivos de desconforto em meses quentes'] = None
+            st.session_state['PeR']['q2a - sinto desconforto por calor em meses frios'] = None 
+            st.session_state['PeR']['q2a - sinto desconforto por frio em meses frios'] = None
+            st.session_state['PeR']['q2a - sinto desconforto porque há muito vento em meses frios'] = None
+            st.session_state['PeR']['q2a - sinto desconforto porque há pouco vento em meses frios'] = None
+            st.session_state['PeR']['q2a - o sol direto me atrapalha em meses frios'] = None
+            st.session_state['PeR']['q2a - sinto desconforto devido à corrente de ar gerada pelo ar-condicionado em meses frios'] = None 
+            st.session_state['PeR']['q2a - sinto desconforto por não poder controlar a temperatura do ar-condicionado de acordo com a minha preferência em meses frios'] = None
+            st.session_state['PeR']['q2a - sinto desconforto devido à corrente de ar gerada pelo(s) ventialdor(es) em meses frios'] = None
+            st.session_state['PeR']['q2a - sinto desconforto devido à corrente de ar proveniente da(s) janela(s) em meses frios'] = None 
+            st.session_state['PeR']['q2a - sinto desconforto por não poder abrir ou fechar as janelas de acordo com a minha preferência em meses frios'] = None
+            st.session_state['PeR']['q2a - há superfícies próximas (pisos, paredes, equipamentos etc) muito quentes ou muito frias em meses frios'] = None
+            st.session_state['PeR']['q2a - sinto desconforto por frio ou calor em alguma parte específica do corpo (mãos, pés, pescoço, cabeça, etc) em meses frios'] = None
+            st.session_state['PeR']['q2a - outros motivos de desconforto em meses frios'] = None
             switch_page('q3')

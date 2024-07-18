@@ -38,13 +38,37 @@ if next_page_button('Próximo'):
     if None in respostas:
         st.error('Responda **todas** as questões para prosseguir')
     else:
-        PeR['q4 - sinto desconforto com o ambiente muito claro (muito iluminado)'] = claro
-        PeR['q4 - sinto desconforto com o ambiente muito escuro (pouco iluminado)'] = escuro
-        PeR['q4 - sinto desconforto com o ofuscamento'] = ofuscamento
-        PeR['q4 - sinto desconforto com os reflexos na tela do meu computador'] = reflexos
-        PeR['q4 - sinto desconforto com luzes piscando'] = luzes
-        PeR['q4 - sinto desconforto pois não consigo diferenciar objetos (alto e/ou baixo contraste)'] = objetos
+        st.session_state['PeR']['q4 - sinto desconforto com o ambiente muito claro (muito iluminado)'] = claro
+        st.session_state['PeR']['q4 - sinto desconforto com o ambiente muito escuro (pouco iluminado)'] = escuro
+        st.session_state['PeR']['q4 - sinto desconforto com o ofuscamento'] = ofuscamento
+        st.session_state['PeR']['q4 - sinto desconforto com os reflexos na tela do meu computador'] = reflexos
+        st.session_state['PeR']['q4 - sinto desconforto com luzes piscando'] = luzes
+        st.session_state['PeR']['q4 - sinto desconforto pois não consigo diferenciar objetos (alto e/ou baixo contraste)'] = objetos
         if ('sempre' in respostas) or ('muitas vezes' in respostas) or ('às vezes' in respostas): 
             switch_page('q4a')
         else:
+            st.session_state['PeR']['q4a - a disponibilidade de iluminação artificial (lâmpadas e luminárias)?'] = None
+            st.session_state['PeR']['q4a - a ocorrência de ofuscamento gerado pela iluminação artificial?'] = None
+            st.session_state['PeR']['q4a - a disponibilidade de iluminação natural (luz do sol e o céu) durante o verão e/ou meses quentes'] = None
+            st.session_state['PeR']['q4a - a disponibilidade de iluminação natural (luz do sol e o céu) no período da manhã'] = None
+            st.session_state['PeR']['q4a - a disponibilidade de iluminação natural (luz do sol e o céu) durante o inverno e/ou meses frios'] = None
+            st.session_state['PeR']['q4a - a disponibilidade de iluminação natural (luz do sol e o céu) no período da tarde'] = None
+            st.session_state['PeR']['q4a - a ocorrência de ofuscamento gerado pela iluminação natural durante o verão e/ou meses quentes'] = None
+            st.session_state['PeR']['q4a - a ocorrência de ofuscamento gerado pela iluminação natural no período da manhã'] = None
+            st.session_state['PeR']['q4a - a ocorrência de ofuscamento gerado pela iluminação natural durante o inverno e/ou meses frios'] = None
+            st.session_state['PeR']['q4a - a ocorrência de ofuscamento gerado pela iluminação natural no período da tarde'] = None
+            st.session_state['PeR']['q4a - nível de controle sobre iluminação artificial'] = None
+            st.session_state['PeR']['q4a - nível de satisfação com privacidade visual'] = None
+            st.session_state['PeR']['q4a - nível de satisfação com ambiente luminoso'] = None
+            st.session_state['PeR']['q4a - nível de controle sobre iluminação natural'] = None
+            st.session_state['PeR']['q4a - sinto desconforto com o ambiente muito claro (muito iluminado)'] = None
+            st.session_state['PeR']['q4a - sinto desconforto com o ambiente muito escuro (pouco iluminado)'] = None
+            st.session_state['PeR']['q4a - sinto desconforto com o ofuscamento gerado por lâmpadas e luminárias'] = None
+            st.session_state['PeR']['q4a - sinto desconforto com o ofuscamento gerado pela luz do sol e do céu'] = None
+            st.session_state['PeR']['q4a - sinto desconforto com a iluminação que gera reflexos na tela do meu computador'] = None
+            st.session_state['PeR']['q4a - sinto desconforto com luzes piscando'] = None
+            st.session_state['PeR']['q4a - sinto desconforto pois não consigo diferenciar objetos (alto e/ou baixo contraste)'] = None
+            st.session_state['PeR']['q4a - sinto desconforto por não poder controlar os elementos de sombreamento (cortinas ou brises)'] = None
+            st.session_state['PeR']['q4a - sinto desconforto por não poder controlar o acionamento das lâmpadas e luminárias'] = None
+            st.session_state['PeR']['q4a - outros motivos'] = None
             switch_page('q5')

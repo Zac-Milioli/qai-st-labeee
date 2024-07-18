@@ -66,31 +66,23 @@ if next_page_button('Próximo'):
         if not luzes_checkbox:
             ok = False
     if ok:
-        if arcondicionado_checkbox:
-            PeR['cp - controle de ar-condicionado e aquecedores'] = 'Não possui'
-        else:
-            PeR['cp - controle de ar-condicionado e aquecedores'] = arcondicionado
+        st.session_state['PeR']['cp - controle de ar-condicionado e aquecedores'] = 'Não possui'
+        st.session_state['PeR']['cp - controle de ventiladores'] = 'Não possui'
+        st.session_state['PeR']['cp - controle de janelas'] = 'Não possui'
+        st.session_state['PeR']['cp - controle de cortinas'] = 'Não possui'
+        st.session_state['PeR']['cp - controle de luzes'] = 'Não possui'
 
-        if ventiladores_checkbox:
-            PeR['cp - controle de ventiladores'] = 'Não possui'
-        else:
-            PeR['cp - controle de ventiladores'] = ventiladores
-
-        if janelas_checkbox:
-            PeR['cp - controle de janelas'] = 'Não possui'
-        else:
-            PeR['cp - controle de janelas'] = janelas
-
-        if cortinas_checkbox:
-            PeR['cp - controle de cortinas'] = 'Não possui'
-        else:
-            PeR['cp - controle de cortinas'] = cortinas
-
-        if luzes_checkbox:
-            PeR['cp - controle de luzes'] = 'Não possui'
-        else:
-            PeR['cp - controle de luzes'] = luzes
-
+        if not arcondicionado_checkbox:
+            st.session_state['PeR']['cp - controle de ar-condicionado e aquecedores'] = arcondicionado
+        if not ventiladores_checkbox:
+            st.session_state['PeR']['cp - controle de ventiladores'] = ventiladores
+        if not janelas_checkbox:
+            st.session_state['PeR']['cp - controle de janelas'] = janelas
+        if not cortinas_checkbox:
+            st.session_state['PeR']['cp - controle de cortinas'] = cortinas
+        if not luzes_checkbox:
+            st.session_state['PeR']['cp - controle de luzes'] = luzes
+            
         switch_page('sp')
     else:
         st.error('Responda **todas** as perguntas')

@@ -77,22 +77,18 @@ if next_page_button('Próximo'):
         if not iluminacao_checkbox:
             ok = False
     if ok:
-        if clima_checkbox:
-            PeR['sp - velocidade de resposta à solicitação de aquecimento e/ou resfriamento'] = 'Não possui'
-        else:
-            PeR['sp - velocidade de resposta à solicitação de aquecimento e/ou resfriamento'] = clima
- 
-        if ventilacao_checkbox:
-            PeR['sp - velocidade de resposta à solicitação de controle de ventilação'] = 'Não possui'
-        else:
-            PeR['sp - velocidade de resposta à solicitação de controle de ventilação'] = ventilacao
+        st.session_state['PeR']['sp - velocidade de resposta à solicitação de aquecimento e/ou resfriamento'] = 'Não possui'
+        st.session_state['PeR']['sp - velocidade de resposta à solicitação de controle de ventilação'] = 'Não possui'
+        st.session_state['PeR']['sp - velocidade de resposta à solicitação de alteração de iluminação'] = 'Não possui'
 
-        if iluminacao_checkbox:
-            PeR['sp - velocidade de resposta à solicitação de alteração de iluminação'] = 'Não possui'
-        else:
-            PeR['sp - velocidade de resposta à solicitação de alteração de iluminação'] = iluminacao
-        
-        PeR['sp - comentários'] = entrada_solicitacao
+        if not clima_checkbox:
+            st.session_state['PeR']['sp - velocidade de resposta à solicitação de aquecimento e/ou resfriamento'] = clima
+        if not ventilacao_checkbox:
+            st.session_state['PeR']['sp - velocidade de resposta à solicitação de controle de ventilação'] = ventilacao
+        if not iluminacao_checkbox:
+            st.session_state['PeR']['sp - velocidade de resposta à solicitação de alteração de iluminação'] = iluminacao
+
+        st.session_state['PeR']['sp - comentários'] = entrada_solicitacao
         switch_page('q6')
     else:
         st.error('Responda **todas** as perguntas para prosseguir')

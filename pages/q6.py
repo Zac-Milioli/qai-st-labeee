@@ -27,9 +27,9 @@ if next_page_button('Submeter', aviso='Suas respostas serão gravadas quando voc
     if None in options:
         ok = False
     if ok:
-        PeR['q6 - faixa etária'] = faixa_etaria_radio 
-        PeR['q6 - escolaridade'] = escolaridade_radio
-        PeR['q6 - gênero'] = genero_radio
+        st.session_state['PeR']['q6 - faixa etária'] = faixa_etaria_radio 
+        st.session_state['PeR']['q6 - escolaridade'] = escolaridade_radio
+        st.session_state['PeR']['q6 - gênero'] = genero_radio
         switch_page('fim')
     else:
         st.error('Responda **todas** as perguntas para submeter')

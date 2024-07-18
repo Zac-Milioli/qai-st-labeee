@@ -22,9 +22,9 @@ if next_page_button('Próximo'):
     if len(verdadeiros) != 1:
         st.error('Selecione **apenas uma** opção para continuar')
     else:
-        PeR['q1b'] = verdadeiros[0]
+        st.session_state['PeR']['q1b'] = verdadeiros[0]
         if 'Sim' in verdadeiros[0]:
-            open(r'base\janela.txt', 'w').write('1')
+            st.session_state['janela'] = 1
         else:
-            open(r'base\janela.txt', 'w').write('0')
+            st.session_state['janela'] = 0
         switch_page('q1c')

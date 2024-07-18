@@ -58,8 +58,16 @@ if next_page_button(name='Próximo'):
     if len(verdadeiros) != 1:
         st.error('Selecione **apenas uma** opção para prosseguir')
     else:
-        PeR['q1a'] = verdadeiros[0]
+        st.session_state['PeR']['q1a'] = verdadeiros[0]
         if verdadeiros[0] == 'sem localização fixa':
             switch_page('c0')
         else:
+            st.session_state['PeR']['c0 - conforto térmico'] = None
+            st.session_state['PeR']['c0 - qualidade do ar'] = None
+            st.session_state['PeR']['c0 - conforto visual'] = None
+            st.session_state['PeR']['c0 - conforto acústico'] = None
+            st.session_state['PeR']['c0 - privacidade visual'] = None
+            st.session_state['PeR']['c0 - privacidade acústica'] = None
+            st.session_state['PeR']['c0 - conforto térmico'] = None
+            st.session_state['PeR']['c0 - proximidade de colegas'] = None
             switch_page('q1b')    

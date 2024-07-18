@@ -51,13 +51,13 @@ with st.form('hierarquia de importância'):
         if None in questoes:
             st.error('Responda **todas** as questões para prosseguir')
         else:
-            PeR['hi - conforto térmico'] = fat1 
-            PeR['hi - qualidade do ar'] = fat2
-            PeR['hi - conforto visual'] = fat3
-            PeR['hi - conforto acústico'] = fat4
-            PeR['hi - ambientes específicos para atividades diferenciadas'] = fat5
-            PeR['hi - proximidade e/ou acesso a vistas externas'] = fat6
-            PeR['hi - privacidade visual'] = fat7
-            PeR['hi - privacidade acústica'] = fat8
-            PeR['hi - estar próximo à colegas e equipe de trabalho mesmo que não esteja totalmente confortável'] = fat9
+            st.session_state['PeR']['hi - conforto térmico'] = fat1 
+            st.session_state['PeR']['hi - qualidade do ar'] = fat2
+            st.session_state['PeR']['hi - conforto visual'] = fat3
+            st.session_state['PeR']['hi - conforto acústico'] = fat4
+            st.session_state['PeR']['hi - ambientes específicos para atividades diferenciadas'] = fat5
+            st.session_state['PeR']['hi - proximidade e/ou acesso a vistas externas'] = fat6
+            st.session_state['PeR']['hi - privacidade visual'] = fat7
+            st.session_state['PeR']['hi - privacidade acústica'] = fat8
+            st.session_state['PeR']['hi - estar próximo à colegas e equipe de trabalho mesmo que não esteja totalmente confortável'] = fat9
             switch_page('cg')
