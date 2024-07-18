@@ -1,6 +1,6 @@
 from configurate import *
 
-create_top(big_text_title='QAI em Escritórios', subtitle='Design e organização: Luiza de Castro', subtitle2='Desenvolvimento: Zac Milioli')
+create_top(big_text_title='QAI em Escritórios')
 
 st.info('Para garantir a autenticidade da pesquisa, será enviado um código de verificação para seu email. **Suas respostas são anônimas e confidenciais.**', icon='ℹ️')
 st.title('')
