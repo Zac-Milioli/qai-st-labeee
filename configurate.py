@@ -109,8 +109,8 @@ def check_for_injection(items: list):
 
 def get_build_info_by_id(id_: int):
     conn = st.connection("gsheets", type=GSheetsConnection, ttl=0)
-    sql = f'SELECT * FROM build WHERE "id" = {id_}'
-    response = conn.query(sql)
+    sql = f'SELECT * FROM "build" WHERE "id" = {id_}'
+    response = conn.query(sql, )
     if response.empty:
         return None, "ERROR"
     return response, "OK"
