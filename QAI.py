@@ -24,7 +24,8 @@ if col2.button(label="Validar código e iniciar questionário", use_container_wi
     if not st.session_state.get('auth_code'):
         st.error('ERRO: O código de validação não foi gerado', icon="⚠️")
     elif st.session_state['auth_code'] == codigo:
-        returned, status = get_build_info_by_id(id_=int(edificio))
+        with st.spinner("Verificando código e ID de local de trabalho..."):
+            returned, status = get_build_info_by_id(id_=int(edificio))
         if status == "OK":
             st.session_state['edificio'] = edificio
             st.session_state['hierarquia'] = 0
