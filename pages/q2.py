@@ -89,3 +89,5 @@ if next_page_button('Próximo'):
             st.session_state['PeR']['q2a - sinto desconforto por frio ou calor em alguma parte específica do corpo (mãos, pés, pescoço, cabeça, etc) em meses frios'] = None
             st.session_state['PeR']['q2a - outros motivos de desconforto em meses frios'] = None
             switch_page('q3')
+
+footer()

@@ -35,3 +35,5 @@ if next_page_button(name='Próximo'):
         st.session_state['PeR']['c0 - conforto térmico'] = estarproximodecolegas
         st.session_state['PeR']['c0 - proximidade de colegas'] = aspectos
         switch_page('q1b')
+
+footer()

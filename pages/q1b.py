@@ -28,3 +28,5 @@ if next_page_button('Próximo'):
         else:
             st.session_state['janela'] = 0
         switch_page('q1c')
+
+footer()

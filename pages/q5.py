@@ -71,3 +71,5 @@ if next_page_button('Próximo'):
                 st.session_state['PeR']['hi - privacidade acústica'] = None
                 st.session_state['PeR']['hi - estar próximo à colegas e equipe de trabalho mesmo que não esteja totalmente confortável'] = None
                 switch_page('cg')
+
+footer()

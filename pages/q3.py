@@ -56,3 +56,5 @@ if next_page_button('Próximo'):
             st.session_state['PeR']['q3a - insatifação por haver produtos que causam irritação ou alergias'] = None
             st.session_state['PeR']['q3a - outros motivos'] = None
             switch_page('q4')
+
+footer()

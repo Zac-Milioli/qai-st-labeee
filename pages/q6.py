@@ -33,3 +33,5 @@ if next_page_button('Submeter', aviso='Suas respostas serão gravadas quando voc
         switch_page('fim')
     else:
         st.error('Responda **todas** as perguntas para submeter')
+
+footer()

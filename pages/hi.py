@@ -61,3 +61,5 @@ with st.form('hierarquia de importância'):
             st.session_state['PeR']['hi - privacidade acústica'] = fat8
             st.session_state['PeR']['hi - estar próximo à colegas e equipe de trabalho mesmo que não esteja totalmente confortável'] = fat9
             switch_page('cg')
+
+footer()

@@ -300,3 +300,5 @@ if next_page_button('Próximo'):
         switch_page('q5')
     else:
         st.error(message)
+
+footer()

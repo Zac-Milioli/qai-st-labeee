@@ -47,7 +47,7 @@ injection = ['insert', 'drop', 'create', 'select', '*', 'update', 'delete', 'alt
 
 def create_top(big_text_title: str = None, subtitle: str = None, subtitle2: str = None, subsubtitle: str = None, img_url: str = None, use_line: bool = True, use_progress: bool = False, progress_percentage:int = 0):
     st.set_page_config(
-    page_title='QAI em Escritórios',
+    page_title='InsightIE',
     page_icon = '🖥️',
     layout='wide',
     initial_sidebar_state='collapsed'
@@ -115,7 +115,9 @@ def get_build_info_by_id(id_: int):
 
 
 def register_answer():
-    worksheet_user.append_row([st.session_state['edificio']] + [st.session_state['email']] + list(st.session_state['PeR'].values()))
+    with open('answers.txt') as myfile:
+        myfile.write([st.session_state['edificio']] + [st.session_state['email']] + list(st.session_state['PeR'].values()))
+    # worksheet_user.append_row([st.session_state['edificio']] + [st.session_state['email']] + list(st.session_state['PeR'].values()))
 
 
 def place_left_subtitle(text: str):
@@ -225,17 +227,17 @@ def nested_radio(name: str = None, text_left:str = None, text_right:str = None, 
     return valor
 
 
-def mail_me(mail_person:str, perguntas_e_respostas:dict):
-    corpo_email = f'{perguntas_e_respostas}'
-    msg = email.message.Message()
-    msg['Subject'] = f'RESPOSTAS-{mail_person}'
-    msg['From'] = 'escritorios.qai.bot@gmail.com'
-    msg['To'] = 'escritorios.qai.bot@gmail.com'
-    msg.set_payload(corpo_email)
-    s = smtplib.SMTP('smtp.gmail.com: 587')
-    s.starttls()
-    s.login(msg['From'], password)
-    s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
+# def mail_me(mail_person:str, perguntas_e_respostas:dict):
+#     corpo_email = f'{perguntas_e_respostas}'
+#     msg = email.message.Message()
+#     msg['Subject'] = f'RESPOSTAS-{mail_person}'
+#     msg['From'] = 'escritorios.qai.bot@gmail.com'
+#     msg['To'] = 'escritorios.qai.bot@gmail.com'
+#     msg.set_payload(corpo_email)
+#     s = smtplib.SMTP('smtp.gmail.com: 587')
+#     s.starttls()
+#     s.login(msg['From'], password)
+#     s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
 
 
 def mail_auth_code(mail_person:str):
@@ -248,7 +250,7 @@ def mail_auth_code(mail_person:str):
     <p>Esta é uma mensagem automática, não é necessário respondê-la.</p><br><br>
     <a href="https://labeee.ufsc.br/pt-br/en-welcome"><img src="https://labeee.ufsc.br/sites/default/files/labeee_final_completo_maior.png" width="400" /></a>"""
     msg = email.message.Message()
-    msg['Subject'] = f'CÓDIGO DE VERIFICAÇÃO - QAI em escritórios, LabEEE'
+    msg['Subject'] = f'CÓDIGO DE VERIFICAÇÃO - InsightIE, LabEEE'
     msg['From'] = 'escritorios.qai.bot@gmail.com'
     msg['To'] = mail_person
     msg.add_header('Content-Type', 'text/html')
@@ -268,7 +270,7 @@ def send_thanks_email(mail_person:str):
     <p>Esta é uma mensagem automática, não é necessário respondê-la.</p><br><br>
     <a href="https://labeee.ufsc.br/pt-br/en-welcome"><img src="https://labeee.ufsc.br/sites/default/files/labeee_final_completo_maior.png" width="400" /></a>"""
     msg = email.message.Message()
-    msg['Subject'] = f'CONFIRMAÇÃO DE PARTICIPAÇÃO - QAI em escritórios, LabEEE'
+    msg['Subject'] = f'CONFIRMAÇÃO DE PARTICIPAÇÃO - InsightIE, LabEEE'
     msg['From'] = 'escritorios.qai.bot@gmail.com'
     msg['To'] = mail_person
     msg.add_header('Content-Type', 'text/html')

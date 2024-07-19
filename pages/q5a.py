@@ -222,3 +222,5 @@ if next_page_button('Próximo'):
             switch_page('cg') 
     else:
         st.error(message)
+
+footer()

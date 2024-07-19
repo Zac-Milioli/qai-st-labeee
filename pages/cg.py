@@ -22,3 +22,5 @@ if next_page_button('Próximo'):
         st.session_state['PeR']['cg - nível de satisfação com o conforto geral da estação de trabalho'] = confortogeral
         st.session_state['PeR']['cg - comentários'] = entrada_confortogeral
         switch_page('cp')
+
+footer()

@@ -513,3 +513,5 @@ if next_page_button('Próximo'):
         switch_page('q3')
     else:
         st.error(message) 
+
+footer()

@@ -86,3 +86,5 @@ if next_page_button('Próximo'):
         switch_page('sp')
     else:
         st.error('Responda **todas** as perguntas')
+
+footer()

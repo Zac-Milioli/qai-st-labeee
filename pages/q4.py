@@ -72,3 +72,5 @@ if next_page_button('Próximo'):
             st.session_state['PeR']['q4a - sinto desconforto por não poder controlar o acionamento das lâmpadas e luminárias'] = None
             st.session_state['PeR']['q4a - outros motivos'] = None
             switch_page('q5')
+
+footer()

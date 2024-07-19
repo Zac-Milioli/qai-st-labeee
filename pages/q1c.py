@@ -44,3 +44,5 @@ if next_page_button('Próximo'):
         st.session_state['PeR']['q1c - salas comerciais ou de reunião'] = conferencia
         st.session_state['PeR']['q1c - atividades externas ou fica fora do escritório'] = fora
         switch_page('q2')
+
+footer()

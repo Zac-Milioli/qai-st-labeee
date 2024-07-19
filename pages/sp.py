@@ -92,3 +92,5 @@ if next_page_button('Próximo'):
         switch_page('q6')
     else:
         st.error('Responda **todas** as perguntas para prosseguir')
+
+footer()

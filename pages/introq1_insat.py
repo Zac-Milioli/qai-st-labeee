@@ -5,3 +5,5 @@ create_top(big_text_title=f'{st.session_state["PeR"]["q0"]}? Essa nota foi baixa
 st.title('')
 if next_page_button(name='Combinado', phrase='Você pode nos ajudar a descobrir qual é o problema respondendo as questões a seguir'):
     switch_page('q1a')
+
+footer()

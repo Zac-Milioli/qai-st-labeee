@@ -40,3 +40,5 @@ if next_page_button('Próxima página'):
             switch_page('introq1_insat')
         else:
             switch_page('introq1_sat')
+
+footer()

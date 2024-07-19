@@ -5,3 +5,5 @@ create_top(big_text_title=f'{st.session_state["PeR"]["q0"]} é uma ótima avalia
 st.title('')
 if next_page_button(name='Combinado', phrase='Vamos apenas fazer algumas perguntas para ter certeza que está tudo bem, ok?'):
     switch_page('q1a')
+
+footer()
