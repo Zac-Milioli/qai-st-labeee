@@ -15,7 +15,6 @@ from datetime import datetime
 
 
 project = "VOSS"
-st.session_state['PeR'] = {}
 placeholder_img = r'static/placeholder.png'
 st.session_state['auth'] = False
 # ESTA VARIÁVEL É SENSÍVEL E NA APLICAÇÃO REAL DEVE SER ADICIONADA AO ENV DO STREAMLIT E ACESSADA ATRAVÉS DE st.secrets["CREDENTIALS"]
@@ -117,9 +116,7 @@ def get_build_info_by_id(id_: int):
 
 
 def register_answer():
-    with open('answers.txt') as myfile:
-        myfile.write([st.session_state['edificio']] + [st.session_state['email']] + list(st.session_state['PeR'].values()))
-    # worksheet_user.append_row([st.session_state['edificio']] + [st.session_state['email']] + list(st.session_state['PeR'].values()))
+    worksheet_user.append_row([st.session_state['edificio']] + [st.session_state['email']] + list(st.session_state['PeR'].values()))
 
 
 def place_left_subtitle(text: str):
