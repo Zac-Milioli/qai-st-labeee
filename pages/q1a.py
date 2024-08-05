@@ -68,8 +68,8 @@ if next_page_button(name='Próximo'):
             st.session_state['PeR']['c0 - conforto acústico'] = None
             st.session_state['PeR']['c0 - privacidade visual'] = None
             st.session_state['PeR']['c0 - privacidade acústica'] = None
-            st.session_state['PeR']['c0 - conforto térmico'] = None
             st.session_state['PeR']['c0 - proximidade de colegas'] = None
+            st.session_state['PeR']['c0 - aspectos'] = None
             switch_page('q1b')    
 
 footer()

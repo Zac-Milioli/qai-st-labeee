@@ -181,21 +181,21 @@ if next_page_button('Próximo'):
         st.session_state['PeR']['q5a - outros equipamentos'] = ruidos_edificio_2
         st.session_state['PeR']['q5a - telefones tocando'] = ruidos_edificio_3
         st.session_state['PeR']['q5a - barulho externo, vindo da rua'] = ruido_externo
-        st.session_state['PeR']['q5a - qual seu nível de satisfação com a acústica da sua estação de trabalho'] = satisfacao_ruidos
+        st.session_state['PeR']['q5a - qual seu nível de satisfação com a privacidade acústica da sua estação de trabalho'] = satisfacao_ruidos
         
         # não obrigatórios
-        st.session_state['PeR']['q2a - controle de janela'] = None
+        st.session_state['PeR']['q5a - controle de janela'] = None
         st.session_state['PeR']['q5a - as conversas dos colegas me incomodam'] = None
         st.session_state['PeR']['q5a - o barulho do ar-condicionado me incomoda'] = None
         st.session_state['PeR']['q5a - o barulho de outros equipamentos me incomoda'] = None
         st.session_state['PeR']['q5a - o barulho de telefones tocando me incomoda'] = None
         st.session_state['PeR']['q5a - o barulho externo, vindo da rua, me incomoda'] = None
         st.session_state['PeR']['q5a - não há um local adequado para ter uma conversa privada com colegas'] = None
-        st.session_state['PeR']['q5a - não hpa um local adequado para fazer um telefonema ou chamada de vídeo'] = None
+        st.session_state['PeR']['q5a - não há um local adequado para fazer um telefonema ou chamada de vídeo'] = None
         st.session_state['PeR']['q5a - outros motivos'] = None
         
         if existe_janela:
-            st.session_state['PeR']['q2a - controle de janela'] = verdadeiros_controlejanela[0]
+            st.session_state['PeR']['q5a - controle de janela'] = verdadeiros_controlejanela[0]
         if insatisfacao_ruidos:
             st.session_state['PeR']['q5a - as conversas dos colegas me incomodam'] = ruidos_checkbox1
             st.session_state['PeR']['q5a - o barulho do ar-condicionado me incomoda'] = ruidos_checkbox2
@@ -203,7 +203,7 @@ if next_page_button('Próximo'):
             st.session_state['PeR']['q5a - o barulho de telefones tocando me incomoda'] = ruidos_checkbox4
             st.session_state['PeR']['q5a - o barulho externo, vindo da rua, me incomoda'] = ruidos_checkbox5
             st.session_state['PeR']['q5a - não há um local adequado para ter uma conversa privada com colegas'] = ruidos_checkbox6
-            st.session_state['PeR']['q5a - não hpa um local adequado para fazer um telefonema ou chamada de vídeo'] = ruidos_checkbox7
+            st.session_state['PeR']['q5a - não há um local adequado para fazer um telefonema ou chamada de vídeo'] = ruidos_checkbox7
             if outros:
                 st.session_state['PeR']['q5a - outros motivos'] = entrada
         st.session_state['hierarquia'] += 1

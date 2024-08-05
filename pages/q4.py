@@ -60,6 +60,7 @@ if next_page_button('Próximo'):
             st.session_state['PeR']['q4a - nível de controle sobre iluminação artificial'] = None
             st.session_state['PeR']['q4a - nível de satisfação com privacidade visual'] = None
             st.session_state['PeR']['q4a - nível de satisfação com ambiente luminoso'] = None
+            
             st.session_state['PeR']['q4a - nível de controle sobre iluminação natural'] = None
             st.session_state['PeR']['q4a - sinto desconforto com o ambiente muito claro (muito iluminado)'] = None
             st.session_state['PeR']['q4a - sinto desconforto com o ambiente muito escuro (pouco iluminado)'] = None

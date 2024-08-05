@@ -49,14 +49,14 @@ if next_page_button('Próximo'):
             st.session_state['PeR']['q5a - telefones tocando'] = None
             st.session_state['PeR']['q5a - barulho externo, vindo da rua'] = None
             st.session_state['PeR']['q5a - qual seu nível de satisfação com a acústica da sua estação de trabalho'] = None
-            st.session_state['PeR']['q2a - controle de janela'] = None
+            st.session_state['PeR']['q5a - controle de janela'] = None
             st.session_state['PeR']['q5a - as conversas dos colegas me incomodam'] = None
             st.session_state['PeR']['q5a - o barulho do ar-condicionado me incomoda'] = None
             st.session_state['PeR']['q5a - o barulho de outros equipamentos me incomoda'] = None
             st.session_state['PeR']['q5a - o barulho de telefones tocando me incomoda'] = None
             st.session_state['PeR']['q5a - o barulho externo, vindo da rua, me incomoda'] = None
             st.session_state['PeR']['q5a - não há um local adequado para ter uma conversa privada com colegas'] = None
-            st.session_state['PeR']['q5a - não hpa um local adequado para fazer um telefonema ou chamada de vídeo'] = None
+            st.session_state['PeR']['q5a - não há um local adequado para fazer um telefonema ou chamada de vídeo'] = None
             st.session_state['PeR']['q5a - outros motivos'] = None
             if st.session_state.get('hierarquia') >= 2:
                 switch_page('hi')
