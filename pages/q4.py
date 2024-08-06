@@ -50,12 +50,12 @@ if next_page_button('Próximo'):
             st.session_state['PeR']['q4a - a disponibilidade de iluminação artificial (lâmpadas e luminárias)?'] = None
             st.session_state['PeR']['q4a - a ocorrência de ofuscamento gerado pela iluminação artificial?'] = None
             st.session_state['PeR']['q4a - a disponibilidade de iluminação natural (luz do sol e o céu) durante o verão e/ou meses quentes'] = None
-            st.session_state['PeR']['q4a - a disponibilidade de iluminação natural (luz do sol e o céu) no período da manhã'] = None
             st.session_state['PeR']['q4a - a disponibilidade de iluminação natural (luz do sol e o céu) durante o inverno e/ou meses frios'] = None
+            st.session_state['PeR']['q4a - a disponibilidade de iluminação natural (luz do sol e o céu) no período da manhã'] = None
             st.session_state['PeR']['q4a - a disponibilidade de iluminação natural (luz do sol e o céu) no período da tarde'] = None
             st.session_state['PeR']['q4a - a ocorrência de ofuscamento gerado pela iluminação natural durante o verão e/ou meses quentes'] = None
-            st.session_state['PeR']['q4a - a ocorrência de ofuscamento gerado pela iluminação natural no período da manhã'] = None
             st.session_state['PeR']['q4a - a ocorrência de ofuscamento gerado pela iluminação natural durante o inverno e/ou meses frios'] = None
+            st.session_state['PeR']['q4a - a ocorrência de ofuscamento gerado pela iluminação natural no período da manhã'] = None
             st.session_state['PeR']['q4a - a ocorrência de ofuscamento gerado pela iluminação natural no período da tarde'] = None
             st.session_state['PeR']['q4a - nível de controle sobre iluminação artificial'] = None
             st.session_state['PeR']['q4a - nível de satisfação com privacidade visual'] = None

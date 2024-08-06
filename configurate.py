@@ -235,7 +235,7 @@ def mail_auth_code(mail_person:str):
     <hr>
     <p>Esta é uma mensagem automática, não é necessário respondê-la.</p><br><br>
     <a href="https://labeee.ufsc.br/pt-br/en-welcome"><img src="https://labeee.ufsc.br/sites/default/files/labeee_final_completo_maior.png" width="400" /></a>"""
-    msg = email.message.Message()
+    msg = email.message.Message() 
     msg['Subject'] = f'CÓDIGO DE VERIFICAÇÃO - {project}, LabEEE'
     msg['From'] = 'escritorios.qai.bot@gmail.com'
     msg['To'] = mail_person
@@ -250,7 +250,7 @@ def mail_auth_code(mail_person:str):
 
 def send_thanks_email(mail_person:str):
     corpo_email = f"""
-    <h2>A equipe LabEEE agradece pela participação na pesquisa!</h2>
+    <h2>A equipe {project} agradece pela participação na pesquisa!</h2>
     <br>
     <hr>
     <p>Esta é uma mensagem automática, não é necessário respondê-la.</p><br><br>

@@ -209,6 +209,17 @@ if next_page_button('Próximo'):
         st.session_state['hierarquia'] += 1
         if st.session_state.get('hierarquia') >= 2:
             switch_page('hi')
+        elif st.session_state.get('hierarquia') == 1:
+            st.session_state['PeR']['hi - conforto térmico'] = None
+            st.session_state['PeR']['hi - qualidade do ar'] = None
+            st.session_state['PeR']['hi - conforto visual'] = None
+            st.session_state['PeR']['hi - conforto acústico'] = None
+            st.session_state['PeR']['hi - ambientes específicos para atividades diferenciadas'] = None
+            st.session_state['PeR']['hi - proximidade e/ou acesso a vistas externas'] = None
+            st.session_state['PeR']['hi - privacidade visual'] = None
+            st.session_state['PeR']['hi - privacidade acústica'] = None
+            st.session_state['PeR']['hi - estar próximo à colegas e equipe de trabalho mesmo que não esteja totalmente confortável'] = None
+            switch_page('cg')
         else:
             st.session_state['PeR']['hi - conforto térmico'] = None
             st.session_state['PeR']['hi - qualidade do ar'] = None
@@ -219,7 +230,17 @@ if next_page_button('Próximo'):
             st.session_state['PeR']['hi - privacidade visual'] = None
             st.session_state['PeR']['hi - privacidade acústica'] = None
             st.session_state['PeR']['hi - estar próximo à colegas e equipe de trabalho mesmo que não esteja totalmente confortável'] = None
-            switch_page('cg') 
+            st.session_state['PeR']['cg - nível de satisfação com o conforto geral da estação de trabalho'] = None
+            st.session_state['PeR']['cg - comentários'] = None
+            st.session_state['PeR']['cp - controle de ar-condicionado e aquecedores'] = None
+            st.session_state['PeR']['cp - controle de ventiladores'] = None
+            st.session_state['PeR']['cp - controle de janelas'] = None
+            st.session_state['PeR']['cp - controle de cortinas'] = None
+            st.session_state['PeR']['cp - controle de luzes'] = None
+            st.session_state['PeR']['sp - velocidade de resposta à solicitação de aquecimento e/ou resfriamento'] = None
+            st.session_state['PeR']['sp - velocidade de resposta à solicitação de controle de ventilação'] = None
+            st.session_state['PeR']['sp - velocidade de resposta à solicitação de alteração de iluminação'] = None
+            switch_page('q6') 
     else:
         st.error(message)
 
