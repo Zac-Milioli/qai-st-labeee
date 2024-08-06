@@ -19,7 +19,7 @@ project = "VOSS"
 placeholder_img = r'static/placeholder.png'
 st.session_state['auth'] = False
 
-credentials = st.secrets['CREDENTIALS']
+credentials = json.loads(st.secrets['CREDENTIALS'])
 
 with open("credentials.json", "w") as file:
     json.dump(credentials, file, indent=2)
