@@ -30,7 +30,11 @@ if next_page_button('Submeter', aviso='Suas respostas serão gravadas quando voc
         st.session_state['PeR']['q6 - faixa etária'] = faixa_etaria_radio 
         st.session_state['PeR']['q6 - escolaridade'] = escolaridade_radio
         st.session_state['PeR']['q6 - gênero'] = genero_radio
-        st.session_state['tempo'] = (datetime.now() - st.session_state['init_time']).total_seconds()
+        time_now = datetime.now()
+        st.session_state['PeR']['ano'] = time_now.year
+        st.session_state['PeR']['mes'] = time_now.month
+        st.session_state['PeR']['dia'] = time_now.day
+        st.session_state['tempo'] = (time_now - st.session_state['init_time']).total_seconds()
         switch_page('fim')
     else:
         st.error('Responda **todas** as perguntas para submeter')
