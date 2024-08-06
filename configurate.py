@@ -116,7 +116,7 @@ def get_build_info_by_id(id_: int):
 
 
 def register_answer():
-    worksheet_user.append_row([st.session_state['edificio']] + [st.session_state['email']] + list(st.session_state['PeR'].values()))
+    worksheet_user.append_row([st.session_state['edificio']] + [st.session_state['email']] + [st.session_state['tempo']] + list(st.session_state['PeR'].values()))
 
 
 def place_left_subtitle(text: str):

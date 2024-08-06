@@ -30,6 +30,7 @@ if col2.button(label="Validar código e iniciar questionário", use_container_wi
             st.session_state['edificio'] = edificio
             st.session_state['hierarquia'] = 0
             st.session_state['janela'] = 0
+            st.session_state['init_time'] = datetime.now()
             switch_page('q0')
         else:
             st.error("O ID do local de trabalho inserido não foi encontrado na base de dados", icon='⚠️')
