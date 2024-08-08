@@ -93,18 +93,10 @@ def footer():
     col2.caption(f"Dúvidas e suporte: {support_mail}")
 
 
-def check_for_injection(item: list):
-    if item in injection:
-        return "INJECTION"
-    return "OK"
-
-
 def get_build_info_by_id(id_: int):
-    if check_for_injection(id_) == "INJECTION":
-        return None, "ERROR"
     conn = st.connection("gsheets", type=GSheetsConnection, ttl=0)
     sql = f'SELECT * FROM build WHERE "id" = {id_}'
-    response = conn.query(sql, spreadsheet='build')
+    response = conn.query(sql)
     if response.empty:
         return None, "ERROR"
     return response, "OK"
