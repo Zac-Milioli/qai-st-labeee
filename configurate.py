@@ -12,6 +12,7 @@ from google.oauth2.service_account import Credentials
 from time import sleep
 from datetime import datetime
 
+# ---------------VARIÁVEIS---------------
 
 project = "VOSS"
 placeholder_img = r'static/placeholder.png'
@@ -35,6 +36,8 @@ password = st.secrets['PASSWORD']
 authorization_list = st.secrets["AUTH_LIST"]
 
 injection = st.secrets['INJECTION']
+
+# ---------------------------------------
 
 
 def create_top(big_text_title: str = None, subtitle: str = None, subtitle2: str = None, subsubtitle: str = None, img_url: str = None, use_line: bool = True, use_progress: bool = False, progress_percentage:int = 0):
