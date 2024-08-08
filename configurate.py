@@ -104,7 +104,7 @@ def get_build_info_by_id(id_: int):
         return None, "ERROR"
     conn = st.connection("gsheets", type=GSheetsConnection, ttl=0)
     sql = f'SELECT * FROM build WHERE "id" = {id_}'
-    response = conn.query(sql)
+    response = conn.query(sql, spreadsheet='build')
     if response.empty:
         return None, "ERROR"
     return response, "OK"
