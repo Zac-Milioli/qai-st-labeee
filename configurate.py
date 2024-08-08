@@ -11,8 +11,6 @@ import gspread
 from google.oauth2.service_account import Credentials
 from time import sleep
 from datetime import datetime
-from os import remove
-
 
 
 project = "VOSS"
@@ -20,12 +18,8 @@ placeholder_img = r'static/placeholder.png'
 st.session_state['auth'] = False
 
 credentials = json.loads(st.secrets['CREDENTIALS'])
-
-with open("credentials.json", "w") as file:
-    json.dump(credentials, file, indent=2)
 scopes = ["https://www.googleapis.com/auth/spreadsheets"]
-creds = Credentials.from_service_account_file(r"credentials.json", scopes=scopes)
-remove(r'credentials.json')
+creds = Credentials.from_service_account_info(credentials, scopes=scopes)
 client = gspread.authorize(creds)
 
 sheet_id = st.secrets['SHEET_ID']
@@ -104,6 +98,8 @@ def check_for_injection(items: list):
 
 
 def get_build_info_by_id(id_: int):
+    if check_for_injection(id_) == "INJECTION":
+        return None, "ERROR"
     conn = st.connection("gsheets", type=GSheetsConnection, ttl=0)
     sql = f'SELECT * FROM build WHERE "id" = {id_}'
     response = conn.query(sql)
