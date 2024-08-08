@@ -93,10 +93,9 @@ def footer():
     col2.caption(f"Dúvidas e suporte: {support_mail}")
 
 
-def check_for_injection(items: list):
-    for item in items:
-        if item in injection:
-            return "INJECTION"
+def check_for_injection(item: list):
+    if item in injection:
+        return "INJECTION"
     return "OK"
 
 
